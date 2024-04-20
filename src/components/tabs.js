@@ -1,7 +1,6 @@
 import React from 'react'
 
 const tabs = (props) => {
-    console.log(props);
     return (
         <>
             <div className="tabs">

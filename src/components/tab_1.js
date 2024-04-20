@@ -1,13 +1,32 @@
 import React from 'react';
 import cow from '../img/cow.png';
 import goat from '../img/goat.png';
+import sheep from '../img/sheep.png';
 
 const tab_1 = (props) => {
+
+    function incrementQuantity() {
+        const quantityInput = document.querySelector('.quantity-input');
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+    }
+
+    function decrementQuantity() {
+        const quantityInput = document.querySelector('.quantity-input');
+        if (parseInt(quantityInput.value) > 1) {
+            quantityInput.value = parseInt(quantityInput.value) - 1;
+        }
+    }
+    function delivery_type() {
+        let delivery_type = document.querySelector(".delivery-type");
+        delivery_type.classList.add("show");
+    }
+
+
     return (
         <>
             <div className="tab-1 delivery_info">
                 <form method="post">
-                    <div className="container fields">
+                    {/* <div className="container fields">
                         <div className="row">
 
                             <div className="col-4">
@@ -28,19 +47,23 @@ const tab_1 = (props) => {
                                 <input type="date" name="delivery_date" id="delivery_date" />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="container options">
                         <div className="row">
                             <div className="col-7">
                                 <div className="step-1">
                                     <p className="step"><span>Step 1</span> Animal Type</p>
                                     <ul>
-                                        <li><input className="check-animal" type="radio" name="animal-type" value="goat-sheep" id="cb1" />
+                                        <li><input className="check-animal" type="radio" name="animal-type" value="goat" id="cb1" />
                                             <label className="check-label" htmlFor="cb1"><img src={goat} alt="Goat Icon" /></label>
-                                            <p>Goat / Sheep</p>
+                                            <p>Goat</p>
                                         </li>
-                                        <li><input className="check-animal" type="radio" name="animal-type" value="Cow" id="cb2" />
-                                            <label className="check-label" htmlFor="cb2"><img src={cow} alt="Sheep Icon" /></label>
+                                        <li><input className="check-animal" type="radio" name="animal-type" value="sheep" id="cb2" />
+                                            <label className="check-label" htmlFor="cb2"><img src={sheep} alt="Goat Icon" /></label>
+                                            <p>Sheep</p>
+                                        </li>
+                                        <li><input className="check-animal" type="radio" name="animal-type" value="Cow" id="cb3" />
+                                            <label className="check-label" htmlFor="cb3"><img src={cow} alt="Sheep Icon" /></label>
                                             <p>Cow</p>
                                         </li>
                                     </ul>
@@ -48,7 +71,7 @@ const tab_1 = (props) => {
                                 <div className="step-2">
                                     <p className="step"><span>Step 2</span> Zabiha Type</p>
                                     <div id='zabiha-type'>
-                                        <input type="radio" id="Sadaqah" name="Zabiha Type" value="Sadqah" />
+                                        <input onClick={()=>{delivery_type()}}  type="radio" id="Sadaqah" name="Zabiha Type" value="Sadqah" />
                                         <label htmlFor="Sadaqah">
                                             Sadqah Zabiha
                                         </label>
@@ -62,20 +85,34 @@ const tab_1 = (props) => {
                                             Eid-Ul-Adha Zabiha
                                         </label>
                                     </div>
+                                    <div className='delivery-type'>
+                                        <p>Select Distribute or Delivery</p>
+                                        <select>
+                                            <option>
+                                                Select Distribute or Delivery
+                                            </option>
+                                            <option value="distribute">
+                                                Distribute
+                                            </option>
+                                            <option value="Delivery">
+                                                Delivery
+                                            </option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div className="step-3">
                                     <p className="step"><span>Step 4</span> Quantity</p>
                                     <div className="quantity-container">
 
-                                        <div className="quantity-control decrement" onclick="decrementQuantity()">
+                                        <div className="quantity-control decrement" onClick={() => { decrementQuantity() }}>
                                             <i className="fas fa-minus"></i>
                                         </div>
 
 
-                                        <input type="number" className="quantity-input" value="1" min="1" max="10" />
+                                        <input type="number" className="quantity-input" value="1" min="1" max="10" readOnly />
 
 
-                                        <div className="quantity-control increment" onclick="incrementQuantity()">
+                                        <div className="quantity-control increment" onClick={() => { incrementQuantity() }}>
                                             <i className="fas fa-plus"></i>
                                         </div>
                                     </div>

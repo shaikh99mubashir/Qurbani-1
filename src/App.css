@@ -973,3 +973,20 @@ font-size: 40px;
     left: -38%;
     top: -10%;
 }
+
+.delivery-type{
+  margin-top: 20px;
+  height: 0px;
+  overflow: hidden;
+  transition: all 0.8s ease-in-out;
+}
+.delivery-type p{
+  margin-bottom: 5px;
+}
+.delivery-type select{
+  width: 100%;
+  padding: 8px 25px 8px 5px;
+}
+.delivery-type.show{
+  height: 100%;
+}
