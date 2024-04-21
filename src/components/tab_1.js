@@ -20,7 +20,14 @@ const tab_1 = (props) => {
         let delivery_type = document.querySelector(".delivery-type");
         delivery_type.classList.add("show");
     }
-
+    function delivery_charges(){
+        let delivery_select = document.querySelector(".delivery-type select");
+        let delivery_charges = document.querySelector(".delivery-cherges");
+            if(delivery_select.value == "Delivery"){
+                delivery_charges.style.display = "flex";
+                props.toggleShowDelivery();
+            }
+    }
 
     return (
         <>
@@ -71,23 +78,23 @@ const tab_1 = (props) => {
                                 <div className="step-2">
                                     <p className="step"><span>Step 2</span> Zabiha Type</p>
                                     <div id='zabiha-type'>
-                                        <input onClick={()=>{delivery_type()}}  type="radio" id="Sadaqah" name="Zabiha Type" value="Sadqah" />
+                                        <input onClick={() => { delivery_type() }} type="radio" id="Sadaqah" name="Zabiha Type" value="Sadqah" />
                                         <label htmlFor="Sadaqah">
                                             Sadqah Zabiha
                                         </label>
 
-                                        <input type="radio" id="Aqeeqah" name="Zabiha Type" value="Aqeeqah" />
+                                        <input onClick={() => { delivery_type() }} type="radio" id="Aqeeqah" name="Zabiha Type" value="Aqeeqah" />
                                         <label htmlFor="Aqeeqah">
                                             Aqeeqah Zabiha
                                         </label>
-                                        <input type="radio" id="Eid-Ul-Adha" name="Zabiha Type" value="Eid-Ul-Adha Zabiha" />
+                                        <input onClick={() => { delivery_type() }} type="radio" id="Eid-Ul-Adha" name="Zabiha Type" value="Eid-Ul-Adha Zabiha" />
                                         <label htmlFor="Eid-Ul-Adha">
                                             Eid-Ul-Adha Zabiha
                                         </label>
                                     </div>
                                     <div className='delivery-type'>
                                         <p>Select Distribute or Delivery</p>
-                                        <select>
+                                        <select onChange={()=>{delivery_charges()}}>
                                             <option>
                                                 Select Distribute or Delivery
                                             </option>
@@ -119,10 +126,10 @@ const tab_1 = (props) => {
                                 </div>
                             </div>
                             <div className="col-5">
-                                <div className="step-2">
-                                    <p className="step"><span>Step 3</span> Available Options (Sheep)</p>
-                                    <div className="row space-between">
-                                        <div className="col-6">
+                                <div>
+                                    {/* <p className="step"><span>Step 3</span> Available Options (Sheep)</p> */}
+                                    <div className="row space-between delivery-cherges">
+                                        {/* <div className="col-6">
                                             <input type="radio" id="radio2" name="Weight" />
                                             <label className="radio-label" htmlFor="radio2">100 KG </label>
                                         </div>
@@ -130,7 +137,10 @@ const tab_1 = (props) => {
                                             <div className="cal-price">
                                                 Rs 37,976.36
                                             </div>
-                                        </div>
+                                        </div> */}
+
+                                        <div className="col-6"><p>Delivery Charges:</p></div>
+                                        <div className="col-6"><p className='textBold'>Rs 400</p></div>
                                     </div>
                                     <div className="total-price text-center">
                                         Total : Rs 37,976.36

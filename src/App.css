@@ -990,3 +990,34 @@ font-size: 40px;
 .delivery-type.show{
   height: 100%;
 }
+.delivery-cherges{
+  display: none;
+}
+.textBold{
+  text-align: right;
+  color: #b52735;
+}
+
+.row.alive-slotter{
+  display: none;
+}
+.alive-slotter{
+  margin-top: 20px;
+  transition: all 0.8s ease-in-out;
+}
+.alive-slotter p{
+  margin-bottom: 5px;
+  width: 100%;
+  padding: 0;
+}
+.alive-slotter h3{
+  padding: 0;
+  width: 100%;
+}
+.alive-slotter select{
+  width: 100%;
+  padding: 8px 25px 8px 5px;
+}
+.row.alive-slotter.showDelivery{
+  display: block;
+}

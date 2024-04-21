@@ -9,6 +9,11 @@ import Tab_3 from '../components/tab_3';
 
 const Book = () => {
 
+  const [showDelivery, setShowDelivery] = useState(false);
+function toggleShowDelivery() {
+  setShowDelivery(true);
+}
+
     const [myBool, setmyBool] = useState(1);
     let component;
     let activate = false;
@@ -21,10 +26,10 @@ const Book = () => {
       setmyBool(3)
     }
     if(myBool == 1){
-      component =  <Tab_1 toggleBool={toggleBool} />;
+      component =  <Tab_1 toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;
       activate = true;
     }else if(myBool == 2){
-      component =  <Tab_2 toggleBool2={toggleBool2}/>;
+      component =  <Tab_2 toggleBool2={toggleBool2} showDelivery={showDelivery} />;
       activate2 = true;
     }else if(myBool == 3){
       component =  <Tab_3 />;
