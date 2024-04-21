@@ -22,6 +22,9 @@ function toggleShowDelivery() {
     function toggleBool() {
       setmyBool(2)
     }
+    function backBtn() {
+      setmyBool(1)
+    }
     function toggleBool2() {
       setmyBool(3)
     }
@@ -29,7 +32,7 @@ function toggleShowDelivery() {
       component =  <Tab_1 toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;
       activate = true;
     }else if(myBool == 2){
-      component =  <Tab_2 toggleBool2={toggleBool2} showDelivery={showDelivery} />;
+      component =  <Tab_2 backBtn={backBtn} toggleBool2={toggleBool2} showDelivery={showDelivery} />;
       activate2 = true;
     }else if(myBool == 3){
       component =  <Tab_3 />;

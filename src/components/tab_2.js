@@ -1,4 +1,6 @@
 import React from 'react';
+import goat from '../img/goat.png';
+
 
 const tab_2 = (props) => {
     function countryDrop() {
@@ -257,9 +259,48 @@ const tab_2 = (props) => {
             `
         }
     }
+    function paument_popup_open(){
+        let payment_modal = document.querySelector(".payment_modal").style.display = "flex"
+    }
+    function paument_popup_close(){
+        let payment_modal = document.querySelector(".payment_modal").style.display = "none"
+    }
+    function payment_submit(){
+        let card_number = document.getElementById("card_number");
+        let expiry_date = document.getElementById("expiry_date");
+        let card_code = document.getElementById("card_code");
+        if (card_code.value == "" || card_number.value == '' || expiry_date.value == '') {
+            console.log("something is empty");
+        }else{
+
+            props.toggleBool2();
+        }
+    }
 
     return (
         <>
+
+            <div className='payment_modal'>
+                <div className='payment_popup'>
+                    <div className='payment_popup_close' onClick={()=>{paument_popup_close()}}> 
+                <i className="fa-solid fa-xmark"></i>
+                </div>
+                    <p>Pay with your credit card via Stripe.</p>
+                    <form>
+                        <label htmlFor='card_number'>Card Number <span>*</span></label>
+                        <input type='text' name='card_number' id='card_number' placeholder='1234 1234 1234 1234' maxLength={16} required/>
+                        <label htmlFor='expiry_date'>Expiry Date <span>*</span></label>
+                        <input type='text' name='expiry_date' id='expiry_date' placeholder='MM / YY' maxLength={4} required/>
+                        <label htmlFor='card_code'>Card Code <span>*</span></label>
+                        <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required/>
+                        <button className="continue" type='submit' onClick={()=>{payment_submit()}}>Continue to shopping</button>
+
+                    </form>
+                </div>
+            </div>
+
+
+
             <div className="tab-2 cutomer_info">
                 <form method="post">
                     <div className="container options">
@@ -577,10 +618,10 @@ const tab_2 = (props) => {
                                 </div>
                                 <div className="row move">
                                     <div className="col-5">
-                                        <button className="back">Back</button>
+                                        <button className="back" onClick={props.backBtn}>Back</button>
                                     </div>
                                     <div className="col-7">
-                                        <button className="continue" onClick={props.toggleBool2}>Continue to shopping</button>
+                                        <a className="continue" onClick={()=>{paument_popup_open(this)}}>Continue to shopping</a>
                                     </div>
                                 </div>
 
@@ -589,10 +630,10 @@ const tab_2 = (props) => {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            {/* <img src="img/sheep.png" alt=""> */}
+                                            <td><img src={goat} alt="Sheep Icon" /></td>
                                         </tr>
                                         <tr>
-                                            <h3 className="summary"> Order Summary</h3>
+                                            <td><h3 className="summary"> Order Summary</h3></td>
                                         </tr>
 
                                     </tbody>
@@ -600,38 +641,30 @@ const tab_2 = (props) => {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td className="title">Order Date</td>
+                                            <td className="title">Animal Type:</td>
+                                            <td className="data">Goat</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">Zabiha Type:</td>
+                                            <td className="data">Sadqah Zabiha</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">Quantity:</td>
+                                            <td className="data">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">Distribute or Delivery:</td>
+                                            <td className="data">Distribute</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="title">Order Date:</td>
                                             <td className="data">27 February, 2024</td>
                                         </tr>
                                         <tr>
-                                            <td className="title">Order Date</td>
-                                            <td className="data">27 February, 2024</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="title">Order Date</td>
-                                            <td className="data">27 February, 2024</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="title">Order Date</td>
-                                            <td className="data">27 February, 2024</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="title">Order Date</td>
+                                            <td className="title">Delivery Charges:</td>
                                             <td className="data">27 February, 2024</td>
                                         </tr>
 
-                                        <tr>
-                                            <td className="title">Order Date</td>
-                                            <td className="data">27 February, 2024</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="title">Order Date</td>
-                                            <td className="data">27 February, 2024</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="title">Order Date</td>
-                                            <td className="data">27 February, 2024</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                                 <div style={{ marginTop: "30px", textAlign: "center" }}>

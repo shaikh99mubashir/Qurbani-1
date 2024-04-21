@@ -66,11 +66,11 @@ const tab_1 = (props) => {
                                             <p>Goat</p>
                                         </li>
                                         <li><input className="check-animal" type="radio" name="animal-type" value="sheep" id="cb2" />
-                                            <label className="check-label" htmlFor="cb2"><img src={sheep} alt="Goat Icon" /></label>
+                                            <label className="check-label" htmlFor="cb2"><img src={sheep} alt="Sheep Icon" /></label>
                                             <p>Sheep</p>
                                         </li>
                                         <li><input className="check-animal" type="radio" name="animal-type" value="Cow" id="cb3" />
-                                            <label className="check-label" htmlFor="cb3"><img src={cow} alt="Sheep Icon" /></label>
+                                            <label className="check-label" htmlFor="cb3"><img src={cow} alt="Cow Icon" /></label>
                                             <p>Cow</p>
                                         </li>
                                     </ul>
