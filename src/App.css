@@ -137,6 +137,9 @@ main.book {
 
 .hero .hero-features div {
   text-align: center;
+  padding: 0;
+  margin-left: -10px;
+  margin-bottom: 30px;
 }
 
 .hero .hero-features div:nth-child(1) p,
@@ -726,7 +729,7 @@ label img {
   margin-bottom: 20px;
 }
 
-.cutomer_info .options .row .col-5 table tr{
+.cutomer_info .options .row .col-5 table tr {
   height: 35px;
 }
 
@@ -975,61 +978,73 @@ td.title {
   font-size: 13px;
   margin-bottom: 5px;
 }
-.track-date{
+
+.track-date {
   color: #000;
 }
-.progress__item i{
-font-size: 40px;
-    position: absolute;
-    left: -38%;
-    top: -10%;
+
+.progress__item i {
+  font-size: 40px;
+  position: absolute;
+  left: -38%;
+  top: -10%;
 }
 
-.delivery-type{
+.delivery-type {
   margin-top: 20px;
   height: 0px;
   overflow: hidden;
   transition: all 0.8s ease-in-out;
 }
-.delivery-type p{
+
+.delivery-type p {
   margin-bottom: 5px;
 }
-.delivery-type select{
+
+.delivery-type select {
   width: 100%;
   padding: 8px 25px 8px 5px;
 }
-.delivery-type.show{
+
+.delivery-type.show {
   height: 100%;
 }
-.delivery-cherges{
+
+.delivery-cherges {
   display: none;
 }
-.textBold{
+
+.textBold {
   text-align: right;
   color: #b52735;
 }
 
-.row.alive-slotter{
+.row.alive-slotter {
   display: none;
 }
-.alive-slotter{
+
+.alive-slotter {
   margin-top: 20px;
   transition: all 0.8s ease-in-out;
 }
-.alive-slotter p{
+
+.alive-slotter p {
   margin-bottom: 5px;
   width: 100%;
   padding: 0;
 }
-.alive-slotter h3{
+
+.alive-slotter h3 {
   padding: 0;
   width: 100%;
 }
-.alive-slotter select{
+
+.alive-slotter select {
   width: 100%;
   padding: 8px 25px 8px 5px;
 }
-.row.alive-slotter.showDelivery{
+
+.row.alive-slotter.showDelivery {
   display: block;
 }
 
@@ -1057,31 +1072,34 @@ font-size: 40px;
 
 }
 
-.payment_popup p{
+.payment_popup p {
   margin-bottom: 20px;
 }
 
-.payment_popup form{
+.payment_popup form {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.payment_popup form label{
+.payment_popup form label {
   font-weight: 300;
 }
-.payment_popup form label span{
+
+.payment_popup form label span {
   color: #b52735;
 }
-.payment_popup form input{
+
+.payment_popup form input {
   padding: 3px;
   border: 2px solid #d3d3d3;
 }
-.payment_popup form input::placeholder{
+
+.payment_popup form input::placeholder {
   color: #d3d3d3;
 }
 
-.payment_popup form  .continue {
+.payment_popup form .continue {
   width: 100%;
   border: none;
   background-color: #b52735;
@@ -1089,7 +1107,8 @@ font-size: 40px;
   padding: 7px;
   margin-top: 10px;
 }
-.payment_popup_close{
+
+.payment_popup_close {
   position: absolute;
   top: 20px;
   right: 20px;

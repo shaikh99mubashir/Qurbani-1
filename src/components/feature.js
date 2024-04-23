@@ -4,11 +4,11 @@ import dotted from '../img/dotted-line.png';
 const Feature = () => {
   return (
     <>
-    <div className="feature">
+      <div className="feature">
         <div className="container">
-          <h3 style={{textAlign: 'center'}}>CREED Qurbani is <span>Simple</span></h3>
-          <div className="row" style={{alignItems: 'center'}}>
-            <div className="col">
+          <h3 style={{ textAlign: 'center' }}>CREED Qurbani is <span>Simple</span></h3>
+          <div className="row" style={{ alignItems: 'center' }}>
+            <div className="col" data-aos="fade-right">
               <div className="numberBox num-1">
                 <div>01</div>
               </div>
@@ -18,12 +18,12 @@ const Feature = () => {
               <p>Select an Qurbani</p>
             </div>
             <div className="col-1">
-            <img src={dotted} alt="dotted" />
+              <img src={dotted} alt="dotted" />
 
-                </div>
-            <div className="col">
+            </div>
+            <div className="col" data-aos="fade-up" data-aos-delay="200">
               <p>Provide delivery address</p>
-              
+
               <div className="icon-box">
                 <i className="fa-solid fa-money-check"></i>
               </div>
@@ -33,10 +33,10 @@ const Feature = () => {
 
             </div>
             <div className="col-1">
-            <img src={dotted} alt="dotted" />
+              <img src={dotted} alt="dotted" />
 
             </div>
-            <div className="col">
+            <div className="col" data-aos="fade-down" data-aos-delay="400">
               <div className="numberBox num-3">
                 <div>03</div>
               </div>
@@ -47,12 +47,12 @@ const Feature = () => {
 
             </div>
             <div className="col-1">
-            <img src={dotted} alt="dotted" />
+              <img src={dotted} alt="dotted" />
 
-                </div>
-            <div className="col">
+            </div>
+            <div className="col" data-aos="fade-left" data-aos-delay="600">
               <p>Track your order</p>
-              
+
               <div className="icon-box">
                 <i className="fa-solid fa-truck-fast"></i>
               </div>

@@ -337,7 +337,7 @@ const tab_2 = (props) => {
                                     <input type="number" name="recipient_number" placeholder="Mobile Number" />
                                 </div>
                                 <div className={"row alive-slotter" + (props.showDelivery ? ' showDelivery' : '')}>
-                                    <h3>Where should we deliver your order?</h3>
+                                    <h3>How should we deliver your order?</h3>
 
                                     <p>Select Slotter or Alive</p>
 

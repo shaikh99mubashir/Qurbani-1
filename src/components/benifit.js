@@ -14,7 +14,7 @@ const Benifit = () => {
                     <h3 style={{ textAlign: 'center' }}>CREED Qurbani is <span>Better</span></h3>
                     <div className="row">
                         <div className="col-4">
-                            <div className="benifit">
+                            <div className="benifit" data-aos="fade-right">
                                 <div className="content">
                                     <h4>Premium Produce</h4>
                                     <p>Animals are raised in humane conditions which keep them healthy and ensure high-quality meat</p>
@@ -23,7 +23,7 @@ const Benifit = () => {
                                 <img src={meat} alt="meat" />
                                 </div>
                             </div>
-                            <div className="benifit">
+                            <div className="benifit" data-aos="fade-right" data-aos-delay="200">
                                 <div className="content">
                                     <h4>Premium Produce</h4>
                                     <p>Animals are raised in humane conditions which keep them healthy and ensure high-quality meat</p>
@@ -38,7 +38,7 @@ const Benifit = () => {
 
                         </div>
                         <div className="col-4">
-                            <div className="benifit">
+                            <div className="benifit" data-aos="fade-left">
                                 <div className="icon">
                                     <img src={deliver} alt="deliver" />
                                 </div>
@@ -48,7 +48,7 @@ const Benifit = () => {
                                 </div>
 
                             </div>
-                            <div className="benifit">
+                            <div className="benifit" data-aos="fade-left" data-aos-delay="200">
                                 <div className="icon">
                                 <img src={protect} alt="protect" />
                                 </div>

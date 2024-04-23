@@ -4,7 +4,7 @@ import backimage from '../img/meat-pro.jpg';
 const Product = () => {
   return (
     <>
-        <div className="col-4 product">
+        <div className="col-4 product" data-aos="fade-up">
         <img src={backimage} alt="backimage" />
               <div className="pro-title">
                 Goat 200 Kg

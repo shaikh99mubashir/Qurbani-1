@@ -8,11 +8,11 @@ const Hero = () => {
         <div className="container" style={{padding: 0}}>
           <div className="row">
             <div className="col-6" style={{padding: 0}}>
-              <h2><span className="">Qurbani,</span> a simpler way to
+              <h2 data-aos="fade-right"><span className="">Qurbani,</span> a simpler way to
                 buy quality meat</h2>
-              <p>Available for:</p>
-              <p><strong>Aqiqah, Walimah, Sadaqah or regular consumption</strong></p>
-              <div className="row hero-features">
+              <p data-aos="fade-right" data-aos-delay="200">Available for:</p>
+              <p data-aos="fade-right" data-aos-delay="200"><strong>Aqiqah, Walimah, Sadaqah or regular consumption</strong></p>
+              <div className="row hero-features" data-aos="fade-right" data-aos-delay="400">
                 <div className="col-3">
                   <i className="fa-solid fa-cow"></i>
                   <p>FRESH MEAT</p>
@@ -26,7 +26,7 @@ const Hero = () => {
                   <p>FREE DELIVERY</p>
                 </div>
               </div>
-              <a href="">Book your Qurbani with us!</a>
+              <a href=""  data-aos="fade-up" data-aos-delay="600">Book your Qurbani with us!</a>
 
 
             </div>

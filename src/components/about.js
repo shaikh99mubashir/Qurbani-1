@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => {
   return (
     <>
-        <div className="about">
+        <div className="about" data-aos="fade-up">
         <div className="container">
           <h3>About <span>Qurbani</span></h3>
           <p className="colored">"CREED Qurbani is ardent about providing the best quality meat for your religious and
