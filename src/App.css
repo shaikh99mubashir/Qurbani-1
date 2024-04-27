@@ -793,13 +793,13 @@ label img {
 }
 
 .row.tab-2 {
-  gap: 10%;
+  gap: 3%;
 }
 
 .row.tab-2>.col-7 {
-  width: 60%;
+  width: 67%;
   background-color: #fff;
-  padding: 25px 20px;
+  padding: 25px 30px;
 }
 
 .row.tab-2>.col-5 {
@@ -1372,6 +1372,9 @@ td.title {
   border: var(--primary);
 }
 @media screen and (max-width:600px) {
+  #zabiha-type input[type="radio"]+label {
+    width: 100%;
+  }
   .CTA {
     padding: 40px 10px;
 }
