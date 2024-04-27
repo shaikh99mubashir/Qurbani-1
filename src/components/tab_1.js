@@ -25,11 +25,27 @@ const tab_1 = (props) => {
         console.log('Clicked Element:', clickedElement);
     
         // Pass the clicked element to another function
-        cow_shares(clickedElement);
+        Cow_or_shares(clickedElement);
       };
-    function cow_shares(e) {
-        let cow_shares = document.querySelector(".cow-shares");
+    const handleClick2 = (event) => {
+        const clickedElement = event.target;
+        console.log('Clicked Element:', clickedElement);
+    
+        // Pass the clicked element to another function
+        Cow_shares(clickedElement);
+      };
+    function Cow_or_shares(e) {
+        let Cow_or_shares = document.querySelector(".Cow_or_shares");
         if (e.value == "Cow") {
+            Cow_or_shares.classList.add("show");
+        }else{
+            Cow_or_shares.classList.remove("show");
+        }
+        
+    }
+    function Cow_shares(e) {
+        let cow_shares = document.querySelector(".cow-shares");
+        if (e.value == "cow-share") {
             cow_shares.classList.add("show");
         }else{
             cow_shares.classList.remove("show");
@@ -91,6 +107,19 @@ const tab_1 = (props) => {
                                         </li>
                                     </ul>
                                 </div>
+                                <div className='Cow_or_shares'>
+                                        <p className="step">Select Full Cow or Shares</p>
+                                        <input onClick={ handleClick2 } type="radio" id="full-cow" name="Cow_or_shares" value="full-cow" />
+                                        <label htmlFor="full-cow">
+                                            Full Cow
+                                        </label>
+
+                                        <input onClick={ handleClick2 } type="radio" id="cow-share" name="Cow_or_shares" value="cow-share" />
+                                        <label htmlFor="cow-share">
+                                            Shares
+                                        </label>
+                       
+                                    </div>
                                 <div className='cow-shares'>
                                         <p className="step">Select Cow Shares</p>
                                         <input type="radio" id="share-1" name="Cow_shares" value="Cow_shares" />
