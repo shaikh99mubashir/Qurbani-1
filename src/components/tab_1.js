@@ -20,13 +20,29 @@ const tab_1 = (props) => {
         let delivery_type = document.querySelector(".delivery-type");
         delivery_type.classList.add("show");
     }
-    function delivery_charges(){
+    const handleClick = (event) => {
+        const clickedElement = event.target;
+        console.log('Clicked Element:', clickedElement);
+    
+        // Pass the clicked element to another function
+        cow_shares(clickedElement);
+      };
+    function cow_shares(e) {
+        let cow_shares = document.querySelector(".cow-shares");
+        if (e.value == "Cow") {
+            cow_shares.classList.add("show");
+        }else{
+            cow_shares.classList.remove("show");
+        }
+        
+    }
+    function delivery_charges() {
         let delivery_select = document.querySelector(".delivery-type select");
         let delivery_charges = document.querySelector(".delivery-cherges");
-            if(delivery_select.value == "Delivery"){
-                delivery_charges.style.display = "flex";
-                props.toggleShowDelivery();
-            }
+        if (delivery_select.value == "Delivery") {
+            delivery_charges.style.display = "flex";
+            props.toggleShowDelivery();
+        }
     }
 
     return (
@@ -61,20 +77,52 @@ const tab_1 = (props) => {
                                 <div className="step-1">
                                     <p className="step"><span>Step 1</span> Animal Type</p>
                                     <ul>
-                                        <li><input className="check-animal" type="radio" name="animal-type" value="goat" id="cb1" />
+                                        <li><input onClick={ handleClick } className="check-animal" type="radio" name="animal-type" value="goat" id="cb1" />
                                             <label className="check-label" htmlFor="cb1"><img src={goat} alt="Goat Icon" /></label>
                                             <p>Goat</p>
                                         </li>
-                                        <li><input className="check-animal" type="radio" name="animal-type" value="sheep" id="cb2" />
+                                        <li><input onClick={ handleClick } className="check-animal" type="radio" name="animal-type" value="sheep" id="cb2" />
                                             <label className="check-label" htmlFor="cb2"><img src={sheep} alt="Sheep Icon" /></label>
                                             <p>Sheep</p>
                                         </li>
-                                        <li><input className="check-animal" type="radio" name="animal-type" value="Cow" id="cb3" />
+                                        <li><input onClick={ handleClick } className="check-animal" type="radio" name="animal-type" value="Cow" id="cb3" />
                                             <label className="check-label" htmlFor="cb3"><img src={cow} alt="Cow Icon" /></label>
                                             <p>Cow</p>
                                         </li>
                                     </ul>
                                 </div>
+                                <div className='cow-shares'>
+                                        <p className="step">Select Cow Shares</p>
+                                        <input type="radio" id="share-1" name="Cow_shares" value="Cow_shares" />
+                                        <label htmlFor="share-1">
+                                            1
+                                        </label>
+
+                                        <input type="radio" id="share-2" name="Cow_shares" value="Cow_shares" />
+                                        <label htmlFor="share-2">
+                                            2
+                                        </label>
+                                        <input type="radio" id="share-3" name="Cow_shares" value="Cow_shares" />
+                                        <label htmlFor="share-3">
+                                            3
+                                        </label>
+                                        <input type="radio" id="share-4" name="Cow_shares" value="Cow_shares" />
+                                        <label htmlFor="share-4">
+                                            4
+                                        </label>
+                                        <input type="radio" id="share-5" name="Cow_shares" value="Cow_shares" />
+                                        <label htmlFor="share-5">
+                                            5
+                                        </label>
+                                        <input type="radio" id="share-6" name="Cow_shares" value="Cow_shares" />
+                                        <label htmlFor="share-6">
+                                            6
+                                        </label>
+                                        <input type="radio" id="share-7" name="Cow_shares" value="Cow_shares" />
+                                        <label htmlFor="share-7">
+                                            7
+                                        </label>
+                                    </div>
                                 <div className="step-2">
                                     <p className="step"><span>Step 2</span> Zabiha Type</p>
                                     <div id='zabiha-type'>
@@ -92,9 +140,10 @@ const tab_1 = (props) => {
                                             Eid-Ul-Adha Zabiha
                                         </label>
                                     </div>
+                                    
                                     <div className='delivery-type'>
                                         <p>Select Distribute or Delivery</p>
-                                        <select onChange={()=>{delivery_charges()}}>
+                                        <select onChange={() => { delivery_charges() }}>
                                             <option>
                                                 Select Distribute or Delivery
                                             </option>

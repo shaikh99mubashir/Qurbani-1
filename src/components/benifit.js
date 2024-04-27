@@ -4,12 +4,13 @@ import deliver from '../img/deliver.png';
 import packet from '../img/packet.png';
 import protect from '../img/protect.png';
 import meat from '../img/meat.png';
+import backimage1 from '../img/feature-bg.png';
 
 
 const Benifit = () => {
     return (
         <>
-            <div className="benifits">
+            <div className="benifits"  style={{ backgroundImage: `url(${backimage1})`}}>
                 <div className="container">
                     <h3 style={{ textAlign: 'center' }}>CREED Qurbani is <span>Better</span></h3>
                     <div className="row">
