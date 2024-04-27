@@ -8,12 +8,17 @@
 }
 
 :root {
-  --primary: #b52735;
+  --primary: #20d374;
+}
+
+html {
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
   background-color: #f6f6f6;
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden;
 }
 
@@ -23,6 +28,10 @@ body {
 
 a {
   text-decoration: none;
+}
+
+#root {
+  position: relative;
 }
 
 header {
@@ -276,6 +285,15 @@ p.colored {
   padding: 60px 0;
 }
 
+.feature .temp-bg-feature {
+  margin: auto;
+  width: 100%;
+  height: 420px;
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
 .feature .container .row {
   margin: 40px 0;
   /* margin-top: -40px; */
@@ -372,6 +390,7 @@ p.colored {
 
 .benifits .container .row img.mid-img {
   width: 100%;
+  border-radius: 20px;
 }
 
 .benifit {
@@ -438,7 +457,7 @@ p.colored {
   position: absolute;
   top: 0;
   left: 0;
-border-radius: 30px;
+  border-radius: 30px;
 }
 
 .CTA .row {
@@ -502,7 +521,7 @@ footer .container .socials i {
   height: 50px;
   border-radius: 50%;
   font-size: 18px;
-  background-color: #025e5e;
+  background-color: var(--primary);
   color: #fff;
   display: flex;
   align-items: center;
@@ -542,6 +561,7 @@ footer .container .socials i {
 
 .tabs .row {
   gap: 5.3%;
+  justify-content: center;
 }
 
 .tabs .col-4 {
@@ -681,6 +701,7 @@ label img {
   transform: scale(0.9);
   /* box-shadow: 0 0 5px #333; */
   z-index: -1;
+  filter: invert(1);
 }
 
 .delivery_info .options .step-2 {
@@ -1241,14 +1262,17 @@ td.title {
   border-radius: 50px;
   cursor: pointer;
 }
-.cow-shares{
+
+.cow-shares {
   margin-bottom: 30px;
   display: none;
 }
-.cow-shares.show{
+
+.cow-shares.show {
   display: block;
 }
-.cow-shares p{
+
+.cow-shares p {
   margin-bottom: 0;
 }
 
@@ -1274,6 +1298,7 @@ td.title {
   cursor: pointer;
   position: relative;
 }
+
 .cow-shares input[type="radio"]+label::before {
   content: "";
   position: absolute;
@@ -1287,4 +1312,250 @@ td.title {
   color: #fff;
   background: var(--primary);
   border: var(--primary);
+}
+
+.hamburger {
+  display: none;
+}
+
+.close {
+  display: none;
+}
+
+@media screen and (max-width:600px) {
+  .progressContainer {
+    padding: 0 30px;
+  }
+  .progress__title {
+    line-height: 28px;
+  }
+  .progress__item i {
+    left: -50%;
+  }
+  .progress {
+    padding: 0 16px 0 7.5rem;
+  }
+  .track form .row .col-8{
+    margin-bottom: 20px !important;
+  }
+  
+  .track {
+    width: 100%;
+  }
+  .track form .row {
+    flex-direction: column;
+}
+  .cutomer_info .options .row .row div.col-6 {
+    padding: 0;
+}
+
+  input[type="number"][name="recipient_number"],
+  input[type="email"],
+  input[type="postal-code"] {
+    margin-top: -22px;
+  }
+
+  .row.move .col-5,
+  .row.move .col-7 {
+    margin-bottom: 20px;
+    width: 100% !important;
+  }
+
+  .cutomer_info .back {
+    display: block;
+    text-align: center;
+  }
+
+  .cutomer_info .options .row .row .col-6 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .cutomer_info .options .row .row {
+    margin-top: 25px;
+    flex-direction: column;
+  }
+
+  .tab-3 h3.confirm_head {
+    font-size: 24px;
+    margin-bottom: 5px;
+    margin-top: 0px;
+  }
+
+  .payment_popup {
+    width: 92%;
+  }
+
+  .row.tab-2 {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  label img {
+    height: 75px;
+    width: 75px;
+  }
+
+  .delivery_info .options ul li:last-child {
+    margin-right: 0;
+  }
+
+  .delivery_info .options ul li {
+    width: 31%;
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+  }
+
+  .delivery_info .options .col-7 {
+    padding-right: 15px;
+    border-right: none;
+  }
+
+  .tab-1 .row {
+    flex-direction: column;
+  }
+
+  main.book {
+    padding-top: 30%;
+  }
+
+  .hamburger {
+    display: block;
+    width: 8%;
+    text-align: right;
+    font-size: 18px;
+    order: 3;
+  }
+
+  .close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  header {
+    position: fixed;
+    z-index: 999;
+    border-radius: 10px;
+  }
+
+  header nav {
+    position: absolute;
+    top: -20px;
+    height: 101vh;
+    width: 80%;
+    right: -100%;
+    background-color: #fff;
+    padding: 60px 0;
+    transition: all 0.8s ease-in-out;
+
+  }
+
+  header nav.show {
+    right: -18px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+  }
+
+  header nav ul li a {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+
+  header .btns {
+    width: 20%;
+    margin-left: 25%;
+  }
+
+  .hero .hero-features div p {
+    font-size: 10px;
+  }
+
+  .hero h2 {
+    font-size: 32px !important;
+    line-height: 42px;
+  }
+
+  .hero .hero-features div {
+    margin-left: 0;
+  }
+
+  .hero .row .col-6 {
+    padding: 30px !important;
+  }
+
+  p.colored {
+    font-size: 18px;
+  }
+
+  .about h3 {
+    font-size: 30px;
+  }
+
+  .about {
+    padding: 30px 0;
+  }
+
+  .about .row {
+    flex-direction: column;
+  }
+
+  .products {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  .feature .temp-bg-feature {
+    background-image: url(../src/img/features-image.jpg) !important;
+    height: 250px;
+    background-size: contain;
+  }
+
+  .benifits {
+    padding: 30px 0;
+  }
+
+  .benifits .row {
+    flex-direction: column;
+  }
+
+  .CTA .row .col-6 {
+    width: 100%;
+  }
+
+  .CTA .row .col-6 p {
+    margin-bottom: 20px;
+  }
+
+  footer .container {
+    padding: 20px 20px;
+  }
+
+  footer .row {
+    flex-direction: column;
+  }
+
+  footer .row .col-4,
+  .benifits .row .col-4,
+  .products .col-4,
+  .about .col-6,
+  .hero .row .col-6,
+  .delivery_info .options .col-7,
+  .delivery_info .options .col-5,
+  .row.tab-2>.col-7,
+  .row.tab-2>.col-5,.track form .row .col-8, .track form .row .col-4 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 }

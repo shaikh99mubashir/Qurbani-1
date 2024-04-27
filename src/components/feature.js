@@ -1,5 +1,6 @@
 import React from 'react'
 import dotted from '../img/dotted-line.png';
+import feature from '../img/feature-img-desk.jpg';
 
 const Feature = () => {
   return (
@@ -7,7 +8,11 @@ const Feature = () => {
       <div className="feature">
         <div className="container">
           <h3 style={{ textAlign: 'center' }}>CREED Qurbani is <span>Simple</span></h3>
-          <div className="row" style={{ alignItems: 'center' }}>
+
+          <div className='temp-bg-feature' style={{  backgroundImage: `url(${feature})`}}>
+
+          </div>
+          {/* <div className="row" style={{ alignItems: 'center' }}>
             <div className="col" data-aos="fade-right">
               <div className="numberBox num-1">
                 <div>01</div>
@@ -60,7 +65,7 @@ const Feature = () => {
                 <div>04</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
