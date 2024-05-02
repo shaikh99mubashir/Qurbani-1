@@ -19,7 +19,7 @@ function Home() {
     <Featured />
     <Feature />
     <Benifit />
-    <CTA />
+    {/* <CTA /> */}
     </main>
     <Footer />
    </>
