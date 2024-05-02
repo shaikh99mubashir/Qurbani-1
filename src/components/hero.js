@@ -8,10 +8,9 @@ const Hero = () => {
         <div className="container" style={{padding: 0}}>
           <div className="row">
             <div className="col-6" style={{padding: 0}}>
-              <h2 data-aos="fade-right"><span className="">Qurbani,</span> a simpler way to
-                buy quality meat</h2>
+              <h2 data-aos="fade-right"><span className="">My Zabiha,</span> Amplify your Fatith</h2>
               <p data-aos="fade-right" data-aos-delay="200">Available for:</p>
-              <p data-aos="fade-right" data-aos-delay="200"><strong>Aqiqah, Walimah, Sadaqah or regular consumption</strong></p>
+              <p data-aos="fade-right" data-aos-delay="200"><strong>Aqiqah, Sadaqah and Qurbani</strong></p>
               <div className="row hero-features" data-aos="fade-right" data-aos-delay="400">
                 <div className="col-3">
                   <i className="fa-solid fa-cow"></i>
@@ -26,7 +25,15 @@ const Hero = () => {
                   <p>FREE DELIVERY</p>
                 </div>
               </div>
-              <a href=""  data-aos="fade-up" data-aos-delay="600">Book your Qurbani with us!</a>
+  
+              {/* <div className='mt2'></div>
+             <p data-aos="fade-right"  data-aos-delay="400"><strong>About Us:</strong></p> 
+
+              <div className='mt2'></div>
+              <p data-aos="fade-right"  data-aos-delay="400">My Zabiha is a user-friendly application designed to streamline the Qurbani experience for everyone. Our application caters to all your Qurbani needs, facilitating Aqiqah, Sadaqah, and Qurbani animal selection and sacrifice arrangements.</p>
+              <div className='mt2'></div> */}
+
+              <a href="/book" data-aos="fade-up" data-aos-delay="600">Book your Qurbani with us!</a>
 
 
             </div>

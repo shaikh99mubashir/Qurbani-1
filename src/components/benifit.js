@@ -17,8 +17,9 @@ const Benifit = () => {
                         <div className="col-4">
                             <div className="benifit" data-aos="fade-right">
                                 <div className="content">
-                                    <h4>Premium Produce</h4>
-                                    <p>Animals are raised in humane conditions which keep them healthy and ensure high-quality meat</p>
+                                    <h4>Convenience</h4>
+                                    <p>My Zabiha eliminates the need to visit animal markets, saving you time and effort.
+</p>
                                 </div>
                                 <div className="icon">
                                 <img src={meat} alt="meat" />
@@ -26,8 +27,8 @@ const Benifit = () => {
                             </div>
                             <div className="benifit" data-aos="fade-right" data-aos-delay="200">
                                 <div className="content">
-                                    <h4>Premium Produce</h4>
-                                    <p>Animals are raised in humane conditions which keep them healthy and ensure high-quality meat</p>
+                                    <h4>Peace of Mind</h4>
+                                    <p>Our focus on transparency and ethical sourcing ensures a worry-free Qurbani experience</p>
                                 </div>
                                 <div className="icon">
                                 <img src={packet} alt="packet" />
@@ -44,8 +45,8 @@ const Benifit = () => {
                                     <img src={deliver} alt="deliver" />
                                 </div>
                                 <div className="content">
-                                    <h4>Premium Produce</h4>
-                                    <p>Animals are raised in humane conditions which keep them healthy and ensure high-quality meat</p>
+                                    <h4>Accessibility</h4>
+                                    <p>The app is available for download on all major platforms, making it accessible to everyone across the Globe.</p>
                                 </div>
 
                             </div>
@@ -54,8 +55,8 @@ const Benifit = () => {
                                 <img src={protect} alt="protect" />
                                 </div>
                                 <div className="content">
-                                    <h4>Premium Produce</h4>
-                                    <p>Animals are raised in humane conditions which keep them healthy and ensure high-quality meat</p>
+                                    <h4>Affordability</h4>
+                                    <p>We offer competitive pricing to ensure Qurbani remains accessible to all.</p>
                                 </div>
 
                             </div>
