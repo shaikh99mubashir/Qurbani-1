@@ -31,7 +31,7 @@ Don't just book a Qurbani, tailor it according to your need with My Zabiha!
 <br></br>
 Here's how you can make your Qurbani effective and efficient:
 <br></br>
-⦁	Sharing is Caring: Split your sacrifice with loved ones – spreading the blessings and the deliciousness!
+⦁	Sharing is Caring: Spl it your sacrifice with loved ones – spreading the blessings and the deliciousness!
 <br></br>
 ⦁	Homeward Bound? Get your Qurbani meat delivered right to your doorstep. (Delivery fees may vary depending on your location, but convenience is priceless!)
 <br></br>
