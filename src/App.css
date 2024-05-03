@@ -432,15 +432,19 @@ p.colored {
 }
 
 .benifit .icon {
+  align-items: center;
+  background-color: #d8363d;
   background-color: var(--primary);
-  width: 55%;
-  margin-right: 20px;
-  height: 80px;
+  border-radius: 80px;
   display: flex;
+  max-height: 80px;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  border-radius: 80px;
+  margin-right: 20px;
+  max-width: 86px !important;
+  overflow: hidden;
+  padding: 30px;
 }
 
 .benifit .icon img {
