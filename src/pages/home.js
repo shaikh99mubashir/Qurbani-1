@@ -1,4 +1,4 @@
-import logo from '../logo.svg';
+// import logo from '../logo.svg';
 import '../App.css';
 import Header from '../components/header';
 import Hero from '../components/hero';
@@ -19,7 +19,7 @@ function Home() {
     <Featured />
     <Feature />
     <Benifit />
-    {/* <CTA /> */}
+    <CTA />
     </main>
     <Footer />
    </>

@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../img/logo.png';
+import logo from '../img/zabiha-logo.png';
 import { Outlet, Link } from "react-router-dom";
 
 const Header = () => {
@@ -12,11 +12,15 @@ const Header = () => {
     let nav = document.querySelector("header nav");
     nav.classList.remove("show");
   }
+  function show_currency_drop(){
+    let country_drop = document.querySelector(".currency-drop");
+    country_drop.classList.add("active");
+  }
   return (
     <>
       <header>
         <div className="logo">
-          <h1 className='logo'>Qurbani</h1>
+          <img src={logo} alt="Zabiha Logo" />
 
         </div>
       
@@ -36,11 +40,16 @@ const Header = () => {
         </nav>
           <Outlet />
         <div className="btns">
-          <div className="login">
-            <i className="fa-solid fa-user"></i>
-          </div>
-          <div className="country">
+          <div className="country" onClick={()=>{show_currency_drop()}}>
             <i className="fa-solid fa-earth-asia"></i>
+            USD
+          </div>
+          <div className='currency-drop'>
+            <select>
+              <option>USD</option>
+              <option>PKR</option>
+              <option>AED</option>
+            </select>
           </div>
         </div>
 

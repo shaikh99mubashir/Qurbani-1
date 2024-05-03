@@ -8,7 +8,7 @@
 }
 
 :root {
-  --primary: #20d374;
+  --primary: #d8363d;
 }
 
 html {
@@ -56,7 +56,7 @@ header .logo {
 }
 
 header .logo img {
-  width: 250px;
+  width: 90px;
 }
 
 header nav {
@@ -84,12 +84,26 @@ header .btns {
   align-items: center;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
 }
 
 header .btns i {
   font-size: 20px;
   color: var(--primary);
-  ;
+  margin-right: 10px;
+}
+
+header .btns .currency-drop {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  display: none;
+}
+
+header .btns .currency-drop.active {
+  display: block;
 }
 
 .popup {
@@ -119,7 +133,7 @@ main {
 }
 
 main.book {
-  padding-top: 8%;
+  padding-top: 10%;
 }
 
 .hero {
@@ -133,15 +147,20 @@ main.book {
 
 .hero h2 {
   color: #3a3a3a;
-  font-size: 45px !important;
+  font-size: 46px !important;
   font-weight: 500;
-  line-height: 55px;
+  line-height: 52px;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .hero p {
   font-size: 18px;
   margin-bottom: 0;
+}
+
+.hero p:nth-child(2) {
+  font-weight: 600;
 }
 
 .hero .hero-features {
@@ -152,13 +171,11 @@ main.book {
 .hero .hero-features div {
   text-align: center;
   padding: 0;
-  margin-left: -10px;
   margin-bottom: 30px;
 }
 
-.hero .hero-features div:nth-child(1) p,
-.hero .hero-features div:nth-child(2) p {
-  border-right: 2px solid #000;
+.hero .hero-features div:nth-child(1) p {
+  border-right: 1px solid #383838ce;
 }
 
 .hero .hero-features div i {
@@ -171,7 +188,7 @@ main.book {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 1px;
-  margin-top: 12px;
+  padding-top: 8px;
   text-transform: uppercase;
 }
 
@@ -180,7 +197,7 @@ main.book {
   color: #fff;
   background-color: var(--primary);
   ;
-  padding: 10px 20px;
+  padding: 15px 30px;
 }
 
 h2 span {
@@ -212,7 +229,8 @@ h2 span {
 
 .about p {
   margin: 30px 0;
-  line-height: 32px;
+  line-height: 36px;
+  font-size: 18px;
 }
 
 h3 {
@@ -234,15 +252,16 @@ p.colored {
 
 .products {
   padding: 20px 0 40px;
-  gap: 5%;
+  gap: 2%;
 
 }
 
 .product {
   box-shadow: 0 0 4px 2px #00000015;
-  width: 30%;
+  width: 32%;
   padding: 20px;
   padding-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .product img {
@@ -255,6 +274,7 @@ p.colored {
 .pro-title {
   font-size: 22px;
   font-weight: 500;
+  color: var(--primary);
 }
 
 .price {
@@ -437,7 +457,7 @@ p.colored {
 }
 
 .CTA .container {
-  height: 250px;
+  height: 430px;
   background: url(img/CTA-bg.png) no-repeat center;
   background-size: cover;
   position: relative;
@@ -453,7 +473,7 @@ p.colored {
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: 0.6;
+  opacity: 0.7;
   position: absolute;
   top: 0;
   left: 0;
@@ -464,15 +484,20 @@ p.colored {
   width: 100%;
 }
 
-.CTA .row .col-6 {
-  text-align: center;
+.CTA .row .col-12 {
   position: relative;
   z-index: 9;
 }
 
-.CTA .row .col-6 p {
+.CTA .row .col-12 h3 {
   color: #fff;
   font-size: 34px;
+
+}
+
+.CTA .row .col-12 p {
+  color: #fff;
+  font-size: 18px;
 }
 
 .CTA .row .col-6 a {
@@ -1321,6 +1346,7 @@ td.title {
 .close {
   display: none;
 }
+
 .Cow_or_shares {
   margin-bottom: 30px;
   display: none;
@@ -1334,9 +1360,10 @@ td.title {
   margin-bottom: 0;
 }
 
-.Cow_or_shares{
+.Cow_or_shares {
   margin-bottom: 30px;
 }
+
 .Cow_or_shares input[type="radio"] {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
@@ -1344,6 +1371,7 @@ td.title {
   height: 1px;
   width: 1px;
 }
+
 .Cow_or_shares input[type="radio"]+label {
   border: 1px solid black;
   border-radius: 40px;
@@ -1358,6 +1386,7 @@ td.title {
   cursor: pointer;
   position: relative;
 }
+
 .Cow_or_shares input[type="radio"]+label::before {
   content: "";
   position: absolute;
@@ -1366,43 +1395,53 @@ td.title {
   z-index: -1;
   border-radius: 40px;
 }
+
 .Cow_or_shares input[type="radio"]:checked+label {
   color: #fff;
   background: var(--primary);
   border: var(--primary);
 }
+
 @media screen and (max-width:600px) {
   #zabiha-type input[type="radio"]+label {
     width: 100%;
   }
+
   .CTA {
     padding: 40px 10px;
-}
+  }
+
   .progressContainer {
     padding: 0 30px;
   }
+
   .progress__title {
     line-height: 28px;
   }
+
   .progress__item i {
     left: -50%;
   }
+
   .progress {
     padding: 0 16px 0 7.5rem;
   }
-  .track form .row .col-8{
+
+  .track form .row .col-8 {
     margin-bottom: 20px !important;
   }
-  
+
   .track {
     width: 100%;
   }
+
   .track form .row {
     flex-direction: column;
-}
+  }
+
   .cutomer_info .options .row .row div.col-6 {
     padding: 0;
-}
+  }
 
   input[type="number"][name="recipient_number"],
   input[type="email"],
@@ -1609,7 +1648,9 @@ td.title {
   .delivery_info .options .col-7,
   .delivery_info .options .col-5,
   .row.tab-2>.col-7,
-  .row.tab-2>.col-5,.track form .row .col-8, .track form .row .col-4 {
+  .row.tab-2>.col-5,
+  .track form .row .col-8,
+  .track form .row .col-4 {
     width: 100%;
     margin-bottom: 30px;
   }

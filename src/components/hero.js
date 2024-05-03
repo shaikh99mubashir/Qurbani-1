@@ -8,21 +8,17 @@ const Hero = () => {
         <div className="container" style={{padding: 0}}>
           <div className="row">
             <div className="col-6" style={{padding: 0}}>
-              <h2 data-aos="fade-right"><span className="">My Zabiha,</span> Amplify your Fatith</h2>
+              <h2 data-aos="fade-right"><span className="">My Zabiha,</span><br /> Amplify your Fatith</h2>
               <p data-aos="fade-right" data-aos-delay="200">Available for:</p>
-              <p data-aos="fade-right" data-aos-delay="200"><strong>Aqiqah, Sadaqah and Qurbani</strong></p>
+              <p data-aos="fade-right" data-aos-delay="200">Fresh Meat for Aqiqah, Sadaqah & Qurbani: Delivered Worldwide</p>
               <div className="row hero-features" data-aos="fade-right" data-aos-delay="400">
-                <div className="col-3">
+                <div className="col-6">
                   <i className="fa-solid fa-cow"></i>
-                  <p>FRESH MEAT</p>
+                  <p>High-Quality (Cow, Goat, Sheep) Delivered Fresh </p>
                 </div>
-                <div className="col-5">
-                  <i className="fa-solid fa-droplet"></i>
-                  <p>HYGIENICALLY PROCESSED</p>
-                </div>
-                <div className="col-4">
+                <div className="col-6">
                   <i className="fa-solid fa-box"></i>
-                  <p>FREE DELIVERY</p>
+                  <p>Overseas for Religious Observances</p>
                 </div>
               </div>
   
