@@ -22,7 +22,7 @@ const About = () => {
       </div>
       <div className="feature" data-aos="fade-up">
         <div className="container">
-          <h3 style={{ textAlign: 'center' }}>Fulfill your Qurbani obligation with ease! My Zabiha simplifies the <span>entire process!
+          <h3 style={{ textAlign: 'center' }}>Fulfill your Islamic Obligation with Ease! My Zabiha Simplifies the <span>Entire Process!
           </span></h3>
           <p>Browse and purchase animals as per your needs and budget. We prioritize ethical sourcing and respectful treatment of animals. Select your preferred sacrifice method, either home delivery or a designated center, for a stress-free experience. Track your Qurbani's progress and receive updates along the way.
             My Zabiha: Qurbani made it convenient.

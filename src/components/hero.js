@@ -8,9 +8,9 @@ const Hero = () => {
         <div className="container" style={{padding: 0}}>
           <div className="row">
             <div className="col-6" style={{padding: 0}}>
-              <h2 data-aos="fade-right"><span className="">My Zabiha,</span><br /> Amplify your Fatith</h2>
+              <h2 data-aos="fade-right"><span className="">My Zabiha,</span><br /> Amplify your Faith</h2>
               <p data-aos="fade-right" data-aos-delay="200">Available for:</p>
-              <p data-aos="fade-right" data-aos-delay="200">Fresh Meat for Aqiqah, Sadaqah & Qurbani: Delivered Worldwide</p>
+              <p data-aos="fade-right" data-aos-delay="200">Aqiqah, Sadaqah and Qurbani: Delivered Worldwide</p>
               <div className="row hero-features" data-aos="fade-right" data-aos-delay="400">
                 <div className="col-6">
                   <i className="fa-solid fa-cow"></i>
@@ -18,7 +18,7 @@ const Hero = () => {
                 </div>
                 <div className="col-6">
                   <i className="fa-solid fa-box"></i>
-                  <p>Overseas for Religious Observances</p>
+                  <p>Available for Nationwide and Overseas</p>
                 </div>
               </div>
   

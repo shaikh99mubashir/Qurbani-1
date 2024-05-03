@@ -8,8 +8,8 @@ const Feature = () => {
     
       <div className="feature">
         <div className="container">
-          <h3 style={{ textAlign: 'center' }}>Follow the Steps and Make<br />  Your Qurbani <span>More Convenient.</span></h3>
-          <p>My Zabiha is a platform that empowers users to fulfill their religious obligations with ease and confidence. By prioritizing convenience,<br /> transparency, and ethical sourcing, we aim to redefine the Qurbani experience for the modern world</p>
+          <h3 style={{ textAlign: 'center' }}>Follow the Steps and make <br />   your Qurbani <span>more Convenient.</span></h3>
+          <p>My Zabiha is designed to streamline the Qurbani experience for everyone. We caters to all your needs, facilitating Aqiqah,<br />  Sadaqah, and Qurbani animal selection and sacrifice arrangements</p>
           <div className='temp-bg-feature' style={{  backgroundImage: `url(${feature})`}}>
 
           </div>

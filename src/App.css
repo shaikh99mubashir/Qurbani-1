@@ -79,7 +79,7 @@ header nav ul li a {
 }
 
 header .btns {
-  width: 6%;
+  width: 14%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -97,11 +97,18 @@ header .btns i {
 
 header .btns .currency-drop {
   position: absolute;
-  top: 110%;
+  top: 120%;
   right: 0;
   display: none;
+  width: 180px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
 }
-
+header .btns .currency-drop select{
+  width: 100%;
+  margin-top: 10px;
+}
 header .btns .currency-drop.active {
   display: block;
 }
@@ -253,6 +260,7 @@ p.colored {
 .products {
   padding: 20px 0 40px;
   gap: 2%;
+  justify-content: center;
 
 }
 
@@ -262,11 +270,15 @@ p.colored {
   padding: 20px;
   padding-bottom: 30px;
   margin-bottom: 20px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.row.products .product:nth-child(4) , .row.products .product:nth-child(5) {
+/* .row.products .product:nth-child(4) , .row.products .product:nth-child(5) {
   width:49%;
-}
+} */
 
 .product img {
   width: 100%;
@@ -279,6 +291,7 @@ p.colored {
   font-size: 22px;
   font-weight: 500;
   color: var(--primary);
+  margin-bottom: 10px;
 }
 
 .price {

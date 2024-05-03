@@ -42,12 +42,13 @@ const Header = () => {
         <div className="btns">
           <div className="country" onClick={()=>{show_currency_drop()}}>
             <i className="fa-solid fa-earth-asia"></i>
-            USD
+            PKR
           </div>
           <div className='currency-drop'>
+            Select Currency
             <select>
-              <option>USD</option>
               <option>PKR</option>
+              <option>USD</option>
               <option>AED</option>
             </select>
           </div>

@@ -19,7 +19,7 @@ const Benifit = () => {
                             <div className="benifit" data-aos="fade-right">
                                 <div className="content">
                                     <h4>Select Your Animal</h4>
-                                    <p>Browse a wide variety selection of healthy animals directly through the app/website,</p>
+                                    <p>Browse a wide variety selection of healthy animals directly through the website.</p>
                                 </div>
                                 <div className="icon">
                                 <img src={meat} alt="meat" />
