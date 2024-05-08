@@ -1,8 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../img/zabiha-logo.png";
 import { Outlet, Link } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
+  const [currency, setCurrency] = useState(localStorage.getItem("currency"));
+  if(localStorage.getItem("currency") == null){
+    localStorage.setItem("currency", "PKR");
+    setCurrency("PKR");
+  }
+  useEffect(()=>{
+    console.log(currency)
+  }, [currency]);
+  function change_currency(){
+    let item = document.querySelector("#select-currency");
+    localStorage.setItem("currency", item.value);
+    setCurrency(item.value);
+    loadprices()
+    currency_popup_close();
+  }
+  const [priceObj, setPriceObj] = useState({});
+  async function loadprices() {
+    const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
+    const prices = await response.json();
+    if (localStorage.getItem("currency") == "USD") {
+      setPriceObj({
+        cow : prices.cow_usd,
+        goat : prices.goat_usd,
+        sheep : prices.sheep_usd
+      });
+    }else if (localStorage.getItem("currency") == "PKR"){
+      setPriceObj({
+        cow : prices.cow_pkr,
+        goat : prices.goat_pkr,
+        sheep : prices.sheep_pkr
+      });
+    }else if(localStorage.getItem("currency") == "AED"){
+      setPriceObj({
+        cow : prices.cow_aed,
+        goat : prices.goat_aed,
+        sheep : prices.sheep_aed
+      });
+    }
+  }
+  // useEffect(()=>{
+  //   props.setprice(priceObj);
+  // }, );
+  // loadprices()
+
   function show_nav() {
     let nav = document.querySelector("header nav");
     nav.classList.add("show");
@@ -27,10 +71,24 @@ const Header = () => {
             <i className="fa-solid fa-xmark" aria-hidden="true"></i>
           </div>
           <p>Select Currency</p>
-          <select>
+          <select id="select-currency" onChange={()=>{change_currency()}}>
+            {/* { if(currency == PKR){
+            <option selected>PKR</option>
+            }else{
             <option>PKR</option>
+            }} */}
+          {currency == "PKR"? 
+            <option selected>PKR</option>:
+            <option>PKR</option>
+          }
+          {currency == "USD"? 
+            <option selected>USD</option>:
             <option>USD</option>
+          }
+          {currency == "AED"? 
+            <option selected>AED</option>:
             <option>AED</option>
+          }
           </select>
         </div>
       </div>
@@ -78,7 +136,8 @@ const Header = () => {
             }}
           >
             <i className="fa-solid fa-earth-asia"></i>
-            PKR
+            {currency}
+
           </div>
         </div>
       </header>

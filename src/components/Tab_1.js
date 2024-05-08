@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 const Tab_1 = (props) => {
   const {
     register,
+    setValue,
     handleSubmit,
     watch,
     formState: { errors },
@@ -27,19 +28,27 @@ const Tab_1 = (props) => {
       alert("Please select the value");
     } else {
       props.toggleBool();
+      props.set_form_tab1(data);
     }
-
-    props.set_form_tab1(data);
+    
   };
 
  const [quantity,setquantity] = useState(1)
 
   function incrementQuantity() {
+    if(quantity<10){
     setquantity(quantity + 1);
+    const newValue = quantity + 1;
+    setValue('quantity', newValue);
+    }
   }
 
   function decrementQuantity() {
+    if(quantity>1){
     setquantity(quantity - 1);
+    const newValue = quantity - 1;
+    setValue('quantity', newValue);
+    }
   }
   function delivery_type() {
     let delivery_type = document.querySelector(".delivery-type");
@@ -59,14 +68,25 @@ const Tab_1 = (props) => {
   //     // Pass the clicked element to another function
   //     Cow_shares(clickedElement);
   // };
+ 
+
+  
+  const [price, setPrice] = useState(0);
+
+
   function Cow_or_shares() {
     let Cow_or_shares = document.querySelector(".Cow_or_shares");
     let animal_val = document.querySelector(".step-1 select");
+    if(localStorage.getItem("currency") == "USD" && animal_val.value == "cow"){
+      setPrice(12);
+    }
     if (animal_val.value == "cow") {
       Cow_or_shares.classList.add("show");
     } else {
       Cow_or_shares.classList.remove("show");
     }
+    let delivery_charges = document.querySelector(".delivery-cherges");
+      delivery_charges.style.display = "flex";
   }
   function Cow_shares() {
     let cow_shares = document.querySelector(".cow-shares");
@@ -79,9 +99,9 @@ const Tab_1 = (props) => {
   }
   function delivery_charges() {
     let delivery_select = document.querySelector(".delivery-type select");
-    let delivery_charges = document.querySelector(".delivery-cherges");
+    
     if (delivery_select.value == "Delivery") {
-      delivery_charges.style.display = "flex";
+     
       props.toggleShowDelivery();
     }
   }
@@ -132,7 +152,7 @@ const Tab_1 = (props) => {
                   </p>
                   <p>Select Your Animal</p>
                   <select
-                    {...register("animal_type")}
+                    {...register("animal")}
                     onChange={() => {
                       Cow_or_shares();
                     }}
@@ -227,7 +247,7 @@ const Tab_1 = (props) => {
                   <div id="zabiha-type">
                     <p>Choose Your Qurbani Type</p>
                     <select
-                      {...register("zabiha_type")}
+                      {...register("type")}
                       onChange={() => {
                         delivery_type();
                       }}
@@ -306,10 +326,9 @@ const Tab_1 = (props) => {
                     {...register("quantity")}
                       type="number"
                       className="quantity-input"
-                      min="1"
-                      max="10"
+                      name="quantity"
                       value={quantity}
-              
+                      readOnly
                       id="quantity"
                       
                     />
@@ -336,15 +355,15 @@ const Tab_1 = (props) => {
                                         </div> */}
 
                   <div className="col-6">
-                    <p>Delivery Charges:</p>
+                    <p>Price:</p>
                   </div>
                   <div className="col-6">
                     <p className="textBold">Rs 400</p>
                   </div>
                 </div>
-                <div className="total-price text-center">
+                {/* <div className="total-price text-center">
                   Total : Rs 37,976.36
-                </div>
+                </div> */}
                 <div className="proceed">
                   {/* props.toggleBool */}
 
