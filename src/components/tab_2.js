@@ -10,7 +10,7 @@ const Tab_2 = (props) => {
         register,
         handleSubmit,
         watch,
-        formState: { errors },
+        formState: { error },
       } = useForm();
       const onSubmit = (data) => {
         console.log(data);
