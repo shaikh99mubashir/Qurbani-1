@@ -12,8 +12,7 @@ const tab_3 = () => {
                             <div className="col-7">
 
                                 <h3 className="confirm_head" style={{ textAlign: "center" }}>Thank You For Your Payment</h3>
-                                <h3 className="confirm_head" style={{ textAlign: "center" }}> <span>Your Order Is Placed
-                                    Successfully!</span></h3>
+                                <p className="confirm_head" style={{ textAlign: "center" }}> <span>Thankyou for shopping with My Zabiha, you will soon receive the confirmation email and stay active on your registered number so the team may contact you for details or queries.</span></p>
                                 <div className="container">
 
 

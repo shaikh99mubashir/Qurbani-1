@@ -1,8 +1,22 @@
 import React from 'react';
 import goat from '../img/goat.png';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import { useForm } from "react-hook-form";
 
+const Tab_2 = (props) => {
 
-const tab_2 = (props) => {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+      } = useForm();
+      const onSubmit = (data) => {
+        console.log(data);
+        paument_popup_open();
+      }
+
     function countryDrop() {
         let alive_slotter = document.querySelector(".alive-slotter select");
         let country = document.querySelector("#country");
@@ -302,7 +316,7 @@ const tab_2 = (props) => {
 
 
             <div className="tab-2 cutomer_info">
-                <form method="post">
+                <form method="post" onSubmit={handleSubmit(onSubmit)}>
                     <div className="container options">
                         <div className="row tab-2">
                             <div className="col-7">
@@ -310,16 +324,18 @@ const tab_2 = (props) => {
                                 <h2>Order Delivery Information</h2>
                                 <h3>Customer Information</h3>
                                 <div className="row">
-                                    <input type="text" name="fname" placeholder="Full Name" className="col-6" />
-                                    <input type="text" name="lname" placeholder="Last Name" className="col-6" />
+                                    <input type="text" {...register("full_name")} placeholder="Full Name" />
                                 </div>
                                 <div className="row">
-                                    <input type="email" name="email" placeholder="Email Address" />
+                                    <PhoneInput country={'pk'} placeholder="Contact Number" />
                                 </div>
                                 <div className="row">
-                                    <input type="number" name="number" placeholder="Mobile Number" />
+                                    <PhoneInput country={'pk'}  placeholder="Alternate Contact Number" />
                                 </div>
                                 <div className="row">
+                                    <input type="email" {...register("email")} placeholder="Email Address" />
+                                </div>
+                                {/* <div className="row">
                                     <div className="col-6">
                                         <h3>Recipient Information</h3>
                                     </div>
@@ -328,14 +344,14 @@ const tab_2 = (props) => {
                                             information</label>
                                     </div>
 
-                                </div>
-                                <div className="row">
+                                </div> */}
+                                {/* <div className="row">
                                     <input type="text" name="recipient_fname" placeholder="Full Name" className="col-6" />
                                     <input type="text" name="recipient_lname" placeholder="Last Name" className="col-6" />
                                 </div>
                                 <div className="row">
                                     <input type="number" name="recipient_number" placeholder="Mobile Number" />
-                                </div>
+                                </div> */}
                                 <div className={"row alive-slotter" + (props.showDelivery ? ' showDelivery' : '')}>
                                     <h3>How should we deliver your order?</h3>
 
@@ -355,11 +371,9 @@ const tab_2 = (props) => {
 
                                 </div>
                                 <h3>Delivery Address Details</h3>
+                                
                                 <div className="row">
-                                    <input type="address" name="Address" id="" placeholder="Address" />
-                                </div>
-                                <div className="row">
-                                    <select name="country" id="country" className="col-6">
+                                    <select name="country" id="country" className="col-12">
                                         country.innerHTML = `
                                         <option>Select Your Country</option>
                                         <option value="Afghanistan">Afghanistan</option>
@@ -608,20 +622,37 @@ const tab_2 = (props) => {
                                         <option value="Zimbabwe">Zimbabwe</option>
                                         `
                                     </select>
-                                    <select name="city" id="city" className="col-6">
+                                    {/* <select name="city" id="city" className="col-6">
                                         <option value="India">Mumbai</option>
                                         <option value="India">Delhi</option>
-                                    </select>
+                                    </select> */}
                                 </div>
                                 <div className="row">
-                                    <input type="postal-code" name="postal-code" id="" placeholder="Postal Code" />
+                                    <input type="text" name="fullAddress" id="" placeholder="Full Address" />
+                                </div>
+                                <div className="row">
+                                    <input type="text" name="postal-code" id="" placeholder="Postal Code" />
+                                </div>
+                                <div className="row">
+                                    <input type="text" name="nearby-landmark" id="" placeholder="Nearby Landmark" />
+                                </div>
+                                <div className="row">
+                                    <textarea name="special_instructions" id="" placeholder="Special Instructions"></textarea>
+                                </div>
+                                <div className='row if-not'>
+                                    <p>If the product/quantity is not available Add multiple choice option</p>
+                                    <select>
+                                        <option>Remove it from my order</option>
+                                        <option>Cancel my order</option>
+                                        <option>Call and confirm</option>
+                                    </select>
                                 </div>
                                 <div className="row move">
                                     <div className="col-5">
                                         <button className="back" onClick={props.backBtn}>Back</button>
                                     </div>
                                     <div className="col-7">
-                                        <a className="continue" onClick={()=>{paument_popup_open(this)}}>Continue to shopping</a>
+                                        <button className="continue" >Proceed with Payment</button>
                                     </div>
                                 </div>
 
@@ -685,4 +716,4 @@ const tab_2 = (props) => {
     )
 }
 
-export default tab_2
+export default Tab_2

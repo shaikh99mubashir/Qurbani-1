@@ -3,11 +3,24 @@ import '../App.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Tabs from '../components/tabs';
-import Tab_1 from '../components/tab_1';
-import Tab_2 from '../components/tab_2';
+import Tab_1 from '../components/Tab_1';
+import Tab_2 from '../components/Tab_2';
 import Tab_3 from '../components/tab_3';
 
 const Book = () => {
+
+
+
+
+ //**************  Form Data Collection ********************************
+ let form_val_1 = {};
+//  form_val_1.quantity = 1;
+ function set_form_tab1(val) {
+
+   form_val_1 = val;
+   console.log(form_val_1)
+ }
+
 
   const [showDelivery, setShowDelivery] = useState(false);
 function toggleShowDelivery() {
@@ -29,7 +42,7 @@ function toggleShowDelivery() {
       setmyBool(3)
     }
     if(myBool == 1){
-      component =  <Tab_1 toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;
+      component =  <Tab_1 form_val_1={form_val_1} set_form_tab1={set_form_tab1} toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;
       activate = true;
     }else if(myBool == 2){
       component =  <Tab_2 backBtn={backBtn} toggleBool2={toggleBool2} showDelivery={showDelivery} />;
@@ -38,9 +51,8 @@ function toggleShowDelivery() {
       component =  <Tab_3 />;
       activate3 = true;
     }
-  
-  
 
+ 
 
   return (
     <>

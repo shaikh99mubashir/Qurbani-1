@@ -95,24 +95,57 @@ header .btns i {
   margin-right: 10px;
 }
 
-header .btns .currency-drop {
-  position: absolute;
-  top: 120%;
+.currency-popup {
+  position: fixed;
+  top: 0;
   right: 0;
   display: none;
-  width: 180px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-}
-header .btns .currency-drop select{
   width: 100%;
-  margin-top: 10px;
-}
-header .btns .currency-drop.active {
-  display: block;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
 
+.currency-popup .currency {
+  position: relative;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  width: 40%;
+  height: 28%;
+  box-shadow: 1px 1px 10px 0px #a3a3a39a;
+}
+.currency-popup .currency p {
+  font-size: 22px;
+  font-weight: 500;
+}
+.currency-popup .currency select {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #838181;
+  border-radius: 10px;
+}
+.currency-popup .currency select:focus {
+  border: 1.5px solid #838181;
+  outline: none;
+}
+.currency-popup.active {
+  display: flex;
+}
+.currency-popup .currency-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+}
 .popup {
   width: 100%;
   height: 100vh;
@@ -132,7 +165,6 @@ header .btns .currency-drop.active {
   height: 50%;
   background-color: #fff;
   border-radius: 10px;
-
 }
 
 main {
@@ -188,7 +220,6 @@ main.book {
 .hero .hero-features div i {
   font-size: 32px;
   color: var(--primary);
-  ;
 }
 
 .hero .hero-features div p {
@@ -203,13 +234,11 @@ main.book {
   text-decoration: none;
   color: #fff;
   background-color: var(--primary);
-  ;
   padding: 15px 30px;
 }
 
 h2 span {
   color: var(--primary);
-  ;
 }
 
 .about {
@@ -227,7 +256,6 @@ h2 span {
 
 .about .col-6 {
   margin: auto;
-
 }
 
 .about h3 {
@@ -247,13 +275,11 @@ h3 {
 
 h3 span {
   color: var(--primary);
-  ;
 }
 
 p.colored {
   font-size: 18px;
   color: var(--primary);
-  ;
   font-weight: 500;
 }
 
@@ -261,7 +287,6 @@ p.colored {
   padding: 20px 0 40px;
   gap: 2%;
   justify-content: center;
-
 }
 
 .product {
@@ -296,7 +321,6 @@ p.colored {
 
 .price {
   color: var(--primary);
-  ;
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 20px;
@@ -315,7 +339,6 @@ p.colored {
 
 .product:hover .buy-now {
   background-color: var(--primary);
-  ;
 }
 
 .feature {
@@ -344,7 +367,6 @@ p.colored {
 
 .numberBox {
   background-color: var(--primary);
-  ;
   color: #fff;
   display: flex;
   align-items: center;
@@ -381,7 +403,6 @@ p.colored {
 .icon-box {
   font-size: 55px;
   color: var(--primary);
-  ;
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -467,7 +488,6 @@ p.colored {
 
 .benifit h4 {
   color: var(--primary);
-  ;
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 20px;
@@ -513,7 +533,6 @@ p.colored {
 .CTA .row .col-12 h3 {
   color: #fff;
   font-size: 34px;
-
 }
 
 .CTA .row .col-12 p {
@@ -572,7 +591,6 @@ footer .container .socials i {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .copyright p {
@@ -580,8 +598,6 @@ footer .container .socials i {
   margin: 30px 0 0;
   color: #fff;
 }
-
-
 
 /* book page */
 .breadcrumb {
@@ -598,7 +614,6 @@ footer .container .socials i {
   text-align: center;
   margin-top: 40px;
   color: #abacad;
-
 }
 
 .tab-1 {
@@ -619,13 +634,10 @@ footer .container .socials i {
 
 .tabs .col-4.active {
   border-bottom: 3px solid var(--primary);
-  ;
   color: var(--primary);
-  ;
 }
 
 .tabs i {
-
   font-size: 24px;
 }
 
@@ -662,28 +674,29 @@ footer .container .socials i {
 }
 
 .delivery_info .options {
-  padding: 25px;
+  padding: 50px;
   background-color: #fff;
   margin-bottom: 20px;
 }
 
-.delivery_info .options .col-7 {
+/* .delivery_info .options .col-7 {
   padding-right: 5%;
   border-right: 1px solid #a3a3a3;
-}
+} */
 
 .delivery_info .options p.step {
   font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 18px;
 }
 
 .delivery_info .options p.step span {
   font-size: 20px;
   color: var(--primary);
-  ;
   margin-right: 5px;
 }
 
-.delivery_info .options ul {
+/* .delivery_info .options ul {
   list-style-type: none;
   padding-left: 0;
 }
@@ -731,26 +744,37 @@ label img {
   transform-origin: 50% 50%;
 }
 
-.check-animal:checked+label {
+.check-animal:checked + label {
   border-color: #ddd;
   background-color: var(--primary);
-  ;
 }
 
-.check-animal:checked+label:before {
+.check-animal:checked + label:before {
   content: "✓";
   background-color: grey;
   transform: scale(1);
 }
 
-.check-animal:checked+label img {
+.check-animal:checked + label img {
   transform: scale(0.9);
-  /* box-shadow: 0 0 5px #333; */
+  box-shadow: 0 0 5px #333;
   z-index: -1;
   filter: invert(1);
+} */
+select {
+  width: 100%;
+  padding: 8px 25px 8px 5px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.step-1 select,
+#zabiha-type select {
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
 
-.delivery_info .options .step-2 {
+.delivery-type,
+.step-3 {
   margin-bottom: 20px;
 }
 
@@ -760,9 +784,7 @@ label img {
 
 .delivery_info .options .step-2 input:checked {
   color: var(--primary);
-  ;
   background-color: var(--primary);
-  ;
 }
 
 /* Optional: Add some styling for better appearance */
@@ -794,7 +816,6 @@ label img {
   justify-content: center;
   border-radius: 3px;
   color: var(--primary);
-  ;
   font-size: 12px;
 }
 
@@ -819,7 +840,6 @@ label img {
 .total-price {
   margin-top: 25px;
   color: var(--primary);
-  ;
   font-weight: 600;
 }
 
@@ -829,26 +849,42 @@ label img {
   margin-top: 20px;
   color: #fff;
   background-color: var(--primary);
-  ;
   padding: 8px;
 }
 
 .cutomer_info .options {
-
   margin-bottom: 20px;
 }
-
+.react-tel-input .form-control {
+  width: 100% !important;
+  font-size: 16px !important;
+  height: auto !important;
+}
+.react-tel-input {
+  padding: 0;
+}
+.form-control:focus{
+  box-shadow: none !important;
+}
 .row.tab-2 {
   gap: 3%;
 }
+.row.tab-2 textarea{
+  padding: 10px;  
+  border: 1px solid #abacad;
+  border-radius: 3px;
+}
+.row.tab-2 textarea:focus{
+  outline: none;
+}
 
-.row.tab-2>.col-7 {
+.row.tab-2 > .col-7 {
   width: 67%;
   background-color: #fff;
   padding: 25px 30px;
 }
 
-.row.tab-2>.col-5 {
+.row.tab-2 > .col-5 {
   width: 30%;
   background-color: #fff;
   padding: 25px 15px;
@@ -911,29 +947,35 @@ td.title {
 
 .cutomer_info .options .row .col-5 table .data {
   color: var(--primary);
-  ;
   padding-left: 30px;
-
 }
 
 .cutomer_info label {
   font-size: 18px;
   margin-bottom: 5px;
   color: #5a5a5a;
-
 }
 
 .cutomer_info input,
 .cutomer_info select {
   width: 100%;
   padding: 8px;
-  color: #abacad;
+  color: #868686;
   border: 1px solid #abacad;
   border-radius: 3px;
 }
-
-.cutomer_info input[type='checkbox'],
-.cutomer_info input[type='radio'] {
+.if-not{
+  margin-bottom: 30px;
+}
+.if-not p{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.tab-3 p{
+  margin-bottom: 50px;
+}
+.cutomer_info input[type="checkbox"],
+.cutomer_info input[type="radio"] {
   width: auto;
   margin-right: 10px;
 }
@@ -955,13 +997,11 @@ td.title {
   width: 100%;
   border: none;
   background-color: var(--primary);
-  ;
   color: #fff;
   padding: 7px;
   display: block;
   text-align: center;
   cursor: pointer;
-
 }
 
 .cutomer_info input:focus,
@@ -972,18 +1012,15 @@ td.title {
 .cutomer_info .row.login {
   text-align: right;
   font-size: 14px;
-
 }
 
 .cutomer_info .row.login a {
   color: var(--primary);
-  ;
 }
 
 .amount {
   font-size: 22px;
   color: var(--primary);
-  ;
 }
 
 /* track page css */
@@ -1004,12 +1041,10 @@ td.title {
 
 .track input:focus {
   outline: 1px solid var(--primary);
-  ;
 }
 
 .track input[type="submit"] {
   background-color: var(--primary);
-  ;
   border: none;
   color: #fff;
 }
@@ -1020,8 +1055,6 @@ td.title {
   font-size: 34px;
 }
 
-
-
 #zabiha-type input[type="radio"] {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
@@ -1030,14 +1063,14 @@ td.title {
   width: 1px;
 }
 
-#zabiha-type input[type="radio"]+label {
+#zabiha-type input[type="radio"] + label {
   border: 1px solid black;
   border-radius: 40px;
   display: inline-block;
-  margin: .7rem .5rem .2rem 0;
+  margin: 0.7rem 0.5rem 0.2rem 0;
   padding: 1rem 2rem;
   font-size: 16pxrem;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   line-height: 1;
   text-align: center;
   transition: border 0.6s ease;
@@ -1045,7 +1078,7 @@ td.title {
   position: relative;
 }
 
-#zabiha-type input[type="radio"]+label::before {
+#zabiha-type input[type="radio"] + label::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1054,12 +1087,10 @@ td.title {
   border-radius: 40px;
 }
 
-#zabiha-type input[type="radio"]:checked+label {
+#zabiha-type input[type="radio"]:checked + label {
   color: #fff;
   background: var(--primary);
-  ;
   border: var(--primary);
-  ;
 }
 
 .progressContainer {
@@ -1070,7 +1101,6 @@ td.title {
   padding: 30px;
   color: #000;
   height: auto;
-
 }
 
 .progress {
@@ -1091,7 +1121,6 @@ td.title {
   padding-left: 0.5rem;
   opacity: 0.7;
   padding-bottom: 40px;
-
 }
 
 .progress__item:before {
@@ -1102,7 +1131,6 @@ td.title {
   height: 100%;
   width: 1px;
   border-left: 2px solid var(--primary);
-  ;
 }
 
 .progress__item:after {
@@ -1132,7 +1160,6 @@ td.title {
 .progress__item.progress__item--completed {
   opacity: 1;
   color: var(--primary);
-  ;
 }
 
 .progress__item.progress__item--completed:after {
@@ -1140,10 +1167,7 @@ td.title {
   font-weight: 400;
   background: #fff;
   background-color: var(--primary);
-  ;
   border-color: var(--primary);
-  ;
-
 }
 
 .progress__item.progress__item--active:after {
@@ -1174,14 +1198,14 @@ td.title {
 }
 
 .delivery-type {
-  margin-top: 20px;
   height: 0px;
   overflow: hidden;
   transition: all 0.8s ease-in-out;
 }
 
 .delivery-type p {
-  margin-bottom: 5px;
+  margin-bottom: 0;
+  /* margin-top: -20px; */
 }
 
 .delivery-type select {
@@ -1200,7 +1224,6 @@ td.title {
 .textBold {
   text-align: right;
   color: var(--primary);
-  ;
 }
 
 .row.alive-slotter {
@@ -1253,7 +1276,6 @@ td.title {
   background-color: #fff;
   border-radius: 10px;
   padding: 20px 20px 30px;
-
 }
 
 .payment_popup p {
@@ -1272,7 +1294,6 @@ td.title {
 
 .payment_popup form label span {
   color: var(--primary);
-  ;
 }
 
 .payment_popup form input {
@@ -1288,7 +1309,6 @@ td.title {
   width: 100%;
   border: none;
   background-color: var(--primary);
-  ;
   color: #fff;
   padding: 7px;
   margin-top: 10px;
@@ -1303,7 +1323,6 @@ td.title {
   text-align: center;
   vertical-align: middle;
   background-color: var(--primary);
-  ;
   color: #fff;
   border-radius: 50px;
   cursor: pointer;
@@ -1330,14 +1349,14 @@ td.title {
   width: 1px;
 }
 
-.cow-shares input[type="radio"]+label {
+.cow-shares input[type="radio"] + label {
   border: 1px solid black;
   border-radius: 40px;
   display: inline-block;
-  margin: .7rem .5rem .2rem 0;
+  margin: 0.7rem 0.5rem 0.2rem 0;
   padding: 10px 13px;
   font-size: 16px;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   line-height: 1;
   text-align: center;
   transition: border 0.6s ease;
@@ -1345,7 +1364,7 @@ td.title {
   position: relative;
 }
 
-.cow-shares input[type="radio"]+label::before {
+.cow-shares input[type="radio"] + label::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1354,7 +1373,7 @@ td.title {
   border-radius: 40px;
 }
 
-.cow-shares input[type="radio"]:checked+label {
+.cow-shares input[type="radio"]:checked + label {
   color: #fff;
   background: var(--primary);
   border: var(--primary);
@@ -1393,14 +1412,14 @@ td.title {
   width: 1px;
 }
 
-.Cow_or_shares input[type="radio"]+label {
+.Cow_or_shares input[type="radio"] + label {
   border: 1px solid black;
   border-radius: 40px;
   display: inline-block;
-  margin: .7rem .5rem .2rem 0;
+  margin: 0.7rem 0.5rem 0.2rem 0;
   padding: 1rem 2rem;
   font-size: 16pxrem;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   line-height: 1;
   text-align: center;
   transition: border 0.6s ease;
@@ -1408,7 +1427,7 @@ td.title {
   position: relative;
 }
 
-.Cow_or_shares input[type="radio"]+label::before {
+.Cow_or_shares input[type="radio"] + label::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1417,14 +1436,38 @@ td.title {
   border-radius: 40px;
 }
 
-.Cow_or_shares input[type="radio"]:checked+label {
+.Cow_or_shares input[type="radio"]:checked + label {
   color: #fff;
   background: var(--primary);
   border: var(--primary);
 }
 
-@media screen and (max-width:600px) {
-  #zabiha-type input[type="radio"]+label {
+@media screen and (max-width: 600px) {
+  .hero h2 {
+    margin-top: 0px;
+  }
+  .CTA .row .col-12 p {
+    font-size: 16px;
+  }
+  .CTA .container {
+    height: auto;
+    padding: 40px 10px;
+  }
+  .CTA .row .col-12 h3 {
+    font-size: 26px;
+  }
+  .feature {
+    padding: 0 0 60px;
+  }
+  .product {
+    width: 100% !important;
+  }
+  .hero .row .col-6 .col-6 {
+    padding: 0 !important;
+    width: 50%;
+  }
+
+  #zabiha-type input[type="radio"] + label {
     width: 100%;
   }
 
@@ -1522,17 +1565,12 @@ td.title {
     margin-right: 10px;
   }
 
-  .delivery_info .options .col-7 {
-    padding-right: 15px;
-    border-right: none;
-  }
-
   .tab-1 .row {
     flex-direction: column;
   }
 
   main.book {
-    padding-top: 30%;
+    padding-top: 35%;
   }
 
   .hamburger {
@@ -1554,6 +1592,7 @@ td.title {
     position: fixed;
     z-index: 999;
     border-radius: 10px;
+    width: 95%;
   }
 
   header nav {
@@ -1565,7 +1604,7 @@ td.title {
     background-color: #fff;
     padding: 60px 0;
     transition: all 0.8s ease-in-out;
-
+    z-index: 99;
   }
 
   header nav.show {
@@ -1585,7 +1624,7 @@ td.title {
   }
 
   header .btns {
-    width: 20%;
+    width: 25%;
     margin-left: 25%;
   }
 
@@ -1628,12 +1667,12 @@ td.title {
   }
 
   h3 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .feature .temp-bg-feature {
     background-image: url(../src/img/features-image.jpg) !important;
-    height: 250px;
+    height: 280px;
     background-size: contain;
   }
 
@@ -1668,8 +1707,8 @@ td.title {
   .hero .row .col-6,
   .delivery_info .options .col-7,
   .delivery_info .options .col-5,
-  .row.tab-2>.col-7,
-  .row.tab-2>.col-5,
+  .row.tab-2 > .col-7,
+  .row.tab-2 > .col-5,
   .track form .row .col-8,
   .track form .row .col-4 {
     width: 100%;
