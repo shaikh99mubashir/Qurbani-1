@@ -5,6 +5,18 @@ import 'react-phone-input-2/lib/style.css';
 import { useForm } from "react-hook-form";
 
 const Tab_2 = (props) => {
+    console.log(props.formResetTab2)
+    if(props.formResetTab2){
+        let formreset = document.getElementById("form-tab-2");
+        formreset.reset();
+        props.set_FormResetTab2(false);
+      }
+
+    
+    function send_country(){
+        let country_val = document.querySelector(".country select");
+        props.set_delivery_charges(country_val);
+    }
     
     const {
         register,
@@ -32,7 +44,7 @@ const Tab_2 = (props) => {
         let alive_slotter = document.querySelector(".alive-slotter select");
         let country = document.querySelector("#country");
         if (alive_slotter.value == "Alive") {
-            country.innerHTML = "<option value='Pakistan'>Pakistan</option>"
+            country.innerHTML = "<option>Select Your Country</option><option value='Pakistan'>Pakistan</option>"
         }
         else {
             country.innerHTML = `
@@ -341,7 +353,7 @@ const Tab_2 = (props) => {
 
 
             <div className="tab-2 cutomer_info">
-                <form method="post" onSubmit={handleSubmit(onSubmit)}>
+                <form method="post" onSubmit={handleSubmit(onSubmit)} id='form-tab-2'>
                     <div className="container options">
                         <div className="row tab-2">
                             <div className="col-7">
@@ -352,10 +364,12 @@ const Tab_2 = (props) => {
                                     <input type="text" {...register("name")} placeholder="Full Name" required />
                                 </div>
                                 <div className="row contact">
+                                <label>Contact Number:</label>
                                 <input type='hidden' id='hiddenContact' name='contact' {...register("contact")} value={contact} />
                                     <PhoneInput onChange={()=>{set_Contact()}} country={'pk'} placeholder="Contact Number" />
                                 </div>
                                 <div className="row altContact">
+                                <label>Alternate Contact Number:</label>
                                     <input type='hidden' id='hiddenAltContact' {...register("alternate_contact")} name='alternate_contact' value={altContact} />
                                     <PhoneInput onChange={()=>{setaltcontact()}} country={'pk'}  placeholder="Alternate Contact Number" />
                                 </div>
@@ -384,7 +398,7 @@ const Tab_2 = (props) => {
 
                                     <p>Select Slotter or Alive</p>
 
-                                    <select onChange={() => { countryDrop() }} {...register("slotter_Alive")}>
+                                    <select {...register("slotter_Alive")} onChange={() => { countryDrop() }}>
                                         <option>
                                             Select Slotter or Alive
                                         </option>
@@ -399,8 +413,8 @@ const Tab_2 = (props) => {
                                 </div>
                                 <h3>Delivery Address Details</h3>
                                 
-                                <div className="row">
-                                    <select name="country" id="country" className="col-12" {...register("country")}>
+                                <div className="row country">
+                                    <select {...register("country")} onChange={()=>{send_country()}} name="country" id="country" className="col-12" >
                                         country.innerHTML = `
                                         <option>Select Your Country</option>
                                         <option value="Afghanistan">Afghanistan</option>
@@ -714,13 +728,17 @@ const Tab_2 = (props) => {
                                             <td className="title">Distribute or Delivery:</td>
                                             <td className="data">{props.form_val_1.distribute_or_delivery}</td>
                                         </tr>
+                                        <tr>
+                                            <td className="title">Price:</td>
+                                            <td className="data">{props.form_val_1.price}</td>
+                                        </tr>
                                         {/* <tr>
                                             <td className="title">Order Date:</td>
                                             <td className="data">27 February, 2024</td>
                                         </tr> */}
                                         <tr>
                                             <td className="title">Delivery Charges:</td>
-                                            <td className="data">27 February, 2024</td>
+                                            <td className="data">{props.dc}</td>
                                         </tr>
 
                                     </tbody>

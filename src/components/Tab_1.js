@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 // import cow from '../img/cow.png';
@@ -6,6 +6,13 @@ import { useForm } from "react-hook-form";
 // import sheep from '../img/sheep.png';
 
 const Tab_1 = (props) => {
+
+  if(props.formReset){
+    let formreset = document.getElementById("form-tab-1");
+    formreset.reset();
+    props.set_FormReset(false);
+  }
+  
   const {
     register,
     setValue,
@@ -13,7 +20,7 @@ const Tab_1 = (props) => {
     watch,
     formState: { errors },
   } = useForm();
-
+  setValue('price', props.price);
   const onSubmit = (data) => {
     let animal_type = document.getElementById("animal-type");
     let zabiha_type_val = document.getElementById("zabiha-type-val");
@@ -71,15 +78,13 @@ const Tab_1 = (props) => {
  
 
   
-  const [price, setPrice] = useState(0);
 
 
   function Cow_or_shares() {
     let Cow_or_shares = document.querySelector(".Cow_or_shares");
     let animal_val = document.querySelector(".step-1 select");
-    if(localStorage.getItem("currency") == "USD" && animal_val.value == "cow"){
-      setPrice(12);
-    }
+
+
     if (animal_val.value == "cow") {
       Cow_or_shares.classList.add("show");
     } else {
@@ -87,7 +92,11 @@ const Tab_1 = (props) => {
     }
     let delivery_charges = document.querySelector(".delivery-cherges");
       delivery_charges.style.display = "flex";
+     props.set_animal_price(animal_val.value);
   }
+
+
+
   function Cow_shares() {
     let cow_shares = document.querySelector(".cow-shares");
     let full_or_shares = document.querySelector(".Cow_or_shares select");
@@ -120,7 +129,7 @@ const Tab_1 = (props) => {
   return (
     <>
       <div className="tab-1 delivery_info">
-        <form method="post" onSubmit={handleSubmit(onSubmit)}>
+        <form method="post" id="form-tab-1" onSubmit={handleSubmit(onSubmit)}>
           {/* <div className="container fields">
                         <div className="row">
 
@@ -358,7 +367,10 @@ const Tab_1 = (props) => {
                     <p>Price:</p>
                   </div>
                   <div className="col-6">
-                    <p className="textBold">Rs 400</p>
+                    <p className="textBold">
+                    <input type='hidden' id='price' name='price' {...register("price")} value={props.price} />
+                    {props.price}
+                    </p>
                   </div>
                 </div>
                 {/* <div className="total-price text-center">

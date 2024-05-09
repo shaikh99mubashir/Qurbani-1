@@ -10,14 +10,21 @@ const Header = (props) => {
   }
   useEffect(()=>{
     console.log(currency)
+    loadprices();
+    loaddcs();
   }, [currency]);
+
+
+
   function change_currency(){
     let item = document.querySelector("#select-currency");
     localStorage.setItem("currency", item.value);
     setCurrency(item.value);
-    loadprices()
     currency_popup_close();
+    props.set_FormReset(true);
+    props.set_FormResetTab2(true);
   }
+  
   const [priceObj, setPriceObj] = useState({});
   async function loadprices() {
     const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
@@ -42,10 +49,37 @@ const Header = (props) => {
       });
     }
   }
-  // useEffect(()=>{
-  //   props.setprice(priceObj);
-  // }, );
-  // loadprices()
+  useEffect(()=>{
+    props.setprice(priceObj);
+  },[priceObj] );
+
+  
+  const [dcsObj, setdcsObj] = useState({});
+  async function loaddcs() {
+      const response = await fetch("https://myzabiha.com/web_app/public/api/delivery_charges");
+      const dcs = await response.json();
+      if(localStorage.getItem("currency") == "USD"){
+          setdcsObj({
+              local : dcs.int_usd,
+              int : dcs.local_usd,
+          });
+      } else if(localStorage.getItem("currency") == "PKR"){
+          setdcsObj({
+              local : dcs.int_pkr,
+              int : dcs.local_pkr,
+          });
+      }else if(localStorage.getItem("currency") == "AED"){
+          setdcsObj({
+              local : dcs.int_aed,
+              int : dcs.local_aed,
+          });
+      }
+  }
+  useEffect(()=>{
+    props.setDcs(dcsObj);
+  },[dcsObj] );
+
+
 
   function show_nav() {
     let nav = document.querySelector("header nav");

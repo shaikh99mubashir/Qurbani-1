@@ -954,6 +954,7 @@ td.title {
   font-size: 18px;
   margin-bottom: 5px;
   color: #5a5a5a;
+  padding-left: 0;
 }
 
 .cutomer_info input,

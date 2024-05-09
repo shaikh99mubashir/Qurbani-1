@@ -10,20 +10,82 @@ import Tab_3 from '../components/tab_3';
 
 const Book = () => {
 
+  const [formReset, setFormReset] = useState(false);
+  function set_FormReset(form_reset) {
+    setFormReset(form_reset);
+  }
+  useEffect(()=>{
+    // console.log(formReset);
+  }, [formReset]);
+
   const [prices, setPrices] = useState({});
   function setprice(func_prices) {
     setPrices(func_prices);
-  }
-  useEffect(() => {
-    console.log(prices);
+  };useEffect(() => {
+    // console.log(prices);
   }, [prices]);
+
+  const [price, setPrice] = useState(0);
+  useEffect(()=>{
+  },[price]);
+function set_animal_price(animal_val){
+  switch (animal_val) {
+    case "cow":
+      setPrice(prices.cow);
+      
+      break;
+    case "goat":
+      setPrice(prices.goat);
+      
+      break;
+    case "sheep":
+      setPrice(prices.sheep);
+      
+      break;
+  
+    default:
+      break;
+  }
+}
+
+const [dcs, setdcs] = useState({});
+  function setDcs(func_prices) {
+    setdcs(func_prices);
+  };useEffect(() => {
+    // console.log(dcs);
+  }, [dcs]);
+
+  const [dc, setdc] = useState(0);
+  useEffect(()=>{
+    // console.log(dc);
+  },[dc]);
+  function set_delivery_charges(country_val){
+    switch (country_val) {
+      case "Pakistan":
+        setdc(dcs.local);
+        
+        break;
+    
+      default:
+        setdc(dcs.int);
+        break;
+    }
+  }
+
+  const [formResetTab2, setFormResetTab2] = useState(false);
+  function set_FormResetTab2(form_reset) {
+    setFormResetTab2(form_reset);
+  }
+  useEffect(()=>{
+    console.log(formResetTab2);
+  }, [formResetTab2]);
+
   //**************  Form Data Collection ********************************
 
   const [form_val_1, set_form_val_1] = useState({});
   function set_form_tab1(val) {
     set_form_val_1(val);
-  }
-  useEffect(() => {
+  };useEffect(() => {
     // console.log(form_val_1);
   }, [form_val_1]);
 
@@ -93,10 +155,10 @@ const Book = () => {
     setmyBool(3)
   }
   if (myBool === 1) {
-    component = <Tab_1 form_val_1={form_val_1} set_form_tab1={set_form_tab1} toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;
+    component = <Tab_1 price={price} set_FormReset={set_FormReset} formReset={formReset} set_animal_price={set_animal_price} form_val_1={form_val_1} set_form_tab1={set_form_tab1} toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;
     activate = true;
   } else if (myBool === 2) {
-    component = <Tab_2 formData={formData} sendForm={sendForm} form_val_1={form_val_1} set_form_tab2={set_form_tab2} backBtn={backBtn} toggleBool2={toggleBool2} showDelivery={showDelivery} />;
+    component = <Tab_2 dc={dc} set_FormResetTab2={set_FormResetTab2} formResetTab2={formResetTab2} dcs={dcs} set_delivery_charges={set_delivery_charges} formData={formData} sendForm={sendForm} form_val_1={form_val_1} set_form_tab2={set_form_tab2} backBtn={backBtn} toggleBool2={toggleBool2} showDelivery={showDelivery} />;
     activate2 = true;
   } else if (myBool === 3) {
     component = <Tab_3 />;
@@ -107,7 +169,7 @@ const Book = () => {
 
   return (
     <>
-      <Header setprice={setprice} />
+      <Header setDcs={setDcs} set_FormReset={set_FormReset} set_FormResetTab2={set_FormResetTab2} setprice={setprice} />
       <main className="book">
         <div className="container breadcrumb">
           <div className="container">
