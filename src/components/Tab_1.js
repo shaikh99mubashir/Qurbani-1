@@ -401,4 +401,4 @@ const Tab_1 = (props) => {
   );
 };
 
-export default Tab_1;
+export default Tab_1
