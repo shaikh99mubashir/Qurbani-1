@@ -50,7 +50,9 @@ const Header = (props) => {
     }
   }
   useEffect(()=>{
+    if(window.location.href.includes("/book")){
     props.setprice(priceObj);
+    }
   },[priceObj] );
 
   
@@ -76,7 +78,9 @@ const Header = (props) => {
       }
   }
   useEffect(()=>{
+    if(window.location.href.includes("/book")){
     props.setDcs(dcsObj);
+    }
   },[dcsObj] );
 
 
