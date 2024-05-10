@@ -1,23 +1,12 @@
 import React, { useState } from 'react';
-import goat from '../img/goat.png';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { useForm } from "react-hook-form";
+import cow from '../img/cow.png';
+import goat from '../img/goat.png';
+import sheep from '../img/sheep.png';
 
 const Tab_2 = (props) => {
-    console.log(props.formResetTab2)
-    if(props.formResetTab2){
-        let formreset = document.getElementById("form-tab-2");
-        formreset.reset();
-        props.set_FormResetTab2(false);
-      }
-
-    
-    function send_country(){
-        let country_val = document.querySelector(".country select");
-        props.set_delivery_charges(country_val);
-    }
-    
     const {
         register,
         setValue,
@@ -39,6 +28,25 @@ const Tab_2 = (props) => {
         props.sendForm(props.formData);
         payment_submit();
       };
+
+    const renderText = () => {
+        if (props.form_val_1.animal == "goat") {
+          return goat;
+        } else if (props.form_val_1.animal == "sheep") {
+          return sheep;
+        }else{
+            return cow;
+        }
+      }
+    
+   
+    function send_country(){
+        let country_val = document.querySelector(".country select").value;
+        props.set_delivery_charges(country_val);
+        setValue('delivery_charges', props.dc);
+    }
+    
+    
 
     function countryDrop() {
         let alive_slotter = document.querySelector(".alive-slotter select");
@@ -682,8 +690,8 @@ const Tab_2 = (props) => {
                                 </div>
                                 <div className='row if-not'>
                                     <p>If the product/quantity is not available Add multiple choice option</p>
-                                    <select {...register("if-not", { required: true })} required >
-                                        <option disabled >Remove it from my order</option>
+                                    <select {...register("if-not")} required >
+                                        <option value={"Remove it from my order"}>Remove it from my order</option>
                                         <option value={"Cancel my order"}>Cancel my order</option>
                                         <option value={"Call and confirm"}>Call and confirm</option>
                                     </select>
@@ -702,7 +710,7 @@ const Tab_2 = (props) => {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td><img src={goat} alt="Sheep Icon" /></td>
+                                            <td><img src={renderText()}/> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary"> Order Summary</h3></td>
@@ -730,7 +738,10 @@ const Tab_2 = (props) => {
                                         </tr>
                                         <tr>
                                             <td className="title">Price:</td>
-                                            <td className="data">{props.form_val_1.price}</td>
+                                            <td className="data">
+                                            <input type='hidden' {...register("delivery_charges")}  value={props.form_val_1.price}/>
+                                            {props.form_val_1.price + " " + localStorage.getItem("currency")}
+                                            </td>
                                         </tr>
                                         {/* <tr>
                                             <td className="title">Order Date:</td>
@@ -738,15 +749,18 @@ const Tab_2 = (props) => {
                                         </tr> */}
                                         <tr>
                                             <td className="title">Delivery Charges:</td>
-                                            <td className="data">{props.dc}</td>
+                                            <td className="data">
+                                            {props.dc == 0 ? "Select Country For Delivery Charges": props.dc + " " + localStorage.getItem("currency")}
+                                            {/* {props.dc} */}
+                                            </td>
                                         </tr>
 
                                     </tbody>
                                 </table>
                                 <div style={{ marginTop: "30px", textAlign: "center" }}>
-                                    <div className="title">Total Payable</div>
+                                    <div className="title">Total Amount</div>
                                     <div className="amount">
-                                        ₹ 11,173.84
+                                        {(Number(props.form_val_1.price) * Number(props.form_val_1.quantity)) + Number(props.dc) + " " + localStorage.getItem("currency")}
                                     </div>
 
                                 </div>

@@ -364,12 +364,12 @@ const Tab_1 = (props) => {
                                         </div> */}
 
                   <div className="col-6">
-                    <p>Price:</p>
+                    <p>Price (Per Animal):</p>
                   </div>
                   <div className="col-6">
                     <p className="textBold">
                     <input type='hidden' id='price' name='price' {...register("price")} value={props.price} />
-                    {props.price}
+                    {props.price + " " + localStorage.getItem("currency")}
                     </p>
                   </div>
                 </div>

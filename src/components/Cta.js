@@ -5,7 +5,7 @@ import backimage2 from '../img/fresh.jpg';
 const Cta = () => {
   return (
     <>
-      <div className="CTA">
+      <div className="CTA" data-aos="fade-up">
         <div className="container" style={{ backgroundImage: `url(${backimage2})` }}>
           <div className="row">
             <div className="col-12">

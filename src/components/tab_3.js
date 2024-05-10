@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import cow from '../img/cow.png';
 import goat from '../img/goat.png';
+import sheep from '../img/sheep.png';
 
-const tab_3 = () => {
+const tab_3 = (props) => {
+    const renderText = () => {
+        if (props.form_val_1.animal == "goat") {
+          return goat;
+        } else if (props.form_val_1.animal == "sheep") {
+          return sheep;
+        }else{
+            return cow;
+        }
+      }
     return (
         <>
             <div className="tab-3 cutomer_info">
@@ -33,7 +44,7 @@ const tab_3 = () => {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td><img src={goat} alt="Sheep Icon" /></td>
+                                            <td><img src={renderText()}/> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary"> Order Summary</h3></td>
@@ -45,34 +56,42 @@ const tab_3 = () => {
                                     <tbody>
                                         <tr>
                                             <td className="title">Animal Type:</td>
-                                            <td className="data">Goat</td>
+                                            <td className="data">{props.form_val_1.animal}</td>
                                         </tr>
                                         <tr>
                                             <td className="title">Zabiha Type:</td>
-                                            <td className="data">Sadqah Zabiha</td>
+                                            <td className="data">{props.form_val_1.type}</td>
                                         </tr>
                                         <tr>
                                             <td className="title">Quantity:</td>
-                                            <td className="data">1</td>
+                                            <td className="data">{props.form_val_1.quantity}</td>
                                         </tr>
                                         <tr>
                                             <td className="title">Distribute or Delivery:</td>
-                                            <td className="data">Distribute</td>
+                                            <td className="data">{props.form_val_1.distribute_or_delivery}</td>
                                         </tr>
                                         <tr>
+                                            <td className="title">Price:</td>
+                                            <td className="data">{props.form_val_1.price + " " + localStorage.getItem("currency")}</td>
+                                        </tr>
+                                        {/* <tr>
                                             <td className="title">Order Date:</td>
                                             <td className="data">27 February, 2024</td>
-                                        </tr>
+                                        </tr> */}
                                         <tr>
                                             <td className="title">Delivery Charges:</td>
-                                            <td className="data">27 February, 2024</td>
+                                            <td className="data">
+                                            {props.dc + " " + localStorage.getItem("currency")}
+                                            {/* {props.dc} */}
+                                            </td>
                                         </tr>
+
                                     </tbody>
                                 </table>
                                 <div style={{ marginTop: "30px", textAlign: "center" }}>
-                                    <div className="title">Paid Amount</div>
+                                    <div className="title">Total Amount</div>
                                     <div className="amount">
-                                        ₹ 11,173.84
+                                        {(Number(props.form_val_1.price) * Number(props.form_val_1.quantity)) + Number(props.dc) + " " + localStorage.getItem("currency")}
                                     </div>
 
                                 </div>

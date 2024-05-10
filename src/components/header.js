@@ -22,7 +22,10 @@ const Header = (props) => {
     setCurrency(item.value);
     currency_popup_close();
     props.set_FormReset(true);
-    props.set_FormResetTab2(true);
+    if(window.location.href.includes("/book")){
+      props.backBtn();
+      props.set_FormReset(false);
+    }
   }
   
   const [priceObj, setPriceObj] = useState({});
@@ -62,23 +65,24 @@ const Header = (props) => {
       const dcs = await response.json();
       if(localStorage.getItem("currency") == "USD"){
           setdcsObj({
-              local : dcs.int_usd,
-              int : dcs.local_usd,
+              local : dcs.local_usd,
+              int : dcs.int_usd,
           });
       } else if(localStorage.getItem("currency") == "PKR"){
           setdcsObj({
-              local : dcs.int_pkr,
-              int : dcs.local_pkr,
+              local : dcs.local_pkr,
+              int : dcs.int_pkr,
           });
       }else if(localStorage.getItem("currency") == "AED"){
           setdcsObj({
-              local : dcs.int_aed,
-              int : dcs.local_aed,
+              local : dcs.local_aed,
+              int : dcs.int_aed,
           });
       }
   }
   useEffect(()=>{
     if(window.location.href.includes("/book")){
+    console.log(dcsObj)
     props.setDcs(dcsObj);
     }
   },[dcsObj] );

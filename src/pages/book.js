@@ -60,6 +60,7 @@ const [dcs, setdcs] = useState({});
     // console.log(dc);
   },[dc]);
   function set_delivery_charges(country_val){
+    console.log(country_val)
     switch (country_val) {
       case "Pakistan":
         setdc(dcs.local);
@@ -98,6 +99,7 @@ const [dcs, setdcs] = useState({});
 
   const [formData, setFormData] = useState({});
   useEffect(() => {
+    console.log(form_val_2);
     setFormData({...form_val_1,...form_val_2})
   }, [form_val_2]);
 
@@ -161,7 +163,7 @@ const [dcs, setdcs] = useState({});
     component = <Tab_2 dc={dc} set_FormResetTab2={set_FormResetTab2} formResetTab2={formResetTab2} dcs={dcs} set_delivery_charges={set_delivery_charges} formData={formData} sendForm={sendForm} form_val_1={form_val_1} set_form_tab2={set_form_tab2} backBtn={backBtn} toggleBool2={toggleBool2} showDelivery={showDelivery} />;
     activate2 = true;
   } else if (myBool === 3) {
-    component = <Tab_3 />;
+    component = <Tab_3 dc={form_val_2.delivery_charges} form_val_1={form_val_1}/>;
     activate3 = true;
   }
 
@@ -169,7 +171,7 @@ const [dcs, setdcs] = useState({});
 
   return (
     <>
-      <Header setDcs={setDcs} set_FormReset={set_FormReset} set_FormResetTab2={set_FormResetTab2} setprice={setprice} />
+      <Header backBtn={backBtn} setDcs={setDcs} set_FormReset={set_FormReset} setprice={setprice} />
       <main className="book">
         <div className="container breadcrumb">
           <div className="container">

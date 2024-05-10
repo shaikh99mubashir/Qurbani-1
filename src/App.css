@@ -479,13 +479,24 @@ p.colored {
   max-width: 86px !important;
   overflow: hidden;
   padding: 30px;
-}
 
+}
+.col-4:nth-child(1) .benifit:nth-child(1) .icon, .col-4:nth-child(3) .benifit:nth-child(1) .icon{
+  padding: 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  /* max-width: 80px !important; */
+  overflow: visible;
+
+}
 .benifit .icon img {
   width: 45px;
   filter: invert(1);
 }
-
+.col-4:nth-child(1) .benifit:nth-child(1) .icon img, .col-4:nth-child(3) .benifit:nth-child(1) .icon img {
+  width: 80px;
+  filter: invert(0);
+}
 .benifit h4 {
   color: var(--primary);
   font-size: 18px;
@@ -617,7 +628,7 @@ footer .container .socials i {
 }
 
 .tab-1 {
-  margin-bottom: 10%;
+  margin-bottom: 60px;
 }
 
 .tabs .row {
@@ -1212,6 +1223,7 @@ td.title {
 .delivery-type select {
   width: 100%;
   padding: 8px 25px 8px 5px;
+  margin-bottom: 20px;
 }
 
 .delivery-type.show {
