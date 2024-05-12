@@ -3,13 +3,13 @@ import logo from "../img/zabiha-logo.png";
 import { Outlet, Link } from "react-router-dom";
 
 const Header = (props) => {
+  
   const [currency, setCurrency] = useState(localStorage.getItem("currency"));
   if(localStorage.getItem("currency") == null){
     localStorage.setItem("currency", "PKR");
     setCurrency("PKR");
   }
   useEffect(()=>{
-    console.log(currency)
     loadprices();
     loaddcs();
   }, [currency]);
@@ -82,7 +82,6 @@ const Header = (props) => {
   }
   useEffect(()=>{
     if(window.location.href.includes("/book")){
-    console.log(dcsObj)
     props.setDcs(dcsObj);
     }
   },[dcsObj] );

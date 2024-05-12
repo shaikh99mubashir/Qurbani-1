@@ -60,7 +60,6 @@ const [dcs, setdcs] = useState({});
     // console.log(dc);
   },[dc]);
   function set_delivery_charges(country_val){
-    console.log(country_val)
     switch (country_val) {
       case "Pakistan":
         setdc(dcs.local);
@@ -78,7 +77,6 @@ const [dcs, setdcs] = useState({});
     setFormResetTab2(form_reset);
   }
   useEffect(()=>{
-    console.log(formResetTab2);
   }, [formResetTab2]);
 
   //**************  Form Data Collection ********************************
@@ -99,7 +97,6 @@ const [dcs, setdcs] = useState({});
 
   const [formData, setFormData] = useState({});
   useEffect(() => {
-    console.log(form_val_2);
     setFormData({...form_val_1,...form_val_2})
   }, [form_val_2]);
 
@@ -109,6 +106,7 @@ const [dcs, setdcs] = useState({});
   let sendForm = async (formData) => {
     
       try {
+        console.log(formData)
         const response = await fetch('https://myzabiha.com/web_app/public/api/book_now', {
           method: 'POST',
           headers: {
@@ -149,12 +147,15 @@ const [dcs, setdcs] = useState({});
   let activate3 = false;
   function toggleBool() {
     setmyBool(2)
+    window.scrollTo(0, 0)
   }
   function backBtn() {
     setmyBool(1)
+    window.scrollTo(0, 0)
   }
   function toggleBool2() {
     setmyBool(3)
+    window.scrollTo(0, 0)
   }
   if (myBool === 1) {
     component = <Tab_1 price={price} set_FormReset={set_FormReset} formReset={formReset} set_animal_price={set_animal_price} form_val_1={form_val_1} set_form_tab1={set_form_tab1} toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;

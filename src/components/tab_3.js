@@ -5,6 +5,7 @@ import goat from '../img/goat.png';
 import sheep from '../img/sheep.png';
 
 const tab_3 = (props) => {
+console.log(props.dc);
     const renderText = () => {
         if (props.form_val_1.animal == "goat") {
           return goat;

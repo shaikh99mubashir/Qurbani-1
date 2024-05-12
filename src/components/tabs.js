@@ -16,7 +16,7 @@ const tabs = (props) => {
                         </div>
                         <div className={"col-4 " + ( props.activate[2] ? 'active': '')}>
                             <i className="fa-regular fa-credit-card"></i>
-                            <p>3. MAKE PAYMENT</p>
+                            <p>3. Order Placed</p>
                         </div>
                     </div>
                 </div>

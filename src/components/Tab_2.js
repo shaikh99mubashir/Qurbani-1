@@ -7,6 +7,7 @@ import goat from '../img/goat.png';
 import sheep from '../img/sheep.png';
 
 const Tab_2 = (props) => {
+   
     const {
         register,
         setValue,
@@ -16,8 +17,11 @@ const Tab_2 = (props) => {
       } = useForm();
       const onSubmit = (data) => {
         props.set_form_tab2(data);
+        console.log(data);
         paument_popup_open();
       }
+      
+      setValue('delivery_charges', props.dc);
 
       const {
         register: registerForm2,
@@ -43,7 +47,7 @@ const Tab_2 = (props) => {
     function send_country(){
         let country_val = document.querySelector(".country select").value;
         props.set_delivery_charges(country_val);
-        setValue('delivery_charges', props.dc);
+        
     }
     
     
@@ -305,7 +309,7 @@ const Tab_2 = (props) => {
         }
     }
     function paument_popup_open(){
-        let payment_modal = document.querySelector(".payment_modal").style.display = "flex"
+        let payment_modal = document.querySelector(".payment_modal").style.display = "flex";
     }
     function paument_popup_close(){
         let payment_modal = document.querySelector(".payment_modal").style.display = "none"
@@ -317,6 +321,7 @@ const Tab_2 = (props) => {
         if (card_code.value == "" || card_number.value == '' || expiry_date.value == '') {
             console.log("something is empty");
         }
+        
     }
     const [contact, setContact] = useState("");
     const [altContact, setAltContact] = useState("");
@@ -749,7 +754,7 @@ const Tab_2 = (props) => {
                                         </tr> */}
                                         <tr>
                                             <td className="title">Delivery Charges:</td>
-                                            <td className="data">
+                                            <td className="data d-charges">
                                             {props.dc == 0 ? "Select Country For Delivery Charges": props.dc + " " + localStorage.getItem("currency")}
                                             {/* {props.dc} */}
                                             </td>

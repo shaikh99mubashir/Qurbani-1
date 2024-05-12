@@ -68,7 +68,7 @@ header nav ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  width: 400px;
   list-style: none;
   margin: auto;
 }
@@ -113,7 +113,7 @@ header .btns i {
   padding: 25px;
   border-radius: 15px;
   width: 40%;
-  height: 28%;
+  height: 180px;
   box-shadow: 1px 1px 10px 0px #a3a3a39a;
 }
 .currency-popup .currency p {
@@ -590,6 +590,7 @@ footer .container ul li a {
 
 footer .container .socials {
   display: flex;
+  gap: 15px;
 }
 
 footer .container .socials i {
@@ -1274,7 +1275,7 @@ td.title {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1456,6 +1457,13 @@ td.title {
 }
 
 @media screen and (max-width: 600px) {
+  .delivery_info .options {
+    padding: 25px 30px;
+  }
+  .currency-popup .currency{
+    width: 90%;
+    height: 20%;
+  }
   .hero h2 {
     margin-top: 0px;
   }
@@ -1519,12 +1527,12 @@ td.title {
   .cutomer_info .options .row .row div.col-6 {
     padding: 0;
   }
-
+/* 
   input[type="number"][name="recipient_number"],
   input[type="email"],
   input[type="postal-code"] {
     margin-top: -22px;
-  }
+  } */
 
   .row.move .col-5,
   .row.move .col-7 {
