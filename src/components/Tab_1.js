@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import cow from '../img/cow.png';
 // import goat from '../img/goat.png';
 // import sheep from '../img/sheep.png';
@@ -24,16 +26,15 @@ const Tab_1 = (props) => {
   const onSubmit = (data) => {
     let animal_type = document.getElementById("animal-type");
     let zabiha_type_val = document.getElementById("zabiha-type-val");
-    let quantity = document.getElementById("quantity");
     let delivery_type = document.getElementById("delivery-type");
-    if (
-      animal_type.value === "Select Your Animal" ||
-      zabiha_type_val.value === "Choose Your Qurbani Type" ||
-      quantity.value === "" ||
-      delivery_type.value === "Select Distribute or Delivery"
-    ) {
-      alert("Please select the value");
-    } else {
+
+    if (animal_type.value === "Select Your Animal") {
+      toast.error("Please Select Animal");
+    }else if (zabiha_type_val.value === "Choose Your Qurbani Type") {
+      toast.error("Please Select Qurbani Type");
+    }else if (delivery_type.value === "Select Distribute or Delivery") {
+      toast.error("Please Select Distribute or Delivery");
+    }else {
       props.toggleBool();
       props.set_form_tab1(data);
     }
@@ -319,7 +320,7 @@ const Tab_1 = (props) => {
                 </div>
                 <div className="step-3">
                   <p className="step">
-                    <span>Step 4</span> Quantity
+                    <span>Step 3</span> Quantity
                   </p>
                   <div className="quantity-container">
                     <div
@@ -376,15 +377,17 @@ const Tab_1 = (props) => {
                 {/* <div className="total-price text-center">
                   Total : Rs 37,976.36
                 </div> */}
-                <div className="proceed">
+                <div className="forward">
                   {/* props.toggleBool */}
 
                   <button
                     type="submit"
                     // onClick={()=>{form_submit()}}
+                    className="forward-btn"
                   >
                     Proceed With Payment
                   </button>
+                  <ToastContainer />
                 </div>
               </div>
               {/* <div className="col-5">

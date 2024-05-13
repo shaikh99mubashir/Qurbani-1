@@ -11,7 +11,18 @@ const Featured = () => {
           <div className="row products">
             <div className="col-3 product" data-aos="fade-up">
               <div className="pro-title">
-                1. Convenience
+                1. Facilitate Qurbani for Overseas Pakistanis
+              </div>
+              <div className="category">
+                Provide a user-friendly platform for overseas Pakistanis to fulfill their Qurbani obligations easily and conveniently.
+              </div>
+              {/* <div className="price">
+                Rs 7,595.27
+              </div> */}
+            </div>
+            <div className="col-3 product" data-aos="fade-up">
+              <div className="pro-title">
+                2. Convenience
               </div>
               <div className="category">
                 My Zabiha brings the Qurbani process to your fingertips. Browse, select, and purchase your sacrificial animal directly through the app.
@@ -25,7 +36,7 @@ const Featured = () => {
            <Product /> */}
             <div className="col-3 product" data-aos="fade-up">
               <div className="pro-title">
-                2. Variety
+                3. Variety
               </div>
               <div className="category">
                 Choose from a wide range of healthy and well-maintained animals for your specific needs and budget.
@@ -37,7 +48,7 @@ const Featured = () => {
             </div>
             <div className="col-3 product" data-aos="fade-up">
               <div className="pro-title">
-                3. Ethical Sourcing
+                4. Ethical Sourcing
               </div>
               <div className="category">
                 We prioritize ethical sourcing, ensuring animals are treated with care and respect throughout the process.
@@ -48,7 +59,7 @@ const Featured = () => {
             </div>
             <div className="col-3 product" data-aos="fade-up">
               <div className="pro-title">
-                4. Streamlined Sacrifice
+                5. Streamlined Sacrifice
               </div>
               <div className="category">
                 Choose from a wide range of healthy and well-maintained animals for your specific needs and budget.
@@ -60,7 +71,7 @@ const Featured = () => {
             </div>
             <div className="col-3 product" data-aos="fade-up">
               <div className="pro-title">
-                5. Accountability
+                6. Accountability
               </div>
               <div className="category">
                 Track the status of your Qurbani and receive updates throughout the process.

@@ -5,52 +5,79 @@ import { useForm } from "react-hook-form";
 import cow from '../img/cow.png';
 import goat from '../img/goat.png';
 import sheep from '../img/sheep.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Tab_2 = (props) => {
-   
+
     const {
         register,
         setValue,
         handleSubmit,
         watch,
         formState: { error },
-      } = useForm();
-      const onSubmit = (data) => {
-        props.set_form_tab2(data);
-        console.log(data);
-        paument_popup_open();
-      }
-      
-      setValue('delivery_charges', props.dc);
+    } = useForm();
+    const onSubmit = (data) => {
+        let name = document.querySelector("#full-name");
+        let contact = document.querySelector(".contact input[type='hidden']");
+        let email = document.querySelector("#email");
+        let country = document.querySelector("#country");
+        let address = document.querySelector("#address");
+        let postal_code = document.querySelector("#postal-code");
+        let nearby_landmark = document.querySelector("#nearby-landmark");
 
-      const {
+        if (name.value === "") {
+            toast.error("Please Add Your Full Name");
+        }else if (contact.value.length < 6 ) {
+            toast.error("Please add you correct phone number");
+        }else if (email.value === "") {
+            toast.error("Please add your email address");
+        }else if (country.value === "Select Your Country") {
+            toast.error("Please Select Your Country");
+        }else if (address.value === "") {
+            toast.error("Please add your address");
+        }else if (postal_code.value === "") {
+            toast.error("Please add your postal code");
+        }else if (nearby_landmark.value === "") {
+            toast.error("Please add your nearby landmark");
+        }
+        else {
+            props.set_form_tab2(data);
+            console.log(data);
+            paument_popup_open();
+        }
+    }
+
+    setValue('delivery_charges', props.dc);
+
+    const {
         register: registerForm2,
         handleSubmit: handleSubmitForm2,
         formState: { errors: errorsForm2 }
-      } = useForm();
-      const onSubmitForm2 = (data) => {
+    } = useForm();
+    const onSubmitForm2 = (data) => {
         props.sendForm(props.formData);
         payment_submit();
-      };
+    };
 
     const renderText = () => {
         if (props.form_val_1.animal == "goat") {
-          return goat;
+            return goat;
         } else if (props.form_val_1.animal == "sheep") {
-          return sheep;
-        }else{
+            return sheep;
+        } else {
             return cow;
         }
-      }
-    
-   
-    function send_country(){
+    }
+
+
+    function send_country() {
         let country_val = document.querySelector(".country select").value;
         props.set_delivery_charges(country_val);
-        
+
     }
-    
-    
+
+
 
     function countryDrop() {
         let alive_slotter = document.querySelector(".alive-slotter select");
@@ -308,24 +335,24 @@ const Tab_2 = (props) => {
             `
         }
     }
-    function paument_popup_open(){
+    function paument_popup_open() {
         let payment_modal = document.querySelector(".payment_modal").style.display = "flex";
     }
-    function paument_popup_close(){
+    function paument_popup_close() {
         let payment_modal = document.querySelector(".payment_modal").style.display = "none"
     }
-    function payment_submit(){
+    function payment_submit() {
         let card_number = document.getElementById("card_number");
         let expiry_date = document.getElementById("expiry_date");
         let card_code = document.getElementById("card_code");
         if (card_code.value == "" || card_number.value == '' || expiry_date.value == '') {
             console.log("something is empty");
         }
-        
+
     }
     const [contact, setContact] = useState("");
     const [altContact, setAltContact] = useState("");
-    function setaltcontact(){
+    function setaltcontact() {
         let item = document.querySelector(".altContact input[type='tel']");
         let hiddenAlt = document.querySelector("#hiddenAltContact");
         setAltContact(item.value);
@@ -333,7 +360,7 @@ const Tab_2 = (props) => {
         const newValue = altContact;
         setValue('alternate_contact', newValue);
     }
-    function set_Contact(){
+    function set_Contact() {
         let item = document.querySelector(".contact input[type='tel']");
         let hiddenContact = document.querySelector("#hiddenContact");
         setContact(item.value);
@@ -346,17 +373,17 @@ const Tab_2 = (props) => {
 
             <div className='payment_modal'>
                 <div className='payment_popup'>
-                    <div className='payment_popup_close' onClick={()=>{paument_popup_close()}}> 
-                <i className="fa-solid fa-xmark"></i>
-                </div>
+                    <div className='payment_popup_close' onClick={() => { paument_popup_close() }}>
+                        <i className="fa-solid fa-xmark"></i>
+                    </div>
                     <p>Pay with your credit card via Stripe.</p>
                     <form onSubmit={handleSubmitForm2(onSubmitForm2)}>
                         <label htmlFor='card_number'>Card Number <span>*</span></label>
-                        <input type='text' name='card_number' id='card_number' placeholder='1234 1234 1234 1234' maxLength={16} required/>
+                        <input type='text' name='card_number' id='card_number' placeholder='1234 1234 1234 1234' maxLength={16} required />
                         <label htmlFor='expiry_date'>Expiry Date <span>*</span></label>
-                        <input type='text' name='expiry_date' id='expiry_date' placeholder='MM / YY' maxLength={4} required/>
+                        <input type='text' name='expiry_date' id='expiry_date' placeholder='MM / YY' maxLength={4} required />
                         <label htmlFor='card_code'>Card Code <span>*</span></label>
-                        <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required/>
+                        <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required />
                         <button className="continue" type='submit'>Continue to shopping</button>
 
                     </form>
@@ -374,20 +401,20 @@ const Tab_2 = (props) => {
                                 <h2>Order Delivery Information</h2>
                                 <h3>Customer Information</h3>
                                 <div className="row">
-                                    <input type="text" {...register("name")} placeholder="Full Name" required />
+                                    <input type="text" id="full-name" {...register("name")} placeholder="Full Name" />
                                 </div>
                                 <div className="row contact">
-                                <label>Contact Number:</label>
-                                <input type='hidden' id='hiddenContact' name='contact' {...register("contact")} value={contact} />
-                                    <PhoneInput onChange={()=>{set_Contact()}} country={'pk'} placeholder="Contact Number" />
+                                    <label>Contact Number:</label>
+                                    <input type='hidden' id='hiddenContact' name='contact' {...register("contact")} value={contact} />
+                                    <PhoneInput onChange={() => { set_Contact() }} country={'pk'} id="contact" placeholder="Contact Number" />
                                 </div>
                                 <div className="row altContact">
-                                <label>Alternate Contact Number:</label>
+                                    <label>Alternate Contact Number:</label>
                                     <input type='hidden' id='hiddenAltContact' {...register("alternate_contact")} name='alternate_contact' value={altContact} />
-                                    <PhoneInput onChange={()=>{setaltcontact()}} country={'pk'}  placeholder="Alternate Contact Number" />
+                                    <PhoneInput onChange={() => { setaltcontact() }} country={'pk'} id="alt-contact" placeholder="Alternate Contact Number" />
                                 </div>
                                 <div className="row">
-                                    <input type="email" {...register("email")} placeholder="Email Address" required />
+                                    <input type="email" {...register("email")} id="email" placeholder="Email Address" />
                                 </div>
                                 {/* <div className="row">
                                     <div className="col-6">
@@ -425,9 +452,9 @@ const Tab_2 = (props) => {
 
                                 </div>
                                 <h3>Delivery Address Details</h3>
-                                
+
                                 <div className="row country">
-                                    <select {...register("country")} onChange={()=>{send_country()}} name="country" id="country" className="col-12" >
+                                    <select {...register("country")} onChange={() => { send_country() }} name="country" id="country" className="col-12" >
                                         country.innerHTML = `
                                         <option>Select Your Country</option>
                                         <option value="Afghanistan">Afghanistan</option>
@@ -682,20 +709,20 @@ const Tab_2 = (props) => {
                                     </select> */}
                                 </div>
                                 <div className="row">
-                                    <input type="text" name="fullAddress" id="" placeholder="Full Address" {...register("full_address")} required />
+                                    <input type="text" name="fullAddress" id="address" placeholder="Full Address" {...register("full_address")} />
                                 </div>
                                 <div className="row">
-                                    <input type="text" name="postal_code" id="" placeholder="Postal Code" {...register("postal_address")} required />
+                                    <input type="text" name="postal_code" id="postal-code" placeholder="Postal Code" {...register("postal_address")} />
                                 </div>
                                 <div className="row">
-                                    <input type="text" name="nearby_landmark" id="" placeholder="Nearby Landmark" {...register("nearby_landmark")} />
+                                    <input type="text" name="nearby_landmark" id="nearby-landmark" placeholder="Nearby Landmark" {...register("nearby_landmark")} />
                                 </div>
                                 <div className="row">
                                     <textarea name="special_instructions" id="" placeholder="Special Instructions" {...register("special_instructions")}></textarea>
                                 </div>
                                 <div className='row if-not'>
                                     <p>If the product/quantity is not available Add multiple choice option</p>
-                                    <select {...register("if-not")} required >
+                                    <select {...register("if-not")} >
                                         <option value={"Remove it from my order"}>Remove it from my order</option>
                                         <option value={"Cancel my order"}>Cancel my order</option>
                                         <option value={"Call and confirm"}>Call and confirm</option>
@@ -707,6 +734,7 @@ const Tab_2 = (props) => {
                                     </div>
                                     <div className="col-7">
                                         <button className="continue" >Proceed with Payment</button>
+                                        <ToastContainer />
                                     </div>
                                 </div>
 
@@ -715,7 +743,7 @@ const Tab_2 = (props) => {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td><img src={renderText()}/> </td>
+                                            <td><img src={renderText()} /> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary"> Order Summary</h3></td>
@@ -744,8 +772,8 @@ const Tab_2 = (props) => {
                                         <tr>
                                             <td className="title">Price:</td>
                                             <td className="data">
-                                            <input type='hidden' {...register("delivery_charges")}  value={props.form_val_1.price}/>
-                                            {props.form_val_1.price + " " + localStorage.getItem("currency")}
+                                                <input type='hidden' {...register("delivery_charges")} value={props.form_val_1.price} />
+                                                {props.form_val_1.price + " " + localStorage.getItem("currency")}
                                             </td>
                                         </tr>
                                         {/* <tr>
@@ -755,8 +783,8 @@ const Tab_2 = (props) => {
                                         <tr>
                                             <td className="title">Delivery Charges:</td>
                                             <td className="data d-charges">
-                                            {props.dc == 0 ? "Select Country For Delivery Charges": props.dc + " " + localStorage.getItem("currency")}
-                                            {/* {props.dc} */}
+                                                {props.dc == 0 ? "Select Country For Delivery Charges" : props.dc + " " + localStorage.getItem("currency")}
+                                                {/* {props.dc} */}
                                             </td>
                                         </tr>
 
