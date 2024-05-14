@@ -19,7 +19,8 @@ const track = () => {
                             <form action="">
                                 <div className="row">
                                     <div className="col-8">
-                                        <input type="text" name="track" id="track" />
+                                        <input type="text" name="track" id="track" placeholder='Enter your order 
+                                        ID'/>
                                     </div>
                                     <div className="col-4">
                                         <input type="submit" value="Track Order" />

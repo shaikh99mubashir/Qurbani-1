@@ -178,14 +178,15 @@ main.book {
 .hero {
   width: 100%;
   height: 100vh;
-  background: url(img/slide-bg.png);
+  /* background: url(img/slide-bg.png); */
   background-size: cover;
   display: flex;
   align-items: center;
+  color: #fff;
 }
 
 .hero h2 {
-  color: #3a3a3a;
+  color: #fff;
   font-size: 46px !important;
   font-weight: 500;
   line-height: 52px;
@@ -249,8 +250,8 @@ h2 span {
 
 .about img {
   width: 100%;
-  height: 470px;
-  object-fit: cover;
+  height: 380px;
+  object-fit: contain;
   object-position: bottom;
 }
 
@@ -350,12 +351,14 @@ p.colored {
 .feature .temp-bg-feature {
   margin: auto;
   width: 100%;
-  height: 420px;
-  background-size: cover;
+  height: 320px;
+  background-size: contain;
   background-position: bottom center;
   background-repeat: no-repeat;
 }
-
+.temp-bg-feature.mob{
+display: none;
+}
 .feature .container .row {
   margin: 40px 0;
   /* margin-top: -40px; */
@@ -512,7 +515,7 @@ p.colored {
 
 .CTA .container {
   height: 430px;
-  background: url(img/CTA-bg.png) no-repeat center;
+  /* background: url(img/CTA-bg.png) no-repeat center; */
   background-size: cover;
   position: relative;
   display: flex;
@@ -520,6 +523,7 @@ p.colored {
   justify-content: center;
   padding: 20px;
   border-radius: 30px;
+  background-position: center;
 }
 
 .CTA .container::before {
@@ -1467,6 +1471,12 @@ td.title {
 }
 
 @media screen and (max-width: 600px) {
+  .temp-bg-feature.mob{
+    display: block;
+    }
+    .temp-bg-feature.desk{
+      display: none;
+      }
   div.row.delivery-cherges{
     flex-direction: row;
   }
@@ -1705,7 +1715,7 @@ td.title {
   }
 
   .feature .temp-bg-feature {
-    background-image: url(../src/img/features-image.jpg) !important;
+    /* background-image: url(../src/img/features-image.jpg) !important; */
     height: 280px;
     background-size: contain;
   }

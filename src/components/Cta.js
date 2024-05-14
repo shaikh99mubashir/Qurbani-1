@@ -1,6 +1,6 @@
 import React from 'react'
 // import backimage from '../img/cta-banner.jpg';
-import backimage2 from '../img/fresh.jpg';
+import backimage2 from '../img/cta.jpg';
 
 const Cta = () => {
   return (

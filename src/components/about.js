@@ -1,5 +1,5 @@
 import React from 'react'
-import left_image from '../img/post.avif';
+import left_image from '../img/about.png';
 
 const About = () => {
   return (
