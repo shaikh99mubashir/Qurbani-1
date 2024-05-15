@@ -30,27 +30,33 @@ const Header = (props) => {
   
   const [priceObj, setPriceObj] = useState({});
   async function loadprices() {
-    const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
-    const prices = await response.json();
-    if (localStorage.getItem("currency") == "USD") {
-      setPriceObj({
-        cow : prices.cow_usd,
-        goat : prices.goat_usd,
-        sheep : prices.sheep_usd
-      });
-    }else if (localStorage.getItem("currency") == "PKR"){
-      setPriceObj({
-        cow : prices.cow_pkr,
-        goat : prices.goat_pkr,
-        sheep : prices.sheep_pkr
-      });
-    }else if(localStorage.getItem("currency") == "AED"){
-      setPriceObj({
-        cow : prices.cow_aed,
-        goat : prices.goat_aed,
-        sheep : prices.sheep_aed
-      });
+    try {
+      const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
+      const prices = await response.json();
+      if (localStorage.getItem("currency") == "USD") {
+        setPriceObj({
+          cow : prices.cow_usd,
+          goat : prices.goat_usd,
+          sheep : prices.sheep_usd
+        });
+      }else if (localStorage.getItem("currency") == "PKR"){
+        setPriceObj({
+          cow : prices.cow_pkr,
+          goat : prices.goat_pkr,
+          sheep : prices.sheep_pkr
+        });
+      }else if(localStorage.getItem("currency") == "AED"){
+        setPriceObj({
+          cow : prices.cow_aed,
+          goat : prices.goat_aed,
+          sheep : prices.sheep_aed
+        });
+      }
+    } catch (error) {
+      alert("Sorry for the inconvenience, We Are facing some issues from Server");
     }
+
+   
   }
   useEffect(()=>{
     if(window.location.href.includes("/book")){
@@ -61,6 +67,7 @@ const Header = (props) => {
   
   const [dcsObj, setdcsObj] = useState({});
   async function loaddcs() {
+    try{
       const response = await fetch("https://myzabiha.com/web_app/public/api/delivery_charges");
       const dcs = await response.json();
       if(localStorage.getItem("currency") == "USD"){
@@ -79,6 +86,9 @@ const Header = (props) => {
               int : dcs.int_aed,
           });
       }
+    } catch (error) {
+      alert("Sorry for the inconvenience, We Are facing some issues from Server");
+    }
   }
   useEffect(()=>{
     if(window.location.href.includes("/book")){
