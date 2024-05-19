@@ -14,7 +14,7 @@ const About = () => {
               <h3>About <span>My Zabiha</span></h3>
               {/* <p className="colored">"CREED Qurbani is ardent about providing the best quality meat for your religious and
                 personal needs "</p> */}
-              <p>My Zabiha is designed to streamline the Qurbani experience for everyone, especially overseas Pakistanis. We cater to all your <span className='colored'>Qurbani needs,</span><strong> facilitating the selection, sacrifice, and distribution of your Qurbani animal on your behalf.</strong>  In addition, we manage<span className='colored'> Aqiqah</span> and <span className='colored'>Sadaqah</span> arrangements.</p>
+              <p>My Zabiha is designed to streamline the Qurbani experience for everyone, especially overseas. We cater to all your <span className='colored'>Qurbani needs,</span><strong> facilitating the selection, sacrifice, and distribution of your Qurbani animal on your behalf.</strong>  In addition, we manage<span className='colored'> Aqiqah</span> and <span className='colored'>Sadaqah</span> arrangements.</p>
 
               <h4>Our Mission:</h4>
               <ul>

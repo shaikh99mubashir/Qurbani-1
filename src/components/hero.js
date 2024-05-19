@@ -1,5 +1,7 @@
 import React from 'react'
 import backimage from '../img/banner.jpg';
+import delivery from '../img/deliver.png';
+import meat from '../img/meatico.png';
 
 const Hero = () => {
   return (
@@ -10,15 +12,15 @@ const Hero = () => {
             <div className="col-6" style={{padding: 0}}>
               <h2 data-aos="fade-right"><span className="">My Zabiha,</span><br /> Amplify your Faith</h2>
               <p data-aos="fade-right" data-aos-delay="200">Available for:</p>
-              <p data-aos="fade-right" data-aos-delay="200">Aqiqah, Sadaqah and Qurbani: Delivered Worldwide</p>
+              <p data-aos="fade-right" data-aos-delay="200">Qurbani, Aqiqah and Sadaqah: Delivered Worldwide</p>
               <div className="row hero-features" data-aos="fade-right" data-aos-delay="400">
                 <div className="col-6">
-                  <i className="fa-solid fa-cow"></i>
+                <img src={meat} alt="" />
                   <p>High-Quality (Cow, Goat, Sheep) Delivered Fresh </p>
                 </div>
                 <div className="col-6">
-                  <i className="fa-solid fa-box"></i>
-                  <p>Available for Nationwide and Overseas</p>
+                  <img src={delivery} alt="" />
+                  <p>Available for Worldwide and Overseas</p>
                 </div>
               </div>
   
@@ -29,7 +31,7 @@ const Hero = () => {
               <p data-aos="fade-right"  data-aos-delay="400">My Zabiha is a user-friendly application designed to streamline the Qurbani experience for everyone. Our application caters to all your Qurbani needs, facilitating Aqiqah, Sadaqah, and Qurbani animal selection and sacrifice arrangements.</p>
               <div className='mt2'></div> */}
 
-              <a href="/book" data-aos="fade-up" data-aos-delay="600">Book your Qurbani with us!</a>
+              <a href="/book" data-aos="fade-up" data-aos-delay="600" data-aos-offset="-200">Book your Qurbani with us!</a>
 
 
             </div>

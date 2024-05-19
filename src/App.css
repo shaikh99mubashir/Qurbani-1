@@ -45,6 +45,7 @@ header {
   justify-content: space-between;
   padding: 20px;
   background-color: #fff;
+  border-radius: 10px;
 }
 
 header .logo {
@@ -183,14 +184,15 @@ main.book {
   display: flex;
   align-items: center;
   color: #fff;
+  padding-top: 3%;
 }
 
 .hero h2 {
   color: #fff;
-  font-size: 46px !important;
+  font-size: 42px !important;
   font-weight: 500;
   line-height: 52px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   margin-top: 30px;
 }
 
@@ -217,10 +219,8 @@ main.book {
 .hero .hero-features div:nth-child(1) p {
   border-right: 1px solid #383838ce;
 }
-
-.hero .hero-features div i {
-  font-size: 32px;
-  color: var(--primary);
+.hero .hero-features div img {
+  width: 80px;
 }
 
 .hero .hero-features div p {

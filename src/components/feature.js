@@ -10,7 +10,7 @@ const Feature = () => {
       <div className="feature">
         <div className="container">
           <h3 style={{ textAlign: 'center' }} data-aos="fade-up">Follow the Steps and make <br />   your Qurbani <span>more Convenient.</span></h3>
-          <p data-aos="fade-up">My Zabiha is designed to streamline the Qurbani experience for everyone. We caters to all your needs, facilitating Aqiqah,<br />  Sadaqah, and Qurbani animal selection and sacrifice arrangements</p>
+          <p data-aos="fade-up">My Zabiha is designed to streamline the Qurbani experience for everyone. We caters to all your needs, facilitating<br/> Qurbani, Sadaqqah and Aqiqah animal selection and sacrifice arrangements</p>
           <div className='temp-bg-feature desk' style={{  backgroundImage: `url(${feature})`}} data-aos="fade-up">
 
           </div>

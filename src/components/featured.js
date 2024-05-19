@@ -11,10 +11,10 @@ const Featured = () => {
           <div className="row products">
             <div className="col-3 product" data-aos="fade-up">
               <div className="pro-title">
-                1. Facilitate Qurbani for Overseas Pakistanis
+                1. Facilitate Qurbani for Overseas
               </div>
               <div className="category">
-                Provide a user-friendly platform for overseas Pakistanis to fulfill their Qurbani obligations easily and conveniently.
+                Provide a user-friendly platform for overseas to fulfill their Qurbani obligations easily and conveniently.
               </div>
               {/* <div className="price">
                 Rs 7,595.27
