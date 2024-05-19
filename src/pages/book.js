@@ -93,6 +93,7 @@ const [dcs, setdcs] = useState({});
     set_form_val_2(val);
     //  sendForm()
   }
+  
 
 
   const [formData, setFormData] = useState({});
@@ -102,11 +103,10 @@ const [dcs, setdcs] = useState({});
 
 
 
-
+  const [response, setresponse] = useState("");
   let sendForm = async (formData) => {
     
       try {
-        console.log(formData)
         const response = await fetch('https://myzabiha.com/web_app/public/api/book_now', {
           method: 'POST',
           headers: {
@@ -117,17 +117,16 @@ const [dcs, setdcs] = useState({});
         if (response.ok) {
           // API call succeeded
           const responseData = await response.json();
-          console.log('API Response:', responseData);
+          setresponse(responseData);
           toggleBool2();
           // Perform any additional actions based on API response
         } else {
           // API call failed
           const errorData = await response.json();
-          console.error('API Error:', errorData);
           // Handle error condition
         }
       } catch (error) {
-        console.error('Error sending form data:', error);
+        alert('Your Order Cannot be proceed due to some error!');
         // Handle fetch error
       }
       // console.log(formData);
@@ -164,7 +163,7 @@ const [dcs, setdcs] = useState({});
     component = <Tab_2 dc={dc} set_FormResetTab2={set_FormResetTab2} formResetTab2={formResetTab2} dcs={dcs} set_delivery_charges={set_delivery_charges} formData={formData} sendForm={sendForm} form_val_1={form_val_1} set_form_tab2={set_form_tab2} backBtn={backBtn} toggleBool2={toggleBool2} showDelivery={showDelivery} />;
     activate2 = true;
   } else if (myBool === 3) {
-    component = <Tab_3 dc={form_val_2.delivery_charges} form_val_1={form_val_1}/>;
+    component = <Tab_3 response={response} dc={form_val_2.delivery_charges} form_val_1={form_val_1}/>;
     activate3 = true;
   }
 

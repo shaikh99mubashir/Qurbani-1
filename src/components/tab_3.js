@@ -5,7 +5,6 @@ import goat from '../img/goat.png';
 import sheep from '../img/sheep.png';
 
 const tab_3 = (props) => {
-console.log(props.dc);
     const renderText = () => {
         if (props.form_val_1.animal == "goat") {
           return goat;
@@ -24,6 +23,8 @@ console.log(props.dc);
                             <div className="col-7">
 
                                 <h3 className="confirm_head" style={{ textAlign: "center" }}>Thank You For Your Payment</h3>
+                                <h4 className="confirm_head" style={{ textAlign: "center" }}>Your Order ID is <span style={{color: "#d8363d"}}>{props.response.order.order_id}</span></h4>
+                                <p className="confirm_head" style={{ textAlign: "center", marginBottom: "10px" }}> <span>Save it to track your order.</span></p>
                                 <p className="confirm_head" style={{ textAlign: "center" }}> <span>Thankyou for shopping with My Zabiha, you will soon receive the confirmation email and stay active on your registered number so the team may contact you for details or queries.</span></p>
                                 <div className="container">
 

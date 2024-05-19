@@ -43,12 +43,12 @@ const Tab_2 = (props) => {
         }
         else {
             props.set_form_tab2(data);
-            console.log(data);
             paument_popup_open();
         }
     }
 
     setValue('delivery_charges', props.dc);
+    setValue('total',  (Number(props.form_val_1.price) * Number(props.form_val_1.quantity)) + Number(props.dc) + " " + localStorage.getItem("currency"))
 
     const {
         register: registerForm2,
@@ -793,6 +793,7 @@ const Tab_2 = (props) => {
                                 <div style={{ marginTop: "30px", textAlign: "center" }}>
                                     <div className="title">Total Amount</div>
                                     <div className="amount">
+                                        <input type='hidden' {...register("total")} />
                                         {(Number(props.form_val_1.price) * Number(props.form_val_1.quantity)) + Number(props.dc) + " " + localStorage.getItem("currency")}
                                     </div>
 

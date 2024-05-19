@@ -21,10 +21,10 @@ const Header = (props) => {
     localStorage.setItem("currency", item.value);
     setCurrency(item.value);
     currency_popup_close();
-    props.set_FormReset(true);
     if(window.location.href.includes("/book")){
       props.backBtn();
       props.set_FormReset(false);
+      props.set_FormReset(true);
     }
   }
   
@@ -122,22 +122,22 @@ const Header = (props) => {
             <i className="fa-solid fa-xmark" aria-hidden="true"></i>
           </div>
           <p>Select Currency</p>
-          <select id="select-currency" onChange={()=>{change_currency()}}>
+          <select id="select-currency" defaultValue={'DEFAULT'} onChange={()=>{change_currency()}}>
             {/* { if(currency == PKR){
             <option selected>PKR</option>
             }else{
             <option>PKR</option>
             }} */}
           {currency == "PKR"? 
-            <option selected>PKR</option>:
+            <option value="DEFAULT">PKR</option>:
             <option>PKR</option>
           }
           {currency == "USD"? 
-            <option selected>USD</option>:
+            <option value="DEFAULT">USD</option>:
             <option>USD</option>
           }
           {currency == "AED"? 
-            <option selected>AED</option>:
+            <option value="DEFAULT">AED</option>:
             <option>AED</option>
           }
           </select>

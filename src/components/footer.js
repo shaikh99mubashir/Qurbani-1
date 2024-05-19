@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="copyright">
-        <p>© 2023 CREED Inc.All Rights Reserved.</p>
+        <p>© {new Date().getFullYear()} My Zabiha. All Rights Reserved.</p>
       </div>
     </footer>
     </>
