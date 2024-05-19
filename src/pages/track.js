@@ -6,8 +6,23 @@ import cow from '../img/cow.png';
 import goat from '../img/goat.png';
 import sheep from '../img/sheep.png';
 import '../App.css';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
 
 const Track = () => {
+    function downloadPDF(){
+        
+        const capture = document.querySelector(".row.tab-2 > .col-5");
+        html2canvas(capture).then((canvas)=>{
+            const imgData = canvas.toDataURL('img/png');
+            const doc = new jsPDF("p", "mm", "a4");
+            const componentWidth = doc.internal.pageSize.getWidth();
+            const componentHeight = doc.internal.pageSize.getHeight();
+            doc.addImage(imgData, "PNG", 0 , 0 , componentWidth, componentHeight);
+            doc.save("receipt.pdf");
+        });
+      }
 
     const {
         register,
@@ -48,12 +63,16 @@ const Track = () => {
         contain.style.display = "block";
         let message = document.querySelector(".order-not-found");
         message.style.display = "none";
+        let downloadBtn = document.querySelector(".download-receipt");
+        downloadBtn.style.display = "block";
     }
     function shownotfound(){
         let message = document.querySelector(".order-not-found");
         message.style.display = "block";
         let contain = document.querySelector(".row.tab-2 > .col-5.track");
         contain.style.display = "none";
+        let downloadBtn = document.querySelector(".download-receipt");
+        downloadBtn.style.display = "none";
     }
 
     return (
@@ -118,7 +137,7 @@ const Track = () => {
                             </ul>
                         </div> */}
                         <h4 className='order-not-found'>Order not found. please check your order ID.</h4>
-                        <div className="col-5 track" style={{margin: "40px auto"}}>
+                        <div className="col-5 track" style={{margin: "40px auto 30px"}}>
                                 <table className='track-table'>
                                     <tbody>
                                         <tr>
@@ -197,8 +216,11 @@ const Track = () => {
                                        
                                     </tbody>
                                 </table>
-                                
                             </div>
+                    </div>
+                    <div className="download-receipt">
+                        
+                                <button onClick={()=>{downloadPDF()}}>Download Receipt</button>
                     </div>
 
                 </div>

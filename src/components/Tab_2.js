@@ -335,6 +335,15 @@ const Tab_2 = (props) => {
             `
         }
     }
+    function addSlash(){
+        let expiry_date = document.getElementById("expiry_date");
+        if (expiry_date.value.length === 2) { 
+            expiry_date.value = expiry_date.value + '/'
+         
+        } else if (expiry_date.value.length === 3 && expiry_date.value.charAt(2) === '/'){
+            expiry_date.value = expiry_date.value.replace('/', '');
+        }
+    }
     function paument_popup_open() {
         let payment_modal = document.querySelector(".payment_modal").style.display = "flex";
     }
@@ -381,7 +390,7 @@ const Tab_2 = (props) => {
                         <label htmlFor='card_number'>Card Number <span>*</span></label>
                         <input type='text' name='card_number' id='card_number' placeholder='1234 1234 1234 1234' maxLength={16} required />
                         <label htmlFor='expiry_date'>Expiry Date <span>*</span></label>
-                        <input type='text' name='expiry_date' id='expiry_date' placeholder='MM / YY' maxLength={4} required />
+                        <input onChange={addSlash} type='text' name='expiry_date' id='expiry_date' placeholder='MM / YY' maxLength={5} required />
                         <label htmlFor='card_code'>Card Code <span>*</span></label>
                         <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required />
                         <button className="continue" type='submit'>Continue to shopping</button>

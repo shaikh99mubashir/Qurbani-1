@@ -1,8 +1,10 @@
 import React from 'react';
+import html2canvas from 'html2canvas';
 import { Link } from "react-router-dom";
 import cow from '../img/cow.png';
 import goat from '../img/goat.png';
 import sheep from '../img/sheep.png';
+import jsPDF from 'jspdf';
 
 const tab_3 = (props) => {
     const renderText = () => {
@@ -14,10 +16,21 @@ const tab_3 = (props) => {
             return cow;
         }
       }
+      function downloadPDF(){
+        
+        const capture = document.querySelector(".row.tab-2 > .col-5");
+        html2canvas(capture, {scale: 2}).then((canvas)=>{
+            const imgData = canvas.toDataURL('img/png');
+            const doc = new jsPDF("p", "mm", "a4");
+            const componentWidth = doc.internal.pageSize.getWidth() - 60;
+            const componentHeight = doc.internal.pageSize.getHeight();
+            doc.addImage(imgData, "PNG", 0 , 0 , componentWidth, componentHeight);
+            doc.save("receipt.pdf");
+        });
+      }
     return (
         <>
             <div className="tab-3 cutomer_info">
-                <form method="post">
                     <div className="container options">
                         <div className="row tab-2">
                             <div className="col-7">
@@ -35,7 +48,7 @@ const tab_3 = (props) => {
                                             <Link to="/track" className="back">Track Order</Link>
                                         </div>
                                         <div className="col-6">
-                                            <button className="continue">Download Reciept</button>
+                                            <button className="continue" onClick={()=>{downloadPDF()}}>Download Reciept</button>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +113,6 @@ const tab_3 = (props) => {
                             </div>
                         </div>
                     </div>
-                </form >
             </div >
         </>
     )
