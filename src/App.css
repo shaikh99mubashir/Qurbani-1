@@ -574,7 +574,17 @@ footer .container {
   /* background-color: #fff; */
   padding: 40px 20px;
 }
-
+footer .row{
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+footer .row .col-4{
+  text-align: center;
+}
+footer .row .col-4 img{
+  width: 150px;
+}
 footer .container h4 {
   font-size: 18px;
   font-weight: 400;
@@ -587,6 +597,7 @@ footer .container ul {
   flex-wrap: wrap;
   padding: 0;
   gap: 15px;
+  justify-content: center;
 }
 
 footer .container ul li a {
@@ -597,6 +608,7 @@ footer .container ul li a {
 footer .container .socials {
   display: flex;
   gap: 15px;
+  justify-content: center;
 }
 
 footer .container .socials i {
