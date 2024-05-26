@@ -96,6 +96,23 @@ const Tab_1 = (props) => {
      props.set_animal_price(animal_val.value);
   }
 
+  // let shares = document.querySelectorAll(".cowsharechange");
+  // shares.forEach((elem)=>{
+  //   elem.addEventListener("click",(e)=>{
+  //     let animal_val = document.querySelector(".step-1 select");
+  //     if (animal_val.value == "cow") {
+  //       props.set_animal_price(animal_val.value);
+  //       props.set_share_price(e.target.value);
+  //     }
+  //   });
+  // })
+
+  function sharePriceSet(e){
+    let animal_val = document.querySelector(".step-1 select");
+      if (animal_val.value == "cow") {
+        props.set_share_price(e.target.value);
+      }
+  }
 
 
   function Cow_shares() {
@@ -204,6 +221,8 @@ const Tab_1 = (props) => {
                     id="share-1"
                     {...register("cow_shares")}
                     value="1"
+                    className="cowsharechange"
+                    onClick={sharePriceSet}
                   />
                   <label htmlFor="share-1">1</label>
 
@@ -212,6 +231,8 @@ const Tab_1 = (props) => {
                     id="share-2"
                     {...register("cow_shares")}
                     value="2"
+                    className="cowsharechange"
+                    onClick={sharePriceSet}
                   />
                   <label htmlFor="share-2">2</label>
                   <input
@@ -219,6 +240,8 @@ const Tab_1 = (props) => {
                     id="share-3"
                     {...register("cow_shares")}
                     value="3"
+                    className="cowsharechange"
+                    onClick={sharePriceSet}
                   />
                   <label htmlFor="share-3">3</label>
                   <input
@@ -226,6 +249,8 @@ const Tab_1 = (props) => {
                     id="share-4"
                     {...register("cow_shares")}
                     value="4"
+                    className="cowsharechange"
+                    onClick={sharePriceSet}
                   />
                   <label htmlFor="share-4">4</label>
                   <input
@@ -233,6 +258,8 @@ const Tab_1 = (props) => {
                     id="share-5"
                     {...register("cow_shares")}
                     value="5"
+                    className="cowsharechange"
+                    onClick={sharePriceSet}
                   />
                   <label htmlFor="share-5">5</label>
                   <input
@@ -240,6 +267,8 @@ const Tab_1 = (props) => {
                     id="share-6"
                     {...register("cow_shares")}
                     value="6"
+                    className="cowsharechange"
+                    onClick={sharePriceSet}
                   />
                   <label htmlFor="share-6">6</label>
                   <input
@@ -247,6 +276,8 @@ const Tab_1 = (props) => {
                     id="share-7"
                     {...register("cow_shares")}
                     value="7"
+                    className="cowsharechange"
+                    onClick={sharePriceSet}
                   />
                   <label htmlFor="share-7">7</label>
                 </div>
@@ -265,9 +296,9 @@ const Tab_1 = (props) => {
                       required={true}
                     >
                       <option>Choose Your Qurbani Type</option>
+                      <option value="eid-ul-adha">Eid-Ul-Adha</option>
                       <option value="sadqah">Sadqah</option>
                       <option value="aqeeqah">Aqeeqah</option>
-                      <option value="eid-ul-adha">Eid-Ul-Adha</option>
                     </select>
 
                     {/* <input

@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import { useForm } from "react-hook-form";
-import cow from '../img/cow.png';
-import goat from '../img/goat.png';
-import sheep from '../img/sheep.png';
+import logo from "../img/zabiha-logo.png";
 import '../App.css';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -49,15 +47,7 @@ const Track = () => {
       }
        
     }
-    const renderText = () => {
-        if (trackData.animal == "goat") {
-            return goat;
-        } else if (trackData.animal == "sheep") {
-            return sheep;
-        } else {
-            return cow;
-        }
-    }
+    
     function showdata(){
         let contain = document.querySelector(".row.tab-2 > .col-5.track");
         contain.style.display = "block";
@@ -141,7 +131,7 @@ const Track = () => {
                                 <table className='track-table'>
                                     <tbody>
                                         <tr>
-                                            <td><img src={renderText()} /> </td>
+                                            <td><img src={logo} width={"40%"}/> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary" style={{marginTop: "15px", fontSize: "28px"}}> Order Details</h3></td>

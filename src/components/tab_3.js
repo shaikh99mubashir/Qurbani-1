@@ -1,21 +1,10 @@
 import React from 'react';
 import html2canvas from 'html2canvas';
 import { Link } from "react-router-dom";
-import cow from '../img/cow.png';
-import goat from '../img/goat.png';
-import sheep from '../img/sheep.png';
+import logo from "../img/zabiha-logo.png";
 import jsPDF from 'jspdf';
 
 const tab_3 = (props) => {
-    const renderText = () => {
-        if (props.form_val_1.animal == "goat") {
-          return goat;
-        } else if (props.form_val_1.animal == "sheep") {
-          return sheep;
-        }else{
-            return cow;
-        }
-      }
       function downloadPDF(){
         
         const capture = document.querySelector(".row.tab-2 > .col-5");
@@ -59,7 +48,7 @@ const tab_3 = (props) => {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td><img src={renderText()}/> </td>
+                                            <td><img src={logo}/> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary"> Order Summary</h3></td>

@@ -47,6 +47,9 @@ function set_animal_price(animal_val){
       break;
   }
 }
+function set_share_price(share_val){
+  setPrice((prices.cow / 7) * share_val);
+}
 
 const [dcs, setdcs] = useState({});
   function setDcs(func_prices) {
@@ -157,7 +160,7 @@ const [dcs, setdcs] = useState({});
     window.scrollTo(0, 0)
   }
   if (myBool === 1) {
-    component = <Tab_1 price={price} set_FormReset={set_FormReset} formReset={formReset} set_animal_price={set_animal_price} form_val_1={form_val_1} set_form_tab1={set_form_tab1} toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;
+    component = <Tab_1 set_share_price={set_share_price} price={price} set_FormReset={set_FormReset} formReset={formReset} set_animal_price={set_animal_price} form_val_1={form_val_1} set_form_tab1={set_form_tab1} toggleBool={toggleBool} showDelivery={showDelivery} toggleShowDelivery={toggleShowDelivery} />;
     activate = true;
   } else if (myBool === 2) {
     component = <Tab_2 dc={dc} set_FormResetTab2={set_FormResetTab2} formResetTab2={formResetTab2} dcs={dcs} set_delivery_charges={set_delivery_charges} formData={formData} sendForm={sendForm} form_val_1={form_val_1} set_form_tab2={set_form_tab2} backBtn={backBtn} toggleBool2={toggleBool2} showDelivery={showDelivery} />;

@@ -445,14 +445,14 @@ const Tab_2 = (props) => {
                                 <div className={"row alive-slotter" + (props.showDelivery ? ' showDelivery' : '')}>
                                     <h3>How should we deliver your order?</h3>
 
-                                    <p>Select Slotter or Alive</p>
+                                    <p>Select Slaughter or Alive</p>
 
                                     <select {...register("slotter_Alive")} onChange={() => { countryDrop() }}>
                                         <option>
-                                            Select Slotter or Alive
+                                            Select Slaughtered or Alive
                                         </option>
                                         <option value="Slotter">
-                                            Slotter
+                                        Slaughtered
                                         </option>
                                         <option value="Alive">
                                             Alive
