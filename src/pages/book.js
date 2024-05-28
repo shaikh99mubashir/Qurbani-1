@@ -48,7 +48,9 @@ function set_animal_price(animal_val){
   }
 }
 function set_share_price(share_val){
-  setPrice((prices.cow / 7) * share_val);
+  let calc_price = (prices.cow / 7) * share_val;
+  let round_num = calc_price.toFixed(1);
+  setPrice(round_num);
 }
 
 const [dcs, setdcs] = useState({});
