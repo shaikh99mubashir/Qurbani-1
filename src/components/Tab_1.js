@@ -122,6 +122,7 @@ const Tab_1 = (props) => {
       cow_shares.classList.add("show");
     } else {
       cow_shares.classList.remove("show");
+      props.set_animal_price("cow");
     }
   }
   function delivery_charges() {
