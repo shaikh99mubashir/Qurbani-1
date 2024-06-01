@@ -128,10 +128,8 @@ const Tab_1 = (props) => {
   function delivery_charges() {
     let delivery_select = document.querySelector(".delivery-type select");
     
-    if (delivery_select.value == "Delivery") {
-     
-      props.toggleShowDelivery();
-    }
+      props.toggleShowDelivery(delivery_select.value );
+    
   }
   // function form_submit(event){
   //   let animal_type = document.getElementById("animal-type")

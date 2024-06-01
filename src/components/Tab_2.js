@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { useForm } from "react-hook-form";
@@ -21,10 +21,10 @@ const Tab_2 = (props) => {
         let name = document.querySelector("#full-name");
         let contact = document.querySelector(".contact input[type='hidden']");
         let email = document.querySelector("#email");
-        let country = document.querySelector("#country");
-        let address = document.querySelector("#address");
-        let postal_code = document.querySelector("#postal-code");
-        let nearby_landmark = document.querySelector("#nearby-landmark");
+        // let country = document.querySelector("#country");
+        // let address = document.querySelector("#address");
+        // let postal_code = document.querySelector("#postal-code");
+        // let nearby_landmark = document.querySelector("#nearby-landmark");
 
         if (name.value === "") {
             toast.error("Please Add Your Full Name");
@@ -32,18 +32,23 @@ const Tab_2 = (props) => {
             toast.error("Please add you correct phone number");
         }else if (email.value === "") {
             toast.error("Please add your email address");
-        }else if (country.value === "Select Your Country") {
-            toast.error("Please Select Your Country");
-        }else if (address.value === "") {
-            toast.error("Please add your address");
-        }else if (postal_code.value === "") {
-            toast.error("Please add your postal code");
-        }else if (nearby_landmark.value === "") {
-            toast.error("Please add your nearby landmark");
         }
+        // else if (country.value === "Select Your Country") {
+        //     toast.error("Please Select Your Country");
+        // }
+        // else if (address.value === "") {
+        //     toast.error("Please add your address");
+        // }
+        // else if (postal_code.value === "") {
+        //     toast.error("Please add your postal code");
+        // }
+        // else if (nearby_landmark.value === "") {
+        //     toast.error("Please add your nearby landmark");
+        // }
         else {
             props.set_form_tab2(data);
             paument_popup_open();
+            loadDetails();
         }
     }
 
@@ -56,8 +61,9 @@ const Tab_2 = (props) => {
         formState: { errors: errorsForm2 }
     } = useForm();
     const onSubmitForm2 = (data) => {
+    
         props.sendForm(props.formData);
-        payment_submit();
+        // payment_submit();
     };
 
     const renderText = () => {
@@ -350,15 +356,15 @@ const Tab_2 = (props) => {
     function paument_popup_close() {
         let payment_modal = document.querySelector(".payment_modal").style.display = "none"
     }
-    function payment_submit() {
-        let card_number = document.getElementById("card_number");
-        let expiry_date = document.getElementById("expiry_date");
-        let card_code = document.getElementById("card_code");
-        if (card_code.value == "" || card_number.value == '' || expiry_date.value == '') {
-            console.log("something is empty");
-        }
+    // function payment_submit() {
+    //     let card_number = document.getElementById("card_number");
+    //     let expiry_date = document.getElementById("expiry_date");
+    //     let card_code = document.getElementById("card_code");
+    //     if (card_code.value == "" || card_number.value == '' || expiry_date.value == '') {
+    //         console.log("something is empty");
+    //     }
 
-    }
+    // }
     const [contact, setContact] = useState("");
     const [altContact, setAltContact] = useState("");
     function setaltcontact() {
@@ -377,6 +383,32 @@ const Tab_2 = (props) => {
         const newValue = contact;
         setValue('contact', newValue);
     }
+    const [bankDetails, setBankDetails] = useState(0);
+    useEffect(()=>{
+        
+        let elem = document.querySelector(".bank-details");
+       if(bankDetails!==0){
+        // console.log(bankDetails.data);
+        elem.innerHTML =  `<div className='bank-details'>
+        <p>Account Title: <span class="acc-details">${bankDetails.data[0].account_title}</span></p>
+        <p>Branch Code: <span class="acc-details">${bankDetails.data[0].branch_code}</span></p>
+        <p>Account Number: <span class="acc-details">${bankDetails.data[0].account_number}</span></p>
+        <p>IBAN: <span class="acc-details">${bankDetails.data[0].iban_number}</span></p>
+        <p>Note: <span class="acc-details">${bankDetails.data[0].details}</span></p>
+       </div>`;
+       }
+    },[bankDetails]);
+    async function loadDetails() {
+      try {
+        const response = await fetch("https://myzabiha.com/web_app/public/api/getBankAccounts");
+        const details = await response.json();
+        await setBankDetails(details);
+        
+      } 
+      catch (error) {
+        alert("Sorry for the inconvenience, We Are facing some issues from Server");
+      }
+    }
     return (
         <>
 
@@ -385,14 +417,21 @@ const Tab_2 = (props) => {
                     <div className='payment_popup_close' onClick={() => { paument_popup_close() }}>
                         <i className="fa-solid fa-xmark"></i>
                     </div>
-                    <p>Pay with your credit card via Stripe.</p>
-                    <form onSubmit={handleSubmitForm2(onSubmitForm2)}>
-                        <label htmlFor='card_number'>Card Number <span>*</span></label>
+                    <p>Account Details:</p>
+                   <div className='bank-details'>
+                    {/* <p>Account Title: {bankDetails[0].account_title}</p>
+                    <p>Account Number: {bankDetails[0].account_number}</p>
+                    <p>IBAN: {bankDetails[0].iban_number}</p> */}
+                   </div>
+                    <form onSubmit={handleSubmitForm2(onSubmitForm2)} encType="multipart/form-data">
+                        {/* <label htmlFor='card_number'>Card Number <span>*</span></label>
                         <input type='text' name='card_number' id='card_number' placeholder='1234 1234 1234 1234' maxLength={16} required />
                         <label htmlFor='expiry_date'>Expiry Date <span>*</span></label>
                         <input onChange={addSlash} type='text' name='expiry_date' id='expiry_date' placeholder='MM / YY' maxLength={5} required />
                         <label htmlFor='card_code'>Card Code <span>*</span></label>
-                        <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required />
+                        <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required /> */}
+                        <label htmlFor="attachment">Upload Screen Shot for Proof:</label>
+                        <input type='file' id='attachment' {...register("attachment")} />
                         <button className="continue" type='submit'>Continue to shopping</button>
 
                     </form>
@@ -441,8 +480,12 @@ const Tab_2 = (props) => {
                                 </div>
                                 <div className="row">
                                     <input type="number" name="recipient_number" placeholder="Mobile Number" />
+
+
                                 </div> */}
-                                <div className={"row alive-slotter" + (props.showDelivery ? ' showDelivery' : '')}>
+                                
+                                {props.showDelivery
+                                    ? <><div className={"row alive-slotter showDelivery"}>
                                     <h3>How should we deliver your order?</h3>
 
                                     <p>Select Slaughter or Alive</p>
@@ -729,6 +772,10 @@ const Tab_2 = (props) => {
                                 <div className="row">
                                     <textarea name="special_instructions" id="" placeholder="Special Instructions" {...register("special_instructions")}></textarea>
                                 </div>
+                                   </>
+                                : ""
+                                }
+                                
                                 <div className='row if-not'>
                                     <p>If the product/quantity is not available Add multiple choice option</p>
                                     <select {...register("if-not")} >

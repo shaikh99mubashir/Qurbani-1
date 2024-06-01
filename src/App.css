@@ -1132,6 +1132,7 @@ td.title {
   padding: 30px;
   color: #000;
   height: auto;
+  display: none;
 }
 
 .progress {
@@ -1319,7 +1320,10 @@ td.title {
 }
 
 .payment_popup p {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+}
+.bank-details{
+  margin-bottom: 10px;
 }
 
 .payment_popup form {
@@ -1821,3 +1825,7 @@ button{
   }
 }
 
+.acc-details{
+  color: var(--primary);
+  margin-left: 5px;
+}

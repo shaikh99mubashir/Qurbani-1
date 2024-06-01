@@ -49,7 +49,7 @@ function set_animal_price(animal_val){
 }
 function set_share_price(share_val){
   let calc_price = (prices.cow / 7) * share_val;
-  let round_num = calc_price.toFixed(1);
+  let round_num = Math.ceil(calc_price);
   setPrice(round_num);
 }
 
@@ -140,9 +140,13 @@ const [dcs, setdcs] = useState({});
 
 
   const [showDelivery, setShowDelivery] = useState(false);
-  function toggleShowDelivery() {
+  function toggleShowDelivery(data) {
+    if (data == "Delivery") {
     setShowDelivery(true);
+  }else{
+    setShowDelivery(false);
   }
+}
 
   const [myBool, setmyBool] = useState(1);
   let component;
