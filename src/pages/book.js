@@ -105,7 +105,10 @@ const Book = () => {
   }, [form_val_2]);
 
   const [response, setresponse] = useState("");
+  const [loading, setLoading] = useState(false) 
   let sendForm = async (formData) => {
+    console.log('formDate',formData);
+    setLoading(true)
     try {
       const response = await fetch(
         "https://myzabiha.com/web_app/public/api/book_now",
@@ -134,9 +137,8 @@ const Book = () => {
           });
 
           if (response.ok) {
-            console.log('response',response);
             toggleBool2();
-            
+            setLoading(false)
           }
 
         
@@ -144,6 +146,7 @@ const Book = () => {
           // Perform any additional actions based on API response
         } catch (error) {
           console.error("Error:", error);
+          setLoading(false)
         }
       } else {
         // API call failed
@@ -152,6 +155,7 @@ const Book = () => {
       }
     } catch (error) {
       alert("Your Order Cannot be proceed due to some error!");
+      setLoading(false)
       // Handle fetch error
     }
     // console.log(formData);
@@ -217,6 +221,7 @@ const Book = () => {
         toggleBool2={toggleBool2}
         showDelivery={showDelivery}
         uploadImage={setAttachment}
+        loading={loading}
       />
     );
     activate2 = true;

@@ -461,7 +461,7 @@ const Tab_2 = (props) => {
                         <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required /> */}
                         <label htmlFor="attachment">Upload Screen Shot for Proof:</label>
                         <input type='file' id='attachment' onChange={handleFileChange}/>
-                        <button className="continue" type='submit'>Continue to shopping</button>
+                        <button className="continue" disabled={props.loading} type='submit'>{props.loading == true ? 'wait your order is processing': 'Submit Order' }</button>
 
                     </form>
                 </div>
@@ -807,7 +807,7 @@ const Tab_2 = (props) => {
 
                                 <div className='row if-not'>
                                     <p>If the product/quantity is not available Add multiple choice option</p>
-                                    <select {...register("if-not")} >
+                                    <select {...register("if_not")} >
                                         <option value={"Remove it from my order"}>Remove it from my order</option>
                                         <option value={"Cancel my order"}>Cancel my order</option>
                                         <option value={"Call and confirm"}>Call and confirm</option>
