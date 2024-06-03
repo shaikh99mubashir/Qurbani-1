@@ -74,11 +74,11 @@ const Track = () => {
         status.style.display = "none";
     }
     function check_status(){
-        if(trackData.status == "pending" || trackData.status == "in-process" || trackData.status == "slaughtered" || trackData.status == "distributed" || trackData.status == "delivered"){
+        if(trackData.status == "pending" || trackData.status == "inprocess" || trackData.status == "slaughtered" || trackData.status == "distributed" || trackData.status == "delivered"){
            let status1 = document.querySelector("#status-1");
            status1.classList.add("progress__item--completed");
         }
-        if(trackData.status == "in-process" || trackData.status == "slaughtered" || trackData.status == "distributed" || trackData.status == "delivered"){
+        if(trackData.status == "inprocess" || trackData.status == "slaughtered" || trackData.status == "distributed" || trackData.status == "delivered"){
            let status2 = document.querySelector("#status-2");
            status2.classList.add("progress__item--completed");
         }
@@ -125,7 +125,7 @@ const Track = () => {
                                 <p className="progress__info">We Have Recieved Your Order. Status: {trackData.status}</p>
                                 {/* <p className='track-date'>23 July 2023 | 1:39 PM</p> */}
                             </li>
-                            <li className="progress__item" id='status-1'>
+                            <li className="progress__item" id='status-2'>
                             <i className="fa-solid fa-file-circle-check"></i>
                                 <p className="progress__title">Order Confirmed</p>
                                 <p className="progress__info">Your Order is in process.</p>

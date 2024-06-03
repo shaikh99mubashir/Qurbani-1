@@ -5,7 +5,6 @@ import Footer from '../components/footer';
 import Tabs from '../components/tabs';
 import Tab_1 from '../components/Tab_1';
 import Tab_2 from '../components/Tab_2';
-
 import Tab_3 from '../components/tab_3';
 
 const Book = () => {
@@ -14,63 +13,63 @@ const Book = () => {
   function set_FormReset(form_reset) {
     setFormReset(form_reset);
   }
-  useEffect(()=>{
+  useEffect(() => {
     // console.log(formReset);
   }, [formReset]);
 
   const [prices, setPrices] = useState({});
   function setprice(func_prices) {
     setPrices(func_prices);
-  };useEffect(() => {
+  }; useEffect(() => {
     // console.log(prices);
   }, [prices]);
 
   const [price, setPrice] = useState(0);
-  useEffect(()=>{
-  },[price]);
-function set_animal_price(animal_val){
-  switch (animal_val) {
-    case "cow":
-      setPrice(prices.cow);
-      
-      break;
-    case "goat":
-      setPrice(prices.goat);
-      
-      break;
-    case "sheep":
-      setPrice(prices.sheep);
-      
-      break;
-  
-    default:
-      break;
-  }
-}
-function set_share_price(share_val){
-  let calc_price = (prices.cow / 7) * share_val;
-  let round_num = Math.ceil(calc_price);
-  setPrice(round_num);
-}
+  useEffect(() => {
+  }, [price]);
+  function set_animal_price(animal_val) {
+    switch (animal_val) {
+      case "cow":
+        setPrice(prices.cow);
 
-const [dcs, setdcs] = useState({});
+        break;
+      case "goat":
+        setPrice(prices.goat);
+
+        break;
+      case "sheep":
+        setPrice(prices.sheep);
+
+        break;
+
+      default:
+        break;
+    }
+  }
+  function set_share_price(share_val) {
+    let calc_price = (prices.cow / 7) * share_val;
+    let round_num = Math.ceil(calc_price);
+    setPrice(round_num);
+  }
+
+  const [dcs, setdcs] = useState({});
   function setDcs(func_prices) {
     setdcs(func_prices);
-  };useEffect(() => {
+  }; useEffect(() => {
     // console.log(dcs);
   }, [dcs]);
 
   const [dc, setdc] = useState(0);
-  useEffect(()=>{
+  useEffect(() => {
     // console.log(dc);
-  },[dc]);
-  function set_delivery_charges(country_val){
+  }, [dc]);
+  function set_delivery_charges(country_val) {
     switch (country_val) {
       case "Pakistan":
         setdc(dcs.local);
-        
+
         break;
-    
+
       default:
         setdc(dcs.int);
         break;
@@ -81,7 +80,7 @@ const [dcs, setdcs] = useState({});
   function set_FormResetTab2(form_reset) {
     setFormResetTab2(form_reset);
   }
-  useEffect(()=>{
+  useEffect(() => {
   }, [formResetTab2]);
 
   //**************  Form Data Collection ********************************
@@ -89,7 +88,7 @@ const [dcs, setdcs] = useState({});
   const [form_val_1, set_form_val_1] = useState({});
   function set_form_tab1(val) {
     set_form_val_1(val);
-  };useEffect(() => {
+  }; useEffect(() => {
     // console.log(form_val_1);
   }, [form_val_1]);
 
@@ -105,48 +104,48 @@ const [dcs, setdcs] = useState({});
   useEffect(() => {
     setFormData({...form_val_1,...form_val_2})
   }, [form_val_2]);
-
+  
 
 
   const [response, setresponse] = useState("");
   let sendForm = async (formData) => {
-    
-      try {
-        const response = await fetch('https://myzabiha.com/web_app/public/api/book_now', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData), // Convert form data to JSON format
-        });
-        if (response.ok) {
-          // API call succeeded
-          const responseData = await response.json();
-          setresponse(responseData);
-          toggleBool2();
-          // Perform any additional actions based on API response
-        } else {
-          // API call failed
-          const errorData = await response.json();
-          // Handle error condition
-        }
-      } catch (error) {
-        alert('Your Order Cannot be proceed due to some error!');
-        // Handle fetch error
+
+    try {
+      const response = await fetch('https://myzabiha.com/web_app/public/api/book_now', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData), // Convert form data to JSON format
+      });
+      if (response.ok) {
+        // API call succeeded
+        const responseData = await response.json();
+        setresponse(responseData);
+        toggleBool2();
+        // Perform any additional actions based on API response
+      } else {
+        // API call failed
+        const errorData = await response.json();
+        // Handle error condition
       }
-      // console.log(formData);
-  
+    } catch (error) {
+      alert('Your Order Cannot be proceed due to some error!');
+      // Handle fetch error
+    }
+    // console.log(formData);
+
   }
 
 
   const [showDelivery, setShowDelivery] = useState(false);
   function toggleShowDelivery(data) {
     if (data == "Delivery") {
-    setShowDelivery(true);
-  }else{
-    setShowDelivery(false);
+      setShowDelivery(true);
+    } else {
+      setShowDelivery(false);
+    }
   }
-}
 
   const [myBool, setmyBool] = useState(1);
   let component;
@@ -172,7 +171,7 @@ const [dcs, setdcs] = useState({});
     component = <Tab_2 dc={dc} set_FormResetTab2={set_FormResetTab2} formResetTab2={formResetTab2} dcs={dcs} set_delivery_charges={set_delivery_charges} formData={formData} sendForm={sendForm} form_val_1={form_val_1} set_form_tab2={set_form_tab2} backBtn={backBtn} toggleBool2={toggleBool2} showDelivery={showDelivery} />;
     activate2 = true;
   } else if (myBool === 3) {
-    component = <Tab_3 response={response} dc={form_val_2.delivery_charges} form_val_1={form_val_1}/>;
+    component = <Tab_3 response={response} dc={form_val_2.delivery_charges} form_val_1={form_val_1} />;
     activate3 = true;
   }
 
