@@ -1311,6 +1311,8 @@ td.title {
 }
 
 .payment_popup {
+  max-height: 80vh; /* Adjust the height as needed, 80% of the viewport height */
+  overflow-y: auto;
   position: relative;
   width: 40%;
   height: auto;
