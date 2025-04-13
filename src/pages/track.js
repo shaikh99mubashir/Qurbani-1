@@ -37,6 +37,24 @@ const Track = () => {
         gettrackdata(id);
     }
     const [trackData, setTrackData] = useState("");
+    const check_status = useCallback(()=>{
+        if(trackData.status === "pending" || trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+            let status1 = document.querySelector("#status-1");
+            status1.classList.add("progress__item--completed");
+         }
+         if(trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+            let status2 = document.querySelector("#status-2");
+            status2.classList.add("progress__item--completed");
+         }
+         if(trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+            let status3 = document.querySelector("#status-3");
+            status3.classList.add("progress__item--completed");
+         }
+         if(trackData.status === "distributed" || trackData.status === "delivered"){
+            let status4 = document.querySelector("#status-4");
+            status4.classList.add("progress__item--completed");
+         }
+    },[trackData])
     useEffect(()=>{
         check_status();
     },[trackData, check_status]);
@@ -92,24 +110,7 @@ const Track = () => {
     //        status4.classList.add("progress__item--completed");
     //     }
     // }
-    const check_status = useCallback(()=>{
-        if(trackData.status === "pending" || trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
-            let status1 = document.querySelector("#status-1");
-            status1.classList.add("progress__item--completed");
-         }
-         if(trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
-            let status2 = document.querySelector("#status-2");
-            status2.classList.add("progress__item--completed");
-         }
-         if(trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
-            let status3 = document.querySelector("#status-3");
-            status3.classList.add("progress__item--completed");
-         }
-         if(trackData.status === "distributed" || trackData.status === "delivered"){
-            let status4 = document.querySelector("#status-4");
-            status4.classList.add("progress__item--completed");
-         }
-    },[])
+    
     return (
         <>
             <Header />
