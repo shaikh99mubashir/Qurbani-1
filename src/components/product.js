@@ -16,7 +16,7 @@ const Product = () => {
               <div className="price">
                 Rs 7,595.27
               </div>
-              <a className="buy-now">Book Qurbani</a>
+              <a href='#' className="buy-now">Book Qurbani</a>
             </div>
     </>
   )
