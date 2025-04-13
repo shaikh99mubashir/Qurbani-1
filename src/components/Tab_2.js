@@ -368,14 +368,14 @@ const Tab_2 = (props) => {
   //   }
   // }
   function paument_popup_open() {
-    let payment_modal = (document.querySelector(
-      ".payment_modal"
-    ).style.display = "flex");
+    // let payment_modal = (document.querySelector(
+    //   ".payment_modal"
+    // ).style.display = "flex");
   }
   function paument_popup_close() {
-    let payment_modal = (document.querySelector(
-      ".payment_modal"
-    ).style.display = "none");
+    // let payment_modal = (document.querySelector(
+    //   ".payment_modal"
+    // ).style.display = "none");
   }
   // function payment_submit() {
   //     let card_number = document.getElementById("card_number");
@@ -472,10 +472,9 @@ const Tab_2 = (props) => {
         }</span></p>
         <p>IBAN: <span class="acc-details">${data.iban_number}</span></p>
         <img 
-        src="https://myzabiha.com/BHALQRCode.jpeg"
+        src="${ImageUrl("BHALQRCode.jpeg")}}"
         style="width: 150px; margin-top: 0px;" />
-        <p style="cursor: pointer; color: blue;" id="downloadQR">Download QR Code  <span class="acc-details"><i class="fa fa-download" aria-hidden="true"></i>
-</span></p>
+        <p style="cursor: pointer; color: blue;" id="downloadQR">Download QR Code</p>
         <p>Note: <span class="acc-details">${data.details}</span></p>
       `;
 
