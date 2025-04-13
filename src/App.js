@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
   BrowserRouter,
+  Route,
+  Routes
 } from "react-router-dom";
-import Home from "./pages/home";
-import Book from "./pages/book";
-import Track from "./pages/track";
 import "./App.css";
+import Book from "./pages/book";
+import Home from "./pages/home";
+import Track from "./pages/track";
 
 class App extends Component {
   render() {

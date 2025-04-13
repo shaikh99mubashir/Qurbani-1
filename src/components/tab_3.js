@@ -49,7 +49,7 @@ const tab_3 = (props) => {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td><img src={ImageUrl("zabiha-logo.png")}/> </td>
+                                            <td><img src={ImageUrl("zabiha-logo.png")} alt='not found'/> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary"> Order Summary</h3></td>
