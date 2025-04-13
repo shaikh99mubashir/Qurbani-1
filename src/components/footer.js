@@ -40,9 +40,9 @@ const Footer = () => {
           <div className="col-4">
             <h4>CONNECT WITH US</h4>
             <div className="socials">
-              <a href="https://www.instagram.com/my_zabiha?igsh=MTZ3cTJ4eXNpZnFnNA==" target='_blank' rel='a'><i className="fa-brands fa-instagram"></i></a>
+              <a href="https://www.instagram.com/my_zabiha?igsh=MTZ3cTJ4eXNpZnFnNA==" target='_blank' rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
               
-              <a href="https://www.facebook.com/profile.php?id=61559837012667&mibextid=ZbWKwL" target='_blank' rel='b'><i className="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61559837012667&mibextid=ZbWKwL" target='_blank' rel="noreferrer"><i className="fa-brands fa-facebook-f"></i></a>
               {/* <i className="fa-brands fa-youtube"></i>
               <i className="fa-brands fa-twitter"></i>
               <i className="fa-brands fa-linkedin"></i> */}

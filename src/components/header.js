@@ -4,7 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 import { ImageUrl } from "../Helpers";
 
 const Header = (props) => {
-  
+  const {setDcs, setprice} = props
   const [currency, setCurrency] = useState(localStorage.getItem("currency"));
   if(localStorage.getItem("currency") === null){
     localStorage.setItem("currency", "PKR");
@@ -61,9 +61,9 @@ const Header = (props) => {
   }
   useEffect(()=>{
     if(window.location.href.includes("/book")){
-    props.setprice(priceObj);
+    setprice(priceObj);
     }
-  },[priceObj] );
+  },[priceObj, setprice] );
 
   
   const [dcsObj, setdcsObj] = useState({});
@@ -93,9 +93,9 @@ const Header = (props) => {
   }
   useEffect(()=>{
     if(window.location.href.includes("/book")){
-    props.setDcs(dcsObj);
+    setDcs(dcsObj);
     }
-  },[dcsObj] );
+  },[dcsObj, setDcs] );
 
 
 
