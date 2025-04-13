@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import { useForm } from "react-hook-form";
@@ -37,6 +37,24 @@ const Track = () => {
         gettrackdata(id);
     }
     const [trackData, setTrackData] = useState("");
+    const check_status = useCallback(()=>{
+        if(trackData.status === "pending" || trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+            let status1 = document.querySelector("#status-1");
+            status1.classList.add("progress__item--completed");
+         }
+         if(trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+            let status2 = document.querySelector("#status-2");
+            status2.classList.add("progress__item--completed");
+         }
+         if(trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+            let status3 = document.querySelector("#status-3");
+            status3.classList.add("progress__item--completed");
+         }
+         if(trackData.status === "distributed" || trackData.status === "delivered"){
+            let status4 = document.querySelector("#status-4");
+            status4.classList.add("progress__item--completed");
+         }
+    },[trackData])
     useEffect(()=>{
         check_status();
     },[trackData, check_status]);
@@ -74,31 +92,32 @@ const Track = () => {
         let status = document.querySelector(".progressContainer");
         status.style.display = "none";
     }
-    function check_status(){
-        if(trackData.status === "pending" || trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
-           let status1 = document.querySelector("#status-1");
-           status1.classList.add("progress__item--completed");
-        }
-        if(trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
-           let status2 = document.querySelector("#status-2");
-           status2.classList.add("progress__item--completed");
-        }
-        if(trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
-           let status3 = document.querySelector("#status-3");
-           status3.classList.add("progress__item--completed");
-        }
-        if(trackData.status === "distributed" || trackData.status === "delivered"){
-           let status4 = document.querySelector("#status-4");
-           status4.classList.add("progress__item--completed");
-        }
-    }
+    // function check_status(){
+    //     if(trackData.status === "pending" || trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+    //        let status1 = document.querySelector("#status-1");
+    //        status1.classList.add("progress__item--completed");
+    //     }
+    //     if(trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+    //        let status2 = document.querySelector("#status-2");
+    //        status2.classList.add("progress__item--completed");
+    //     }
+    //     if(trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
+    //        let status3 = document.querySelector("#status-3");
+    //        status3.classList.add("progress__item--completed");
+    //     }
+    //     if(trackData.status === "distributed" || trackData.status === "delivered"){
+    //        let status4 = document.querySelector("#status-4");
+    //        status4.classList.add("progress__item--completed");
+    //     }
+    // }
+    
     return (
         <>
             <Header />
             <main className="book">
                 <div className="container breadcrumb">
                     <div className="container">
-                        <p><a href="">Home</a> / Track Order</p>
+                        <p><a href="#">Home</a> / Track Order</p>
                     </div>
                 </div>
                 <div className="create_order">
@@ -262,7 +281,7 @@ const Track = () => {
                                         </tr>
                                         <tr>
                                             <td className="title">Video:</td>
-                                            <td className="data"><a href={trackData.video} target='_blank' rel=''>Watch</a> </td>
+                                            <td className="data"><a href={trackData.video} target='_blank' rel='c'>Watch</a> </td>
                                         </tr>
                                        
                                     </tbody>
