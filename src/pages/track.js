@@ -192,7 +192,7 @@ const Track = () => {
                                 <table className='track-table'>
                                     <tbody>
                                         <tr>
-                                            <td><img src={ImageUrl("zabiha-logo.png")} width={"40%"}/> </td>
+                                            <td><img src={ImageUrl("zabiha-logo.png")} alt='not found' width={"40%"}/> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary" style={{marginTop: "15px", fontSize: "28px"}}> Order Details</h3></td>
@@ -262,7 +262,7 @@ const Track = () => {
                                         </tr>
                                         <tr>
                                             <td className="title">Video:</td>
-                                            <td className="data"><a href={trackData.video} target='_blank'>Watch</a> </td>
+                                            <td className="data"><a href={trackData.video} target='_blank' rel=''>Watch</a> </td>
                                         </tr>
                                        
                                     </tbody>

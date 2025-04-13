@@ -3,10 +3,9 @@ import "../App.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Tabs from "../components/tabs";
-import Tab_1 from "../components/Tab_1";
-import Tab_2 from "../components/Tab_2";
-
-import Tab_3 from "../components/tab_3";
+import Tab1 from "../components/Tab_1";
+import Tab2 from "../components/Tab_2";
+import Tab3 from "../components/tab_3";
 
 const Book = () => {
   const [formReset, setFormReset] = useState(false);
@@ -102,7 +101,7 @@ const Book = () => {
   const [formData, setFormData] = useState({});
   useEffect(() => {
     setFormData({ ...form_val_1, ...form_val_2 });
-  }, [form_val_2]);
+  }, [form_val_2, form_val_1]);
 
   const [response, setresponse] = useState("");
   const [loading, setLoading] = useState(false) 
@@ -150,7 +149,7 @@ const Book = () => {
         }
       } else {
         // API call failed
-        const errorData = await response.json();
+        // const errorData = await response.json();
         // Handle error condition
       }
     } catch (error) {
@@ -163,7 +162,7 @@ const Book = () => {
 
   const [showDelivery, setShowDelivery] = useState(false);
   function toggleShowDelivery(data) {
-    if (data == "Delivery") {
+    if (data === "Delivery") {
       setShowDelivery(true);
     } else {
       setShowDelivery(false);
@@ -191,7 +190,7 @@ const Book = () => {
   }
   if (myBool === 1) {
     component = (
-      <Tab_1
+      <Tab1
         set_share_price={set_share_price}
         price={price}
         set_FormReset={set_FormReset}
@@ -207,7 +206,7 @@ const Book = () => {
     activate = true;
   } else if (myBool === 2) {
     component = (
-      <Tab_2
+      <Tab2
         dc={dc}
         set_FormResetTab2={set_FormResetTab2}
         formResetTab2={formResetTab2}
@@ -227,7 +226,7 @@ const Book = () => {
     activate2 = true;
   } else if (myBool === 3) {
     component = (
-      <Tab_3
+      <Tab3
         response={response}
         dc={form_val_2.delivery_charges}
         form_val_1={form_val_1}
@@ -248,7 +247,7 @@ const Book = () => {
         <div className="container breadcrumb">
           <div className="container">
             <p>
-              <a href="">Home</a> / Create Order
+              <a>Home</a> / Create Order
             </p>
           </div>
         </div>
