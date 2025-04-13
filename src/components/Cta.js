@@ -1,12 +1,13 @@
 import React from 'react'
 // import backimage from '../img/cta-banner.jpg';
-import backimage2 from '../img/cta.jpg';
+// import backimage2 from '../img/cta.jpg';
+import { ImageUrl } from '../Helpers';
 
 const Cta = () => {
   return (
     <>
       <div className="CTA" data-aos="fade-up">
-        <div className="container" style={{ backgroundImage: `url(${backimage2})` }}>
+        <div className="container" style={{ backgroundImage: `url(${ImageUrl("cta.jpg")})` }}>
           <div className="row">
             <div className="col-12">
               <h3>My Zabiha Qurbani: Your Sacrifice,<span> Your Way!</span></h3>

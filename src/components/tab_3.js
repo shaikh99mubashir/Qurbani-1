@@ -1,8 +1,9 @@
 import React from 'react';
 import html2canvas from 'html2canvas';
 import { Link } from "react-router-dom";
-import logo from "../img/zabiha-logo.png";
+// import logo from "../img/zabiha-logo.png";
 import jsPDF from 'jspdf';
+import { ImageUrl } from '../Helpers';
 
 const tab_3 = (props) => {
       function downloadPDF(){
@@ -48,7 +49,7 @@ const tab_3 = (props) => {
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td><img src={logo}/> </td>
+                                            <td><img src={ImageUrl("zabiha-logo.png")}/> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary"> Order Summary</h3></td>

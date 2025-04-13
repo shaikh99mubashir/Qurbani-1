@@ -1,6 +1,7 @@
-import React from 'react'
-import logo from "../img/zabiha-logo.png";
-import { Outlet, Link } from "react-router-dom";
+import React from 'react';
+// import logo from "../img/zabiha-logo.png";
+import { Link } from "react-router-dom";
+import { ImageUrl } from '../Helpers';
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
         <div className="col-4">
-        <img src={logo} alt="Zabiha Logo" />
+        <img src={ImageUrl("zabiha-logo.png")} alt="Zabiha Logo" />
         </div>
           <div className="col-4">
             <h4>GET TO KNOW US</h4>

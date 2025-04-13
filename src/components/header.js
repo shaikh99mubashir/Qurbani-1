@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import logo from "../img/zabiha-logo.png";
+// import logo from "../img/zabiha-logo.png";
 import { Outlet, Link } from "react-router-dom";
+import { ImageUrl } from "../Helpers";
 
 const Header = (props) => {
   
   const [currency, setCurrency] = useState(localStorage.getItem("currency"));
-  if(localStorage.getItem("currency") == null){
+  if(localStorage.getItem("currency") === null){
     localStorage.setItem("currency", "PKR");
     setCurrency("PKR");
   }
@@ -33,19 +34,19 @@ const Header = (props) => {
     try {
       const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
       const prices = await response.json();
-      if (localStorage.getItem("currency") == "USD") {
+      if (localStorage.getItem("currency") === "USD") {
         setPriceObj({
           cow : prices.cow_usd,
           goat : prices.goat_usd,
           sheep : prices.sheep_usd
         });
-      }else if (localStorage.getItem("currency") == "PKR"){
+      }else if (localStorage.getItem("currency") === "PKR"){
         setPriceObj({
           cow : prices.cow_pkr,
           goat : prices.goat_pkr,
           sheep : prices.sheep_pkr
         });
-      }else if(localStorage.getItem("currency") == "AED"){
+      }else if(localStorage.getItem("currency") === "AED"){
         setPriceObj({
           cow : prices.cow_aed,
           goat : prices.goat_aed,
@@ -70,17 +71,17 @@ const Header = (props) => {
     try{
       const response = await fetch("https://myzabiha.com/web_app/public/api/delivery_charges");
       const dcs = await response.json();
-      if(localStorage.getItem("currency") == "USD"){
+      if(localStorage.getItem("currency") === "USD"){
           setdcsObj({
               local : dcs.local_usd,
               int : dcs.int_usd,
           });
-      } else if(localStorage.getItem("currency") == "PKR"){
+      } else if(localStorage.getItem("currency") === "PKR"){
           setdcsObj({
               local : dcs.local_pkr,
               int : dcs.int_pkr,
           });
-      }else if(localStorage.getItem("currency") == "AED"){
+      }else if(localStorage.getItem("currency") === "AED"){
           setdcsObj({
               local : dcs.local_aed,
               int : dcs.int_aed,
@@ -123,20 +124,20 @@ const Header = (props) => {
           </div>
           <p>Select Currency</p>
           <select id="select-currency" defaultValue={'DEFAULT'} onChange={()=>{change_currency()}}>
-            {/* { if(currency == PKR){
+            {/* { if(currency === PKR){
             <option selected>PKR</option>
             }else{
             <option>PKR</option>
             }} */}
-          {currency == "PKR"? 
+          {currency === "PKR"? 
             <option value="DEFAULT">PKR</option>:
             <option>PKR</option>
           }
-          {currency == "USD"? 
+          {currency === "USD"? 
             <option value="DEFAULT">USD</option>:
             <option>USD</option>
           }
-          {currency == "AED"? 
+          {currency === "AED"? 
             <option value="DEFAULT">AED</option>:
             <option>AED</option>
           }
@@ -145,7 +146,7 @@ const Header = (props) => {
       </div>
       <header>
         <div className="logo">
-          <img src={logo} alt="Zabiha Logo" />
+          <img src={ImageUrl("zabiha-logo.png")} alt="Zabiha Logo" />
         </div>
 
         <div className="hamburger">

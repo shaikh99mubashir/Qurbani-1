@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import { useForm } from "react-hook-form";
-import logo from "../img/zabiha-logo.png";
+// import logo from "../img/zabiha-logo.png";
 import '../App.css';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { ImageUrl } from '../Helpers';
 
 
 const Track = () => {
@@ -24,10 +25,10 @@ const Track = () => {
 
     const {
         register,
-        setValue,
+        // setValue,
         handleSubmit,
-        watch,
-        formState: { error },
+        // watch,
+        // formState: { error },
     } = useForm();
     const onSubmit = (data) => {
     }
@@ -38,7 +39,7 @@ const Track = () => {
     const [trackData, setTrackData] = useState("");
     useEffect(()=>{
         check_status();
-    },[trackData]);
+    },[trackData, check_status]);
     async function gettrackdata(id) {
       try{
           const response = await fetch("https://myzabiha.com/web_app/public/api/getBookingStatus/"+ id);
@@ -74,19 +75,19 @@ const Track = () => {
         status.style.display = "none";
     }
     function check_status(){
-        if(trackData.status == "pending" || trackData.status == "inprocess" || trackData.status == "slaughtered" || trackData.status == "distributed" || trackData.status == "delivered"){
+        if(trackData.status === "pending" || trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
            let status1 = document.querySelector("#status-1");
            status1.classList.add("progress__item--completed");
         }
-        if(trackData.status == "inprocess" || trackData.status == "slaughtered" || trackData.status == "distributed" || trackData.status == "delivered"){
+        if(trackData.status === "inprocess" || trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
            let status2 = document.querySelector("#status-2");
            status2.classList.add("progress__item--completed");
         }
-        if(trackData.status == "slaughtered" || trackData.status == "distributed" || trackData.status == "delivered"){
+        if(trackData.status === "slaughtered" || trackData.status === "distributed" || trackData.status === "delivered"){
            let status3 = document.querySelector("#status-3");
            status3.classList.add("progress__item--completed");
         }
-        if(trackData.status == "distributed" || trackData.status == "delivered"){
+        if(trackData.status === "distributed" || trackData.status === "delivered"){
            let status4 = document.querySelector("#status-4");
            status4.classList.add("progress__item--completed");
         }
@@ -191,7 +192,7 @@ const Track = () => {
                                 <table className='track-table'>
                                     <tbody>
                                         <tr>
-                                            <td><img src={logo} width={"40%"}/> </td>
+                                            <td><img src={ImageUrl("zabiha-logo.png")} width={"40%"}/> </td>
                                         </tr>
                                         <tr>
                                             <td><h3 className="summary" style={{marginTop: "15px", fontSize: "28px"}}> Order Details</h3></td>

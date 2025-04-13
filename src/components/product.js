@@ -1,11 +1,12 @@
 import React from 'react'
-import backimage from '../img/meat-pro.jpg';
+import { ImageUrl } from '../Helpers'
+// import backimage from '../img/meat-pro.jpg';
 
 const Product = () => {
   return (
     <>
         <div className="col-4 product" data-aos="fade-up">
-        <img src={backimage} alt="backimage" />
+        <img src={ImageUrl('meat-pro.jpg')} alt="backimage" />
               <div className="pro-title">
                 Goat 200 Kg
               </div>

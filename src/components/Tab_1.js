@@ -86,7 +86,7 @@ const Tab_1 = (props) => {
     let animal_val = document.querySelector(".step-1 select");
 
 
-    if (animal_val.value == "cow") {
+    if (animal_val.value === "cow") {
       Cow_or_shares.classList.add("show");
     } else {
       Cow_or_shares.classList.remove("show");
@@ -100,7 +100,7 @@ const Tab_1 = (props) => {
   // shares.forEach((elem)=>{
   //   elem.addEventListener("click",(e)=>{
   //     let animal_val = document.querySelector(".step-1 select");
-  //     if (animal_val.value == "cow") {
+  //     if (animal_val.value === "cow") {
   //       props.set_animal_price(animal_val.value);
   //       props.set_share_price(e.target.value);
   //     }
@@ -109,7 +109,7 @@ const Tab_1 = (props) => {
 
   function sharePriceSet(e){
     let animal_val = document.querySelector(".step-1 select");
-      if (animal_val.value == "cow") {
+      if (animal_val.value === "cow") {
         props.set_share_price(e.target.value);
       }
   }
@@ -118,7 +118,7 @@ const Tab_1 = (props) => {
   function Cow_shares() {
     let cow_shares = document.querySelector(".cow-shares");
     let full_or_shares = document.querySelector(".Cow_or_shares select");
-    if (full_or_shares.value == "shares") {
+    if (full_or_shares.value === "shares") {
       cow_shares.classList.add("show");
     } else {
       cow_shares.classList.remove("show");
@@ -135,7 +135,7 @@ const Tab_1 = (props) => {
   //   let animal_type = document.getElementById("animal-type")
   //   let zabiha_type_val = document.getElementById("zabiha-type-val");
   //   let quantity = document.getElementById("quantity");
-  //   if (animal_type.value == "Select Your Animal" || zabiha_type_val.value == 'Choose Your Qurbani Type' || quantity.value == '') {
+  //   if (animal_type.value === "Select Your Animal" || zabiha_type_val.value === 'Choose Your Qurbani Type' || quantity.value === '') {
   //     alert("Please select the value");
   //     event.preventDefault();
   // }else{

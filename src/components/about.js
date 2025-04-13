@@ -1,5 +1,5 @@
-import React from 'react'
-import left_image from '../img/about.png';
+import React from 'react';
+import { ImageUrl } from '../Helpers';
 
 const About = () => {
   return (
@@ -8,7 +8,7 @@ const About = () => {
         <div className="container">
           <div className='row'>
             <div className='col-6'>
-              <img src={left_image} alt="backimage" />
+              <img src={ImageUrl("about.png")} alt="backimage" />
             </div>
             <div className='col-6'>
               <h3>About <span>My Zabiha</span></h3>

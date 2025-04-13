@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useForm } from "react-hook-form";
-import cow from "../img/cow.png";
-import goat from "../img/goat.png";
-import sheep from "../img/sheep.png";
+// import cow from "../img/cow.png";
+// import goat from "../img/goat.png";
+// import sheep from "../img/sheep.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import QRCodeImg from "../img/BHALQRCode.jpeg";
+// import QRCodeImg from "../img/BHALQRCode.jpeg";
 import { ImageUrl } from "../Helpers";
 const Tab_2 = (props) => {
   const {
     register,
     setValue,
     handleSubmit,
-    watch,
-    formState: { error },
+    // watch,
+    // formState: { error },
   } = useForm();
   const onSubmit = (data) => {
     if (props.showDelivery) {
@@ -74,9 +74,9 @@ const Tab_2 = (props) => {
   );
 
   const {
-    register: registerForm2,
+    // register: registerForm2,
     handleSubmit: handleSubmitForm2,
-    formState: { errors: errorsForm2 },
+    // formState: { errors: errorsForm2 },
   } = useForm();
   const onSubmitForm2 = (data) => {
     // let file = document.querySelector("#attachment");
@@ -86,12 +86,12 @@ const Tab_2 = (props) => {
   };
 
   const renderText = () => {
-    if (props.form_val_1.animal == "goat") {
-      return goat;
-    } else if (props.form_val_1.animal == "sheep") {
-      return sheep;
+    if (props.form_val_1.animal === "goat") {
+      return ImageUrl("goat.png");
+    } else if (props.form_val_1.animal === "sheep") {
+      return ImageUrl("sheep.png");
     } else {
-      return cow;
+      return ImageUrl("cow.png");
     }
   };
 
@@ -103,7 +103,7 @@ const Tab_2 = (props) => {
   function countryDrop() {
     let alive_slotter = document.querySelector(".alive-slotter select");
     let country = document.querySelector("#country");
-    if (alive_slotter.value == "Alive") {
+    if (alive_slotter.value === "Alive") {
       country.innerHTML =
         "<option>Select Your Country</option><option value='Pakistan'>Pakistan</option>";
     } else {
@@ -356,32 +356,32 @@ const Tab_2 = (props) => {
             `;
     }
   }
-  function addSlash() {
-    let expiry_date = document.getElementById("expiry_date");
-    if (expiry_date.value.length === 2) {
-      expiry_date.value = expiry_date.value + "/";
-    } else if (
-      expiry_date.value.length === 3 &&
-      expiry_date.value.charAt(2) === "/"
-    ) {
-      expiry_date.value = expiry_date.value.replace("/", "");
-    }
-  }
+  // function addSlash() {
+  //   let expiry_date = document.getElementById("expiry_date");
+  //   if (expiry_date.value.length === 2) {
+  //     expiry_date.value = expiry_date.value + "/";
+  //   } else if (
+  //     expiry_date.value.length === 3 &&
+  //     expiry_date.value.charAt(2) === "/"
+  //   ) {
+  //     expiry_date.value = expiry_date.value.replace("/", "");
+  //   }
+  // }
   function paument_popup_open() {
-    let payment_modal = (document.querySelector(
-      ".payment_modal"
-    ).style.display = "flex");
+    // let payment_modal = (document.querySelector(
+    //   ".payment_modal"
+    // ).style.display = "flex");
   }
   function paument_popup_close() {
-    let payment_modal = (document.querySelector(
-      ".payment_modal"
-    ).style.display = "none");
+    // let payment_modal = (document.querySelector(
+    //   ".payment_modal"
+    // ).style.display = "none");
   }
   // function payment_submit() {
   //     let card_number = document.getElementById("card_number");
   //     let expiry_date = document.getElementById("expiry_date");
   //     let card_code = document.getElementById("card_code");
-  //     if (card_code.value == "" || card_number.value == '' || expiry_date.value == '') {
+  //     if (card_code.value === "" || card_number.value === '' || expiry_date.value === '') {
   //         console.log("something is empty");
   //     }
 
@@ -406,19 +406,19 @@ const Tab_2 = (props) => {
   }
   const [bankDetails, setBankDetails] = useState(0);
   console.log("bankDetails", bankDetails);
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = QRCodeImg;
-    link.download = "BHALQRCode.jpeg";
-    link.click();
-  };
+  // const handleDownload = () => {
+  //   const link = document.createElement("a");
+  //   link.href = ImageUrl("BHALQRCode.jpeg");
+  //   link.download = "BHALQRCode.jpeg";
+  //   link.click();
+  // };
   //   useEffect(() => {
   //     let elem = document.querySelector(".bank-details");
   //     if (bankDetails !== 0) {
   //       // console.log(bankDetails.data);
   //       elem.innerHTML = `<div className='bank-details'>
   //             ${
-  //               bankDetails.data[0].branch_code == "1047" &&
+  //               bankDetails.data[0].branch_code === "1047" &&
   //               `<p>Bank Name <span class="acc-details">BANK AL HABIB LIMITED</span></p>`
   //             }
   //         <p>Account Title: <span class="acc-details">${
@@ -428,7 +428,7 @@ const Tab_2 = (props) => {
   //           bankDetails.data[0].branch_code
   //         }</span></p>
   //         ${
-  //           bankDetails.data[0].branch_code == "1047" &&
+  //           bankDetails.data[0].branch_code === "1047" &&
   //           `<p>Swift Code: <span class="acc-details">BAHLPKKA</span></p>`
   //         }
   //         <p>Account Number: <span class="acc-details">${
@@ -454,7 +454,7 @@ const Tab_2 = (props) => {
       const data = bankDetails.data[0];
       elem.innerHTML = `
         ${
-          data.branch_code == "1047"
+          data.branch_code === "1047"
             ? `<p>Bank Name: <span class="acc-details">BANK AL HABIB LIMITED</span></p>`
             : ""
         }
@@ -463,7 +463,7 @@ const Tab_2 = (props) => {
         }</span></p>
         <p>Branch Code: <span class="acc-details">${data.branch_code}</span></p>
         ${
-          data.branch_code == "1047"
+          data.branch_code === "1047"
             ? `<p>Swift Code: <span class="acc-details">BAHLPKKA</span></p>`
             : ""
         }
@@ -543,7 +543,7 @@ const Tab_2 = (props) => {
             <label htmlFor="attachment">Upload Screen Shot for Proof:</label>
             <input type="file" id="attachment" onChange={handleFileChange} />
             <button className="continue" disabled={props.loading} type="submit">
-              {props.loading == true
+              {props.loading === true
                 ? "wait your order is processing"
                 : "Submit Order"}
             </button>
@@ -1070,7 +1070,7 @@ const Tab_2 = (props) => {
                   <tbody>
                     <tr>
                       <td>
-                        <img src={renderText()} />{" "}
+                        <img src={renderText()} alt="a" />{" "}
                       </td>
                     </tr>
                     <tr>
@@ -1120,7 +1120,7 @@ const Tab_2 = (props) => {
                     <tr>
                       <td className="title">Delivery Charges:</td>
                       <td className="data d-charges">
-                        {props.dc == 0
+                        {props.dc === 0
                           ? "Select Country For Delivery Charges"
                           : props.dc + " " + localStorage.getItem("currency")}
                         {/* {props.dc} */}

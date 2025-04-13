@@ -1,16 +1,17 @@
 import React from 'react'
-import backimage from '../img/fresh.jpg';
-import deliver from '../img/deliver.png';
-import packet from '../img/packet.png';
-import protect from '../img/protect.png';
-import meat from '../img/meat.png';
-import backimage1 from '../img/feature-bg.png';
+// import backimage from '../img/fresh.jpg';
+// import deliver from '../img/deliver.png';
+// import packet from '../img/packet.png';
+// import protect from '../img/protect.png';
+// import meat from '../img/meat.png';
+// import backimage1 from '../img/feature-bg.png';
+import { ImageUrl } from '../Helpers';
 
 
 const Benifit = () => {
     return (
         <>
-            <div className="benifits"  style={{ backgroundImage: `url(${backimage1})`}}>
+            <div className="benifits"  style={{ backgroundImage: `url(${ImageUrl('feature-bg.png')})`}}>
                 <div className="container">
                     <h3 style={{ textAlign: 'center' }}>My Zabiha Qurbani: <span>Four Steps</span></h3>
                     <p style={{ textAlign: 'center', marginTop: "-20px", marginBottom: "20px" }}>Experience a stress-free Qurbani with My Zabiha's streamlined process:</p>
@@ -22,7 +23,7 @@ const Benifit = () => {
                                     <p>Browse a wide variety selection of healthy animals directly through the website.</p>
                                 </div>
                                 <div className="icon">
-                                <img src={meat} alt="meat" />
+                                <img src={ImageUrl("meat.png")} alt="meat" />
                                 </div>
                             </div>
                             <div className="benifit" data-aos="fade-right" data-aos-delay="200">
@@ -31,18 +32,18 @@ const Benifit = () => {
                                     <p>Whether it's Qurbani, Aqiqah, or Sadaqah, My Zabiha caters to your specific needs.</p>
                                 </div>
                                 <div className="icon">
-                                <img src={packet} alt="packet" />
+                                <img src={ImageUrl("packet.png")} alt="packet" />
                                 </div>
                             </div>
                         </div>
                         <div className="col-4">
-                            <img src={backimage} alt="backimage" className='mid-img' />
+                            <img src={ImageUrl("fresh.jpg")} alt="backimage" className='mid-img' />
 
                         </div>
                         <div className="col-4">
                             <div className="benifit" data-aos="fade-left">
                                 <div className="icon">
-                                    <img src={deliver} alt="deliver" />
+                                    <img src={ImageUrl("deliver.png")} alt="deliver" />
                                 </div>
                                 <div className="content">
                                     <h4>Book with Confidence</h4>
@@ -52,7 +53,7 @@ const Benifit = () => {
                             </div>
                             <div className="benifit" data-aos="fade-left" data-aos-delay="200">
                                 <div className="icon">
-                                <img src={protect} alt="protect" />
+                                <img src={ImageUrl("protect.png")} alt="protect" />
                                 </div>
                                 <div className="content">
                                     <h4>Track & Stay Informed</h4>

@@ -1,12 +1,13 @@
 import React from 'react'
-import backimage from '../img/banner.jpg';
-import delivery from '../img/deliver.png';
-import meat from '../img/meatico.png';
+// import backimage from '../img/banner.jpg';
+// import delivery from '../img/deliver.png';
+import { ImageUrl } from '../Helpers';
+// import meat from '../img/meatico.png';
 
 const Hero = () => {
   return (
     <>
-    <div className="hero" style={{  backgroundImage: `url(${backimage})`}}>
+    <div className="hero" style={{  backgroundImage: `url(${ImageUrl('banner.jpg')})`}}>
         <div className="container" style={{padding: 0}}>
           <div className="row">
             <div className="col-6" style={{padding: 0}}>
@@ -15,11 +16,11 @@ const Hero = () => {
               <p data-aos="fade-right" data-aos-delay="200">Qurbani, Aqiqah and Sadaqah: Delivered Worldwide</p>
               <div className="row hero-features" data-aos="fade-right" data-aos-delay="400">
                 <div className="col-6">
-                <img src={meat} alt="" />
+                <img src={ImageUrl("meatico.png")} alt="" />
                   <p>High-Quality (Cow, Goat, Sheep) Delivered Fresh </p>
                 </div>
                 <div className="col-6">
-                  <img src={delivery} alt="" />
+                  <img src={ImageUrl("deliver.png")} alt="" />
                   <p>Available for Worldwide and Overseas</p>
                 </div>
               </div>

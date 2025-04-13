@@ -1,7 +1,8 @@
 import React from 'react'
 // import dotted from '../img/dotted-line.png';
-import feature from '../img/steps.png';
-import feature_mob from '../img/steps-mob.png';
+// import feature from '../img/steps.png';
+// import feature_mob from '../img/steps-mob.png';
+import { ImageUrl } from '../Helpers';
 
 const Feature = () => {
   return (
@@ -11,10 +12,10 @@ const Feature = () => {
         <div className="container">
           <h3 style={{ textAlign: 'center' }} data-aos="fade-up">Follow the Steps and make <br />   your Qurbani <span>more Convenient.</span></h3>
           <p data-aos="fade-up">My Zabiha is designed to streamline the Qurbani experience for everyone. We caters to all your needs, facilitating<br/> Qurbani, Sadaqqah and Aqiqah animal selection and sacrifice arrangements</p>
-          <div className='temp-bg-feature desk' style={{  backgroundImage: `url(${feature})`}} data-aos="fade-up">
+          <div className='temp-bg-feature desk' style={{  backgroundImage: `url(${ImageUrl('steps.png')})`}} data-aos="fade-up">
 
           </div>
-          <div className='temp-bg-feature mob' style={{  backgroundImage: `url(${feature_mob})`}} data-aos="fade-up">
+          <div className='temp-bg-feature mob' style={{  backgroundImage: `url(${ImageUrl('steps-mob.png')})`}} data-aos="fade-up">
 
           </div>
 
