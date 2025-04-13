@@ -281,7 +281,7 @@ const Track = () => {
                                         </tr>
                                         <tr>
                                             <td className="title">Video:</td>
-                                            <td className="data"><a href={trackData.video} target='_blank' rel='c'>Watch</a> </td>
+                                            <td className="data"><a href={trackData.video} target='_blank' rel="noreferrer">Watch</a> </td>
                                         </tr>
                                        
                                     </tbody>
