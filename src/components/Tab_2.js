@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 // import sheep from "../img/sheep.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import QRCodeImg from "../img/BHALQRCode.jpeg";
 import { ImageUrl } from "../Helpers";
 const Tab_2 = (props) => {
   const {
@@ -367,14 +368,14 @@ const Tab_2 = (props) => {
   //   }
   // }
   function paument_popup_open() {
-    let payment_modal = (document.querySelector(
-      ".payment_modal"
-    ).style.display = "flex");
+    // let payment_modal = (document.querySelector(
+    //   ".payment_modal"
+    // ).style.display = "flex");
   }
   function paument_popup_close() {
-    let payment_modal = (document.querySelector(
-      ".payment_modal"
-    ).style.display = "none");
+    // let payment_modal = (document.querySelector(
+    //   ".payment_modal"
+    // ).style.display = "none");
   }
   // function payment_submit() {
   //     let card_number = document.getElementById("card_number");
@@ -404,7 +405,48 @@ const Tab_2 = (props) => {
     setValue("contact", newValue);
   }
   const [bankDetails, setBankDetails] = useState(0);
+  console.log("bankDetails", bankDetails);
+  // const handleDownload = () => {
+  //   const link = document.createElement("a");
+  //   link.href = ImageUrl("BHALQRCode.jpeg");
+  //   link.download = "BHALQRCode.jpeg";
+  //   link.click();
+  // };
+  //   useEffect(() => {
+  //     let elem = document.querySelector(".bank-details");
+  //     if (bankDetails !== 0) {
+  //       // console.log(bankDetails.data);
+  //       elem.innerHTML = `<div className='bank-details'>
+  //             ${
+  //               bankDetails.data[0].branch_code === "1047" &&
+  //               `<p>Bank Name <span class="acc-details">BANK AL HABIB LIMITED</span></p>`
+  //             }
+  //         <p>Account Title: <span class="acc-details">${
+  //           bankDetails.data[0].account_title
+  //         }</span></p>
+  //         <p>Branch Code: <span class="acc-details">${
+  //           bankDetails.data[0].branch_code
+  //         }</span></p>
+  //         ${
+  //           bankDetails.data[0].branch_code === "1047" &&
+  //           `<p>Swift Code: <span class="acc-details">BAHLPKKA</span></p>`
+  //         }
+  //         <p>Account Number: <span class="acc-details">${
+  //           bankDetails.data[0].account_number
+  //         }</span></p>
+  //         <p>IBAN: <span class="acc-details">${
+  //           bankDetails.data[0].iban_number
+  //         }</span></p>
+  //        <p onClick={handleDownload} style={{ cursor: 'pointer', color: 'blue' }}>
+  //         Download QR Code: <span className="acc-details">Download QR Code</span>
+  //       </p>
 
+  //         <p>Note: <span class="acc-details">${
+  //           bankDetails.data[0].details
+  //         }</span></p>
+  //        </div>`;
+  //     }
+  //   }, [bankDetails]);
 
   useEffect(() => {
     const elem = document.querySelector(".bank-details");
@@ -430,11 +472,9 @@ const Tab_2 = (props) => {
         }</span></p>
         <p>IBAN: <span class="acc-details">${data.iban_number}</span></p>
         <img 
-        src="https://myzabiha.com/BHALQRCode.jpeg"
+        src="${ImageUrl("BHALQRCode.jpeg")}}"
         style="width: 150px; margin-top: 0px;" />
-        <p style="cursor: pointer; color: blue;" id="downloadQR">Download QR Code 
-        <span class="acc-details"> <i class="fa fa-download" aria-hidden="true"></i></p></span></p>
-       
+        <p style="cursor: pointer; color: blue;" id="downloadQR">Download QR Code</p>
         <p>Note: <span class="acc-details">${data.details}</span></p>
       `;
 
@@ -471,7 +511,7 @@ const Tab_2 = (props) => {
     setFile(selectedFile);
     props.uploadImage(selectedFile);
   };
-  
+  console.log("filefile", file);
   return (
     <>
       <div className="payment_modal">
@@ -494,6 +534,12 @@ const Tab_2 = (props) => {
             onSubmit={handleSubmitForm2(onSubmitForm2)}
             encType="multipart/form-data"
           >
+            {/* <label htmlFor='card_number'>Card Number <span>*</span></label>
+                        <input type='text' name='card_number' id='card_number' placeholder='1234 1234 1234 1234' maxLength={16} required />
+                        <label htmlFor='expiry_date'>Expiry Date <span>*</span></label>
+                        <input onChange={addSlash} type='text' name='expiry_date' id='expiry_date' placeholder='MM / YY' maxLength={5} required />
+                        <label htmlFor='card_code'>Card Code <span>*</span></label>
+                        <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required /> */}
             <label htmlFor="attachment">Upload Screen Shot for Proof:</label>
             <input type="file" id="attachment" onChange={handleFileChange} />
             <button className="continue" disabled={props.loading} type="submit">
@@ -564,7 +610,26 @@ const Tab_2 = (props) => {
                     placeholder="Email Address"
                   />
                 </div>
-              
+                {/* <div className="row">
+                                    <div className="col-6">
+                                        <h3>Recipient Information</h3>
+                                    </div>
+                                    <div className="col-6">
+                                        <label htmlFor="check"><input type="checkbox" id="check" />Same as customer
+                                            information</label>
+                                    </div>
+
+                                </div> */}
+                {/* <div className="row">
+                                    <input type="text" name="recipient_fname" placeholder="Full Name" className="col-6" />
+                                    <input type="text" name="recipient_lname" placeholder="Last Name" className="col-6" />
+                                </div>
+                                <div className="row">
+                                    <input type="number" name="recipient_number" placeholder="Mobile Number" />
+
+
+                                </div> */}
+
                 {props.showDelivery ? (
                   <>
                     <div className={"row alive-slotter showDelivery"}>
