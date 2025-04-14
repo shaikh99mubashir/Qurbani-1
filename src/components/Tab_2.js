@@ -368,14 +368,14 @@ const Tab_2 = (props) => {
   //   }
   // }
   function paument_popup_open() {
-    // let payment_modal = (document.querySelector(
-    //   ".payment_modal"
-    // ).style.display = "flex");
+    let payment_modal = (document.querySelector(
+      ".payment_modal"
+    ).style.display = "flex");
   }
   function paument_popup_close() {
-    // let payment_modal = (document.querySelector(
-    //   ".payment_modal"
-    // ).style.display = "none");
+    let payment_modal = (document.querySelector(
+      ".payment_modal"
+    ).style.display = "none");
   }
   // function payment_submit() {
   //     let card_number = document.getElementById("card_number");
@@ -472,9 +472,9 @@ const Tab_2 = (props) => {
         }</span></p>
         <p>IBAN: <span class="acc-details">${data.iban_number}</span></p>
         <img 
-        src="${ImageUrl("BHALQRCode.jpeg")}}"
+        src="https://myzabiha.com/BHALQRCode.jpeg"
         style="width: 150px; margin-top: 0px;" />
-        <p style="cursor: pointer; color: blue;" id="downloadQR">Download QR Code</p>
+        <p style="cursor: pointer; color: blue;" id="downloadQR">Scan or Download QR Code <span class="acc-details"><i class="fa fa-download" aria-hidden="true"></i></span></p>
         <p>Note: <span class="acc-details">${data.details}</span></p>
       `;
 
@@ -540,7 +540,7 @@ const Tab_2 = (props) => {
                         <input onChange={addSlash} type='text' name='expiry_date' id='expiry_date' placeholder='MM / YY' maxLength={5} required />
                         <label htmlFor='card_code'>Card Code <span>*</span></label>
                         <input type='text' name='card_code' id='card_code' placeholder='CVC' maxLength={3} required /> */}
-            <label htmlFor="attachment">Upload Screen Shot for Proof:</label>
+            <label htmlFor="attachment">Kindly provide a screenshot for verification.</label>
             <input type="file" id="attachment" onChange={handleFileChange} />
             <button className="continue" disabled={props.loading} type="submit">
               {props.loading === true
