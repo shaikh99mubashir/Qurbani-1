@@ -368,14 +368,20 @@ const Tab_2 = (props) => {
   //   }
   // }
   function paument_popup_open() {
-    let payment_modal = (document.querySelector(
+     (document.querySelector(
       ".payment_modal"
     ).style.display = "flex");
+    // let payment_modal = (document.querySelector(
+    //   ".payment_modal"
+    // ).style.display = "flex");
   }
   function paument_popup_close() {
-    let payment_modal = (document.querySelector(
+   (document.querySelector(
       ".payment_modal"
     ).style.display = "none");
+    // let payment_modal = (document.querySelector(
+    //   ".payment_modal"
+    // ).style.display = "none");
   }
   // function payment_submit() {
   //     let card_number = document.getElementById("card_number");
