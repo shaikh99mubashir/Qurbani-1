@@ -35,7 +35,7 @@ const ContactUs = () => {
             <ul>
               <li>
                 <strong>WhatsApp:</strong>{" "}
-                <a href="https://wa.me/923353375813" target="_blank">
+                <a href="https://wa.me/923353375813"  target="_blank" rel="noreferrer">
                   Click to Message Us
                 </a>
               </li>
@@ -52,12 +52,12 @@ const ContactUs = () => {
             <p>Stay updated by following us on social media:</p>
             <ul>
               <li>
-                <a href="https://www.facebook.com/profile.php?id=61559837012667&mibextid=ZbWKwL" target="_blank">
+                <a href="https://www.facebook.com/profile.php?id=61559837012667&mibextid=ZbWKwL"  target="_blank" rel="noreferrer">
                   Facebook
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/my_zabiha?igsh=MTZ3cTJ4eXNpZnFnNA==" target="_blank">
+                <a href="https://www.instagram.com/my_zabiha?igsh=MTZ3cTJ4eXNpZnFnNA=="  target="_blank" rel="noreferrer">
                   Instagram
                 </a>
               </li>
@@ -67,7 +67,7 @@ const ContactUs = () => {
             <p>You can also find more information on our website:</p>
             <ul>
               <li>
-                <a href="https://myzabiha.com" target="_blank">
+                <a href="https://myzabiha.com"  target="_blank" rel="noreferrer">
                   https://myzabiha.com
                 </a>
               </li>
