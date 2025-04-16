@@ -102,7 +102,7 @@ const RefundPolicy = () => {
               </li>
               <li>
                 <strong>Website:</strong>{" "}
-                <a href="https://myzabiha.com" target="_blank">
+                <a href="https://myzabiha.com" target="_blank" rel="noreferrer">
                   https://myzabiha.com
                 </a>
               </li>
