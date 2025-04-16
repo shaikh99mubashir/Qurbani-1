@@ -279,6 +279,15 @@ h3 {
 h3 span, p span.colored {
   color: var(--primary);
 }
+h6 strong{
+  color: var(--primary);
+}
+.privacy-policy h4{
+  color: var(--primary);
+}
+.privacy-policy  ul li::marker{
+  color: var(--primary);
+}
 
 p.colored {
   font-size: 18px;

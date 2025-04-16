@@ -24,6 +24,24 @@ const Footer = () => {
             <li>
               <Link to="/track">Track Qurbani</Link>
             </li>
+            <li>
+              <Link to="/FAQs">FAQs</Link>
+            </li>
+            <li>
+              <Link to="/PrivacyPolicy">Privacy Policy</Link>
+            </li>
+            <li>
+              <Link to="/RefundPolicy">Refund Policy</Link>
+            </li>
+            <li>
+              <Link to="/ShippingPolicy">Shipping Policy</Link>
+            </li>
+            <li>
+              <Link to="/TermsandConditions">Terms and Conditions</Link>
+            </li>
+            <li>
+              <Link to="/ContactUs">Contact us</Link>
+            </li>
             </ul>
           </div>
           {/* <div className="col-4">
