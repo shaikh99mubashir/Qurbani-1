@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="container" style={{padding: 0}}>
           <div className="row">
             <div className="col-6" style={{padding: 0}}>
-              <h2 data-aos="fade-right"><span className="">My Zabiha,</span><br /> Amplify 11 your Faith</h2>
+              <h2 data-aos="fade-right"><span className="">My Zabiha,</span><br /> Amplify your Faith</h2>
               <p data-aos="fade-right" data-aos-delay="200">Available for:</p>
               <p data-aos="fade-right" data-aos-delay="200">Qurbani, Aqiqah and Sadaqah: Delivered Worldwide</p>
               <div className="row hero-features" data-aos="fade-right" data-aos-delay="400">
