@@ -14,6 +14,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import TermsandConditions from "./pages/TermsandConditions";
 import ContactUs from "./pages/ContactUs";
+import FeatureDetail from "./pages/FeatureDetail";
 
 class App extends Component {
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route exact path="/ShippingPolicy" element={<ShippingPolicy />}></Route>
             <Route exact path="/TermsandConditions" element={<TermsandConditions />}></Route>
             <Route exact path="/ContactUs" element={<ContactUs />}></Route>
+            <Route path="/feature/:slug" element={<FeatureDetail />} />
           </Routes>
         </div>
       </BrowserRouter>
