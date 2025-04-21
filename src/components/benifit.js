@@ -37,7 +37,8 @@ const Benifit = () => {
                             </div>
                         </div>
                         <div className="col-4">
-                            <img src={ImageUrl("fresh.jpg")} alt="backimage" className='mid-img' />
+                            {/* <img src={ImageUrl("fresh.jpg")} alt="backimage" className='mid-img' /> */}
+                            <img src={ImageUrl("bigcow.png")} alt="backimage" className='mid-img' />
 
                         </div>
                         <div className="col-4">
