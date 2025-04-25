@@ -35,7 +35,7 @@ const ContactUs = () => {
             <ul>
               <li>
                 <strong>WhatsApp:</strong>{" "}
-                <a href="https://wa.me/923353375813"  target="_blank" rel="noreferrer">
+                <a href="https://wa.me/923282341188"  target="_blank" rel="noreferrer">
                   Click to Message Us
                 </a>
               </li>

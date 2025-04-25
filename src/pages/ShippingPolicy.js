@@ -83,7 +83,7 @@ const ShippingPolicy = () => {
                 <strong>Email:</strong> support@myzabiha.com
               </li>
               <li>
-                <strong>WhatsApp:</strong> +923353375813
+                <strong>WhatsApp:</strong> +923282341188
               </li>
               <li>
                 <strong>Website:</strong>{" "}
