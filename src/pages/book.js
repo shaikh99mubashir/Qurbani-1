@@ -27,7 +27,7 @@ const Book = () => {
   const [price, setPrice] = useState(0);
   useEffect(() => {}, [price]);
   function set_animal_price(animal_val) {
-    
+
     switch (animal_val) {
       case "cow":
         setPrice(prices.cow);
@@ -44,16 +44,35 @@ const Book = () => {
   }
   function set_share_price(share_val) {
     console.log("share",share_val)
+    console.log("localStorage.getItem",localStorage.getItem("currency"))
+    const currency = localStorage.getItem("currency");
+    let fixed_share_price = 0;
+    
+    if (currency === "PKR") {
+      fixed_share_price = 32000;
+    } else if (currency === "USD") {
+      fixed_share_price = 114;
+    } else if (currency === "AED") {
+      fixed_share_price = 445;
+    } else {
+      fixed_share_price = 32000; // Default PKR
+    }
+    
+    console.log("share", share_val);
+    console.log("currency from localStorage", currency);
+    console.log("fixed_share_price", fixed_share_price);
+    let share_price = fixed_share_price * share_val;
+    setPrice(share_price);
     // let calc_price = (prices.cow / 7) * share_val;
     // // let round_num = Math.ceil(calc_price);
     // let round_num = Math.ceil(calc_price / 1000) * 1000;
     // console.log("round_num",round_num)
     
     // setPrice(round_num);
-    let fixed_share_price = 32000 * share_val; // 1 share = 32000
+    // let fixed_share_price = 32000 * share_val; // 1 share = 32000
 
-    console.log("fixed_share_price", fixed_share_price);
-    setPrice(fixed_share_price);
+    // console.log("fixed_share_price", fixed_share_price);
+    // setPrice(fixed_share_price);
   }
 
   const [dcs, setdcs] = useState({});
