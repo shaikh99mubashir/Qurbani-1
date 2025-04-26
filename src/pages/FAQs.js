@@ -23,46 +23,37 @@ const FAQs = () => {
             <li>Purchase a healthy animal on your behalf</li>
             <li>Perform the sacrifice according to Islamic guidelines</li>
             <li>
-              PDistribute the meat to deserving families
-              You’ll receive confirmation and sometimes photos/videos of the sacrifice.
+              Distribute or deliver the meat to deserving families as per customer choice
+              You’ll receive confirmation along with photos/videos of the sacrifice.
             </li>
           </ul>
 
-          <h4>3. Can I choose the country where the Qurbani is performed?</h4>
-          <p>
-          Yes. We offer Qurbani services in multiple countries. You can select your preferred country while placing your order based on availability.
-          </p>
+          
       
 
-          <h4>4. Will I receive proof of sacrifice?</h4>
+          <h4>3. Will I receive proof of sacrifice?</h4>
           <p>
-          Yes. After the sacrifice is completed, we send you confirmation via email or WhatsApp. In some cases, a photo or video of your Qurbani may be shared depending on availability and region.
+          Yes. After the sacrifice is completed, we send you confirmation via email or WhatsApp. A photo and video of your Qurbani may be shared depending on availability and region.
           </p>
 
-          <h4>5. How do I pay for my order?</h4>
+          <h4>4. How do I pay for my order?</h4>
           <p>You can pay online using secure payment methods such as:</p>
           <ul>
-            <li>Online Transfer</li>
+            <li>Online Transfer / Bank Payment</li>
           </ul>
-          <h4>6. Is my payment Zakat-eligible?</h4>
-          <p>No. Qurbani, Aqiqah, and Sadaqah are separate from Zakat. However, if you're giving general Sadaqah or meat distribution, that may qualify based on intention. Please consult a scholar for personal Zakat matters.</p>
-
-          <h4>7. Who receives the meat?</h4>
+          <h4>5. Who receives the meat?</h4>
           <p>
-          We distribute the meat to the most deserving — including orphans, widows, refugees, and impoverished families in local communities.
+          As per customer choice we distribute the meat to their family members, to the 
+          most deserving — including orphans, widows, refugees, and poor families 
+          in local communities.
           </p>
 
-          <h4>8. Can I do Qurbani on behalf of someone else?</h4>
+          <h4>6. Can I do Qurbani on behalf of someone else?</h4>
           <p>
-          Yes, you can do Qurbani on behalf of:
+          Yes, you can do Qurbani on behalf others
           </p>
-          <ul>
-            <li>Yourself</li>
-            <li>Your parents</li>
-            <li>Deceased loved ones</li>
-            <li>As a gift for others</li>
-          </ul>
-          <h4>8. Changes to This Policy</h4>
+          
+          <h4>7. Changes to This Policy</h4>
           <p>
             We may update this Privacy Policy occasionally. Changes will be
             posted on this page with the effective date.
@@ -72,10 +63,29 @@ const FAQs = () => {
           <p>
           Yes. Aqiqah and Sadaqah services are available throughout the year. Qurbani services are specific to Eid ul-Adha.
           </p>
-          <h4>10. Can I get a tax receipt?</h4>
+          <h4>10. Can I get a receipt?</h4>
           <p>
-          Yes. After your order is processed, we email you a receipt. Depending on your country and the type of donation, it may be tax-deductible.
+          Yes. After your order is processed, we email you a receipt. Depending on your country and the type of donation.
           </p>
+          <h4>11. Contact Information</h4>
+            <p>
+              If you have any questions about these Terms and Conditions, you
+              can contact us at:
+            </p>
+            <ul>
+              <li>
+                <strong>Email:</strong> support@myzabiha.com
+              </li>
+              <li>
+                <strong>WhatsApp:</strong> +923282341188
+              </li>
+              <li>
+                <strong>Website:</strong>{" "}
+                <a href="https://myzabiha.com"  target="_blank" rel="noreferrer">
+                  https://myzabiha.com
+                </a>
+              </li>
+            </ul>
          
         </section>
       </div>

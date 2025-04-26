@@ -13,7 +13,7 @@ const Featured = () => {
             <div className="col-3 product" data-aos="fade-up">
                 <Link to="/feature/qurbani-overseas" className="card-link">
               <div className="pro-title">
-                1. Facilitate Qurbani for Overseas
+                1. Facilitate Qurbani Domestic for Overseas
               </div>
               <div className="category" style={{ color: "#474f54" }}>
                 Provide a user-friendly platform for overseas to fulfill their Qurbani obligations easily and conveniently.
@@ -39,7 +39,7 @@ const Featured = () => {
             {/* <Product />
            <Product />
            <Product /> */}
-            <div className="col-3 product" data-aos="fade-up">
+            {/* <div className="col-3 product" data-aos="fade-up">
             <Link to="/feature/variety" className="card-link">
               <div className="pro-title">
                 3. Variety
@@ -49,14 +49,11 @@ const Featured = () => {
 
               </div>
               </Link>
-              {/* <div className="price">
-                Rs 7,595.27
-              </div> */}
-            </div>
+            </div> */}
             <div className="col-3 product" data-aos="fade-up">
             <Link to="/feature/ethical-sourcing" className="card-link">
               <div className="pro-title">
-                4. Ethical Sourcing
+                3. Ethical Sourcing
               </div>
               <div className="category" style={{ color: "#474f54" }}>
                 We prioritize ethical sourcing, ensuring animals are treated with care and respect throughout the process.
@@ -69,7 +66,7 @@ const Featured = () => {
             <div className="col-3 product" data-aos="fade-up">
             <Link to="/feature/streamlined-sacrifice" className="card-link">
               <div className="pro-title">
-                5. Streamlined Sacrifice
+                4. Streamlined Sacrifice
               </div>
               <div className="category" style={{ color: "#474f54" }}>
                 Choose from a wide range of healthy and well-maintained animals for your specific needs and budget.
@@ -83,7 +80,7 @@ const Featured = () => {
             <div className="col-3 product" data-aos="fade-up">
             <Link to="/feature/accountability" className="card-link">
               <div className="pro-title">
-                6. Accountability
+                5. Accountability
               </div>
               <div className="category" style={{ color: "#474f54" }}>
                 Track the status of your Qurbani and receive updates throughout the process.
@@ -98,7 +95,7 @@ const Featured = () => {
             <div className="col-3 product" data-aos="fade-up">
             <Link to="/feature/delivery-doorstep" className="card-link">
               <div className="pro-title">
-                7. Delivery at Your Doorstep
+                6. Delivery at Your Doorstep
               </div>
               <div className="category" style={{ color: "#474f54" }}>
                 Get your Qurbani meat delivered globally to your doorstep — fresh, hygienic, and on time.
@@ -112,7 +109,7 @@ const Featured = () => {
             <div className="col-3 product" data-aos="fade-up">
             <Link to="/feature/distribution" className="card-link">
               <div className="pro-title">
-                8. Distribution
+                7. Distribution
               </div>
               <div className="category" style={{ color: "#474f54" }}>
                 We ensure the meat is distributed to the needy as per your instructions with transparency and care.

@@ -27,28 +27,33 @@ const Book = () => {
   const [price, setPrice] = useState(0);
   useEffect(() => {}, [price]);
   function set_animal_price(animal_val) {
+    
     switch (animal_val) {
       case "cow":
         setPrice(prices.cow);
-
         break;
       case "goat":
         setPrice(prices.goat);
-
         break;
       case "sheep":
         setPrice(prices.sheep);
-
         break;
-
       default:
         break;
     }
   }
   function set_share_price(share_val) {
-    let calc_price = (prices.cow / 7) * share_val;
-    let round_num = Math.ceil(calc_price);
-    setPrice(round_num);
+    console.log("share",share_val)
+    // let calc_price = (prices.cow / 7) * share_val;
+    // // let round_num = Math.ceil(calc_price);
+    // let round_num = Math.ceil(calc_price / 1000) * 1000;
+    // console.log("round_num",round_num)
+    
+    // setPrice(round_num);
+    let fixed_share_price = 32000 * share_val; // 1 share = 32000
+
+    console.log("fixed_share_price", fixed_share_price);
+    setPrice(fixed_share_price);
   }
 
   const [dcs, setdcs] = useState({});

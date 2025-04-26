@@ -15,6 +15,7 @@ import ShippingPolicy from "./pages/ShippingPolicy";
 import TermsandConditions from "./pages/TermsandConditions";
 import ContactUs from "./pages/ContactUs";
 import FeatureDetail from "./pages/FeatureDetail";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 class App extends Component {
   render() {
@@ -34,6 +35,7 @@ class App extends Component {
             <Route path="/feature/:slug" element={<FeatureDetail />} />
           </Routes>
         </div>
+        <WhatsAppButton />
       </BrowserRouter>
     );
   }
