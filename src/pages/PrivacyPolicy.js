@@ -105,7 +105,7 @@ const PrivacyPolicy = () => {
               posted on this page with the effective date.
             </p>
 
-            <h4>9. Contact Us</h4>
+            <h4>10. Contact Us</h4>
             <p>
               If you have any questions or concerns about this policy, please
               contact:
