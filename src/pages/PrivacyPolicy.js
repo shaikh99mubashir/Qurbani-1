@@ -97,7 +97,9 @@ const PrivacyPolicy = () => {
               do not knowingly collect data from minors.
             </p>
 
-            <h4>8. Changes to This Policy</h4>
+            <h4>8. Order Cancellation Policy</h4>
+            <p> Our company reserves the right to cancel any order up to five days before Qurbani (Eid ul-Adha). </p>
+            <h4>9. Changes to This Policy</h4>
             <p>
               We may update this Privacy Policy occasionally. Changes will be
               posted on this page with the effective date.
