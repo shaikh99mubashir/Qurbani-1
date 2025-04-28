@@ -22,21 +22,36 @@ const ShippingPolicy = () => {
             <h4>1. Service Fulfillment</h4>
             <p>
               My Zabiha provides religious sacrifice services such as Qurbani,
-              Aqiqah, and Sadaqah. These services do not involve the shipment of
-              physical goods to customers. Instead, the sacrifice is performed
-              on your behalf and the meat is distributed to those in need in
-              local communities.
+              Aqiqah, and Sadaqah. These services primarily involve performing the
+              sacrifice on your behalf and distributing the meat to those in need
+              in local communities.
             </p>
 
-            <h4>2. Distribution Locations</h4>
+            <h4>2. International Shipping Option</h4>
             <p>
-              We offer services in select countries where local partners carry
+              For international customers who request meat delivery, courier charges 
+              will apply and must be paid by the customer. The cost will depend on:
+            </p>
+            <ul>
+              <li>Requested meat quantity (in kilograms)</li>
+              <li>Destination country's import policy for meat products</li>
+              <li>Applicable courier service rates in that country</li>
+            </ul>
+            <p>
+              Each country has different regulations regarding the import of meat. 
+              Customers must confirm how much meat is allowed to be imported and 
+              any necessary permits required before placing their shipping request.
+            </p>
+
+            <h4>3. Distribution Locations</h4>
+            <p>
+              We offer services in select country (Pakistan) where we carry
               out the sacrifice and meat distribution. You can choose your
               preferred region (based on availability) during the ordering
               process.
             </p>
 
-            <h4>3. Confirmation of Fulfillment</h4>
+            <h4>4. Confirmation of Fulfillment</h4>
             <p>
               Once your order has been completed, you will receive a
               confirmation via email or WhatsApp. In some cases, we may also
@@ -44,27 +59,32 @@ const ShippingPolicy = () => {
               regulations, and feasibility.
             </p>
 
-            <h4>4. Delivery of Meat</h4>
+            <h4>5. Delivery of Meat (Standard Policy)</h4>
             <p>
-              As a policy, meat from the sacrifice is{" "}
-              <strong>not shipped or delivered to the customer</strong>.
-              Instead, it is distributed among the poor, orphans, widows, and
-              other deserving individuals in accordance with Islamic guidelines.
+              As a general policy, meat from the sacrifice can be{" "}
+              <strong>ship or deliver to the customer</strong>.(as per customer choice)
+              we can also distribut among the poor, orphans, widows, and
+              other deserving individuals in accordance with Islamic guidelines as per customer wish
+            </p>
+            <p>
+              However, if an international meat shipment is requested (where allowed), 
+              additional charges and documentation may be required, and My Zabiha is not 
+              responsible for customs delays, rejections, or confiscations. Subject to the import policy of the importer country.
             </p>
 
-            <h4>5. Service Timeline</h4>
+            <h4>6. Service Timeline</h4>
             <ul>
               <li>
                 <strong>Qurbani:</strong> Performed during Eid ul-Adha
                 (according to Islamic dates)
               </li>
               <li>
-                <strong>Aqiqah:</strong> Fulfilled within 1–3 days of order
+                <strong>Aqiqah:</strong> Fulfilled with in a day of order
                 placement
               </li>
               <li>
-                <strong>Sadaqah:</strong> Typically processed within 1–2
-                business days
+                <strong>Sadaqah:</strong> Fulfilled with in a day of order
+                placement
               </li>
             </ul>
             <p>
@@ -73,21 +93,24 @@ const ShippingPolicy = () => {
               scenarios.
             </p>
 
-            <h4>6. Questions?</h4>
+            <h4>7. Questions?</h4>
             <p>
-              If you have questions about how your order will be fulfilled or
-              where your donation will be distributed, please reach out to us:
+              If you have questions about international shipping, courier charges, 
+              or meat distribution, please contact us:
             </p>
             <ul>
               <li>
-                <strong>Email:</strong> support@myzabiha.com
+                <strong>Email:</strong> info@myzabiha.com
               </li>
               <li>
-                <strong>WhatsApp:</strong> +923282341188
+                <strong>WhatsApp:</strong>
+                <a href="https://wa.me/923282341188"  target="_blank" rel="noreferrer">
+                  {' '}Click to Message Us +923282341188
+                </a>
               </li>
               <li>
                 <strong>Website:</strong>{" "}
-                <a href="https://myzabiha.com"  target="_blank" rel="noreferrer">
+                <a href="https://myzabiha.com" target="_blank" rel="noreferrer">
                   https://myzabiha.com
                 </a>
               </li>

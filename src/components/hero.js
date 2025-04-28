@@ -17,11 +17,11 @@ const Hero = () => {
               <div className="row hero-features" data-aos="fade-right" data-aos-delay="400">
                 <div className="col-6">
                 <img src={ImageUrl("meatico.png")} alt="" />
-                  <p>High-Quality (Cow, Goat, Sheep and Camel)</p>
+                  <p>High-Quality (Cow, Goat and Sheep)</p>
                 </div>
                 <div className="col-6">
                   <img src={ImageUrl("deliver.png")} alt="" />
-                  <p>Available for Worldwide and Overseas</p>
+                  <p>Available for Domestic and Overseas</p>
                 </div>
               </div>
   

@@ -21,13 +21,10 @@ const RefundPolicy = () => {
 
             <h4>1. General Policy</h4>
             <p>
-              At My Zabiha, we strive to ensure your complete satisfaction.
-              However, due to the nature of our services—especially involving
-              time-sensitive religious obligations—refunds are limited and
-              handled on a case-by-case basis.
+            At My Zabiha, we strive to ensure your complete satisfaction. However, due to the nature of our services—particularly those involving time-sensitive religious obligations—refunds are limited and handled on a case-by-case basis. Once an order is accepted by the company, it is non-refundable.
             </p>
 
-            <h4>2. Eligibility for Refund</h4>
+            {/* <h4>2. Eligibility for Refund</h4>
             <p>Refunds may only be issued under the following conditions:</p>
             <ul>
               <li>
@@ -45,9 +42,9 @@ const RefundPolicy = () => {
                 If the order cannot be fulfilled due to unforeseen circumstances
                 on our end.
               </li>
-            </ul>
+            </ul> */}
 
-            <h4>3. Non-Refundable Situations</h4>
+            {/* <h4>3. Non-Refundable Situations</h4>
             <p>
               Refunds will <strong>not</strong> be issued in the following
               cases:
@@ -70,17 +67,14 @@ const RefundPolicy = () => {
               If approved, refunds will be processed within 7–10 business days.
               Depending on your payment method, it may take additional time for
               the funds to appear in your account.
-            </p>
+            </p> */}
 
-            <h4>5. Modifications to Orders</h4>
+            <h4>2. Modifications to Orders</h4>
             <p>
-              You may request changes to your order (such as name on behalf,
-              country, or type of sacrifice){" "}
-              <strong>before processing begins</strong>. Once the sacrifice is
-              scheduled, changes cannot be guaranteed.
+            You may request changes to your order (such as the name on behalf, country, or type of sacrifice) <strong>within 24 hours and before processing begins</strong>. Once the sacrifice is scheduled, changes cannot be guaranteed.
             </p>
 
-            <h4>5. Your Rights</h4>
+            <h4>3. Your Rights</h4>
             <p>You have the right to:</p>
             <ul>
               <li>Access or correct your personal information</li>
@@ -88,7 +82,7 @@ const RefundPolicy = () => {
               <li>Withdraw consent at any time (may impact service usage)</li>
             </ul>
 
-            <h4>6. Contact Us</h4>
+            <h4>4. Contact Us</h4>
             <p>
               To request a refund or inquire about your order, please contact
               us:
@@ -98,7 +92,10 @@ const RefundPolicy = () => {
                 <strong>Email:</strong> support@myzabiha.com
               </li>
               <li>
-                <strong>WhatsApp:</strong> +923282341188
+                <strong>WhatsApp:</strong>
+                <a href="https://wa.me/923282341188"  target="_blank" rel="noreferrer">
+                  Click to Message Us +923282341188
+                </a>
               </li>
               <li>
                 <strong>Website:</strong>{" "}

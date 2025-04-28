@@ -18,7 +18,7 @@ const About = () => {
                 personal needs "</p> */}
               <p>
                 My Zabiha is designed to streamline the Qurbani experience for
-                everyone, especially overseas. We cater to all your{" "}
+                everyone, especially domestic and overseas Pakistani. We cater to all your{" "}
                 <span className="colored">Qurbani needs,</span>
                 <strong>
                   {" "}
@@ -36,13 +36,13 @@ const About = () => {
               <h4>Our Mission:</h4>
               <ul>
                 <li>
-                  <strong>Empowering Overseas: </strong>We make Qurbani
-                  accessible and convenient for overseas, allowing them to
+                  <strong>Empowering Pakistanis: </strong>We make Qurbani
+                  accessible and convenient for domestic and overseas Pakistanis, allowing them to
                   actively participate in this sacred tradition.
                 </li>
                 <li>
                   <strong>Facilitate the Qurbani and Distribution: </strong>On
-                  behalf of the overseas we can fulfill the qurbani and
+                  behalf of the domestic and overseas we can fulfill the qurbani and
                   distribute the meet to the needy people as per the
                   instructions.
                   <br />

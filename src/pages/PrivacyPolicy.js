@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
               <li>Process and fulfill your religious sacrifice orders</li>
               <li>Send order confirmations and updates</li>
               <li>
-                Provide receipts and documentation for religious or tax purposes
+                Provide receipts and documentation.
               </li>
               <li>Respond to inquiries or customer service requests</li>
               <li>Improve our website, services, and offerings</li>
@@ -65,7 +65,7 @@ const PrivacyPolicy = () => {
             </p>
             <ul>
               <li>SSL encryption</li>
-              <li>Secure payment gateways</li>
+              {/* <li>Secure payment gateways</li> */}
               <li>Access control and limited data retention policies</li>
             </ul>
 
@@ -97,20 +97,28 @@ const PrivacyPolicy = () => {
               do not knowingly collect data from minors.
             </p>
 
-            <h4>8. Changes to This Policy</h4>
+            <h4>8. Order Cancellation Policy</h4>
+            <p> Our company reserves the right to cancel any order up to five days before Qurbani (Eid ul-Adha). </p>
+            <h4>9. Changes to This Policy</h4>
             <p>
               We may update this Privacy Policy occasionally. Changes will be
               posted on this page with the effective date.
             </p>
 
-            <h4>9. Contact Us</h4>
+            <h4>10. Contact Us</h4>
             <p>
               If you have any questions or concerns about this policy, please
               contact:
             </p>
             <ul>
               <li>
-                <strong>Email:</strong> support@myzabiha.com
+                <strong>Email:</strong> info@myzabiha.com
+              </li>
+              <li>
+                <strong>WhatsApp:</strong>
+                <a href="https://wa.me/923282341188"  target="_blank" rel="noreferrer">
+                  {' '}Click to Message Us +923282341188
+                </a>
               </li>
               <li>
                 <strong>Website:</strong>{" "}

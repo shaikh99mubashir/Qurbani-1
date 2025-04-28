@@ -28,8 +28,7 @@ const TermsandConditions = () => {
             <h4>2. Services Offered</h4>
             <p>
               My Zabiha facilitates the religious sacrifices of Qurbani, Aqiqah,
-              and Sadaqah on behalf of customers. We partner with verified local
-              vendors to ensure the sacrifice is performed according to Islamic
+              and Sadaqah on behalf of customers. We ensure the sacrifice is performe according to Islamic
               guidelines.
             </p>
 
@@ -49,9 +48,7 @@ const TermsandConditions = () => {
 
             <h4>5. Order Modifications & Cancellations</h4>
             <p>
-              Modifications or cancellations can only be made before your order
-              is processed. Once the animal has been purchased or the sacrifice
-              has been scheduled, no changes or refunds are permitted.
+              Modifications or cancellations can only be made as per our policy.
             </p>
 
             <h4>6. No Delivery of Meat</h4>
