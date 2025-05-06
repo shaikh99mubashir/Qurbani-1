@@ -7,7 +7,7 @@ import { ImageUrl } from '../Helpers';
 const Hero = () => {
   return (
     <>
-    <div className="hero" style={{  backgroundImage: `url(${ImageUrl('ZABIHABANNER.png')})`}}>
+    <div className="hero" style={{  backgroundImage: `url(${ImageUrl('ZABIHABANNER.webp')})`}}>
         <div className="container" style={{padding: 0}}>
           <div className="row">
             <div className="col-6" style={{padding: 0}}>
