@@ -15,6 +15,7 @@ import ShippingPolicy from "./pages/ShippingPolicy";
 import TermsandConditions from "./pages/TermsandConditions";
 import ContactUs from "./pages/ContactUs";
 import FeatureDetail from "./pages/FeatureDetail";
+import PaymentForm from "./pages/PaymentForm";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path="/ShippingPolicy" element={<ShippingPolicy />}></Route>
             <Route exact path="/TermsandConditions" element={<TermsandConditions />}></Route>
             <Route exact path="/ContactUs" element={<ContactUs />}></Route>
+            <Route exact path="/PaymentForm" element={<PaymentForm />}></Route>
             <Route path="/feature/:slug" element={<FeatureDetail />} />
           </Routes>
         </div>
