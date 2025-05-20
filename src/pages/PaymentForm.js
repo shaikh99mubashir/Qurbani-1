@@ -33,11 +33,11 @@ const getAccessToken = async (merchantId, securedKey, basketId, transAmount, cur
 const PaymentForm = () => {
   const [formData, setFormData] = useState({
     currency_code: 'PKR',
-    merchant_id: '19340',
+    merchant_id: '14833',
     merchant_name: 'Payfast Merchant',
-    token: '',
+    token: 'Ftmhwa6CKk2OSFkD9VJs9ECS2QN4jKkfo6D46DTDp1c',
     basket_id: `ITEM-${generateRandomString(4)}`,
-    trans_amount: '3',
+    trans_amount: '50',
     order_date: new Date().toISOString().slice(0, 19).replace('T', ' '),
     success_url: 'http://localhost/redirection/success.php',
     failure_url: 'http://localhost/redirection/failure.php',
@@ -57,7 +57,7 @@ const PaymentForm = () => {
     const fetchToken = async () => {
       const token = await getAccessToken(
         formData.merchant_id,
-        'W7rrGkCH3zgFvCpw0wqVhjOGsm',
+        'rPcy4T7GQkSCFsHBLdn26s',
         formData.basket_id,
         formData.trans_amount,
         formData.currency_code
