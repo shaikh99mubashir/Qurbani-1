@@ -313,6 +313,7 @@ const Book = () => {
   useEffect(() => {}, [prices]);
 
   const [price, setPrice] = useState(0);
+  console.log('price',price)
   useEffect(() => {}, [price]);
   function set_animal_price(animal_val) {
     switch (animal_val) {
@@ -432,6 +433,10 @@ const Book = () => {
 
   // Function to redirect to PayFast payment gateway
   const redirectToPayfast = (token, orderId, transAmount) => {
+    console.log('transAmount',transAmount,orderId,token)
+    let currency =  localStorage.getItem("currency")
+    console.log("currency",currency);
+    
     const payfastUrl =
       "https://ipguat.apps.net.pk/Ecommerce/api/Transaction/PostTransaction";
 
@@ -439,7 +444,7 @@ const Book = () => {
     const form = document.createElement("form");
     form.method = "POST";
     form.action = payfastUrl;
-
+    console.log("transAmount",transAmount)
     // Define form fields based on PayFast requirements
     const fields = {
       MERCHANT_ID: "14833", // Replace with your actual merchant ID
@@ -458,8 +463,9 @@ const Book = () => {
       FAILURE_URL: "https://myzabiha.com/#/payment-failure",
       BASKET_ID: orderId,
       ORDER_DATE: new Date().toISOString().split("T")[0], // Format: YYYY-MM-DD
-      CHECKOUT_URL: "https://myzabiha.com/checkout", // Replace with your checkout URL
-      CURRENCY_CODE: "PKR",
+      // CHECKOUT_URL: "https://myzabiha.com/checkout", // Replace with your checkout URL
+      // CURRENCY_CODE: "PKR",
+      CURRENCY_CODE: currency,
       TRAN_TYPE: "ECOMM_PURCHASE",
       STORE_ID: "", // Optional, replace if needed
       "ITEMS[0][SKU]": "QURBANI-001",
@@ -505,7 +511,10 @@ const Book = () => {
       const responseData = await orderResponse.json();
       setresponse(responseData);
       const orderId = responseData.order.id;
-      const transAmount = price + dc; // Total amount including delivery charges
+      const transAmount = Number(price) + Number(dc); // Total amount including delivery charges
+      console.log("price",price);
+      console.log("dc",dc);
+      
       const basketId = `ZIB-${orderId}-${Date.now()}`; // Unique basket ID
 
       // Step 2: Fetch access token

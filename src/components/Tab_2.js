@@ -2285,6 +2285,7 @@ const Tab_2 = (props) => {
                                             <td className="title">Order Date:</td>
                                             <td className="data">27 February, 2024</td>
                                         </tr> */}
+                    {props.form_val_1.distribute_or_delivery == 'Delivery' &&
                     <tr>
                       <td className="title">Delivery Charges:</td>
                       <td className="data d-charges">
@@ -2294,6 +2295,7 @@ const Tab_2 = (props) => {
                         {/* {props.dc} */}
                       </td>
                     </tr>
+                    }
                   </tbody>
                 </table>
                 <div style={{ marginTop: "30px", textAlign: "center" }}>
