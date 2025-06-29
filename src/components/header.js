@@ -184,6 +184,9 @@ const Header = (props) => {
               <Link to="/book">Book Qurbani</Link>
             </li>
             <li>
+              <Link to="/#shop">Shop</Link>
+            </li>
+            <li>
               <Link to="/track">Track Qurbani</Link>
             </li>
           </ul>
