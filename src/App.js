@@ -14,6 +14,7 @@ import RefundPolicy from './pages/RefundPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import TermsandConditions from './pages/TermsandConditions';
 import FeatureDetail from './pages/FeatureDetail';
+import PaymentFailure from './pages/PaymentFailure';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
@@ -49,6 +50,7 @@ function App() {
             <Route path="/shipping-policy" element={<ShippingPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsandConditions />} />
             <Route path="/feature/:id" element={<FeatureDetail />} />
+            <Route path="/payment-failure" element={<PaymentFailure />} />
           </Routes>
           <WhatsAppButton />
           <FloatingCartButton />

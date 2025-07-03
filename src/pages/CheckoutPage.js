@@ -73,9 +73,64 @@ const CheckoutPage = () => {
         shippingFee: shipping === 'delivery' ? SHIPPING_FEE : 0,
         total: shipping === 'delivery' ? cartTotal + SHIPPING_FEE : cartTotal,
       };
+      console.log('orderPayload',orderPayload);
       try {
-        await createOrder(orderPayload).unwrap();
+        const response = await createOrder(orderPayload).unwrap();
+        console.log('Order API response:', response.orderNumber, response.orderTotalPrice);
+
+        // PayFast token API call
+        const tokenRes = await fetch('http://localhost:3050/v1/orders/payfast-token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            MERCHANT_ID: '14833',
+            SECURED_KEY: 'rPcy4T7GQkSCFsHBLdn26s',
+            BASKET_ID: response.orderNumber,
+            CURRENCY_CODE: 'PKR',
+            TXNAMT: response.orderTotalPrice
+          })
+        });
+        const tokenData = await tokenRes.json();
+        console.log('PayFast token API response:', tokenData);
+
+        // PayFast form submit karo
+        const payfastFields = {
+          MERCHANT_ID: '14833',
+          MERCHANT_NAME: 'My Merchant',
+          TOKEN: tokenData.ACCESS_TOKEN,
+          PROCCODE: '00',
+          TXNAMT: response.orderTotalPrice,
+          CURRENCY_CODE: 'PKR',
+          CUSTOMER_MOBILE_NO: response.customerPhone || form.phone,
+          CUSTOMER_EMAIL_ADDRESS: response.customerEmail || form.email,
+          SIGNATURE: 'RANDOMSTRINGVALUE',
+          VERSION: 'MY_VER_1.0',
+          TXNDESC: 'Order Payment',
+          SUCCESS_URL: 'http://localhost:3000/payment-success',
+          FAILURE_URL: 'http://localhost:3000/payment-failure',
+          BASKET_ID: response.orderNumber,
+          ORDER_DATE: new Date().toISOString().slice(0, 10),
+        };
+
+        const formEl = document.createElement('form');
+        formEl.method = 'POST';
+        formEl.action = 'https://ipguat.apps.net.pk/Ecommerce/api/Transaction/PostTransaction';
+        formEl.target = '_blank';
+
+        Object.entries(payfastFields).forEach(([k, v]) => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = k;
+          input.value = v;
+          formEl.appendChild(input);
+        });
+
+        document.body.appendChild(formEl);
+        formEl.submit();
+        document.body.removeChild(formEl);
+
       } catch (err) {
+        console.log('err',err);
         // error handled by isError
       }
     }
@@ -83,15 +138,15 @@ const CheckoutPage = () => {
 
   const total = shipping === 'delivery' ? cartTotal + SHIPPING_FEE : cartTotal;
 
-  useEffect(() => {
-    if (isSuccess) {
-      dispatch(clearCart());
-      const timer = setTimeout(() => {
-        navigate('/');
-      }, 2000); // 2 seconds to show thank you
-      return () => clearTimeout(timer);
-    }
-  }, [isSuccess, dispatch, navigate]);
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     dispatch(clearCart());
+  //     const timer = setTimeout(() => {
+  //       navigate('/');
+  //     }, 2000); // 2 seconds to show thank you
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [isSuccess, dispatch, navigate]);
 
   useEffect(() => {
     if (cartItems.length === 0) {
