@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Book from './pages/book';
@@ -21,14 +21,9 @@ import { store, persistor } from './redux/store';
 import "./App.css";
 import WhatsAppButton from "./components/WhatsAppButton";
 import FloatingCartButton from "./components/FloatingCartButton";
+import PaymentSuccess from './pages/PaymentSuccess';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
 
 
   return (
@@ -51,6 +46,7 @@ function App() {
             <Route path="/terms-and-conditions" element={<TermsandConditions />} />
             <Route path="/feature/:id" element={<FeatureDetail />} />
             <Route path="/payment-failure" element={<PaymentFailure />} />
+            <Route path="/payment-success" element={<PaymentSuccess />} />
           </Routes>
           <WhatsAppButton />
           <FloatingCartButton />

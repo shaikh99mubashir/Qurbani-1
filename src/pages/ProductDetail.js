@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, selectCartItems, selectCartTotal } from "../redux/slices/cartSlice";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import { UPLOADS_URL } from "../constants/api";
 import Header from "../components/header";
 import Footer from "../components/footer";

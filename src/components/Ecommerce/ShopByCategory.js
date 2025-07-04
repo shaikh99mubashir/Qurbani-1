@@ -9,8 +9,6 @@ const ShopByCategory = () => {
     data: mainCategories = [],
     isLoading,
     isError,
-    error,
-    refetch,
   } = useGetCategoriesQuery({
     type: "main",
   });
@@ -62,12 +60,13 @@ const ShopByCategory = () => {
             marginTop: "2rem",
           }}
         >
-          {mainCategories.map((cat, idx) => {
+          {mainCategories.filter(cat => cat.available === true).map((cat, idx) => {
             // Construct the full image URL
             const imageUrl = cat.image
               ? `${UPLOADS_URL}uploads/${cat.image}`
               : "/public/images/goat.png";
-
+            console.log("cat", cat);
+            
             return (
               <div
                 key={cat._id || idx}

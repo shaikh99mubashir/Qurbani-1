@@ -1,14 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL } from '../../constants/api';
 
-// Define ProductParams type
-const ProductParams = {
-    page: 1,
-    limit: 12,
-    keyword: "",
-    price: ""
-};
-
 export const productSlice = createApi({
     reducerPath: 'productSlice',
     baseQuery: fetchBaseQuery({ baseUrl: BASE_URL, credentials: 'include' }),

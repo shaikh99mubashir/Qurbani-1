@@ -32,8 +32,8 @@ const Header = (props) => {
   const [priceObj, setPriceObj] = useState({});
   async function loadprices() {
     try {
-      const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
-      const prices = await response.json();
+      // const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
+      // const prices = await response.json();
       if (localStorage.getItem("currency") === "USD") {
         setPriceObj({
           cow : '793',

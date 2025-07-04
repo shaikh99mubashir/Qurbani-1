@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, selectCartItems, selectCartTotal } from '../redux/slices/cartSlice';
 import { useGetCategoriesQuery } from '../redux/services/categorySlice';
 import { UPLOADS_URL } from '../constants/api';
-import { FaBolt, FaPlus, FaMinus } from 'react-icons/fa';
+import { FaPlus, } from 'react-icons/fa';
 import './CategoryPage.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import QuantitySelector from '../components/QuantitySelector';
 
 // ProductCard component as per design
-const ProductCard = ({ product, onClick }) => {
+const ProductCard = ({ product, onClick, disabled, isAvailable }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
@@ -21,9 +21,11 @@ const ProductCard = ({ product, onClick }) => {
     ? `${UPLOADS_URL}uploads/${product.image}`
     : '/public/images/cow.png';
   const inCart = cartItems.some(item => (item.id === (product._id || product.id)));
+  const available = product.available !== false;
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
+    if (!available) return;
     dispatch(addToCart({
       id: product._id || product.id,
       name: product.name,
@@ -46,20 +48,57 @@ const ProductCard = ({ product, onClick }) => {
   };
 
   return (
-    <div className="product-card-custom" onClick={onClick} style={{ cursor: 'pointer', position: 'relative' }}>
+    <div
+      className="product-card-custom"
+      onClick={available ? onClick : undefined}
+      style={{
+        cursor: available ? 'pointer' : 'not-allowed',
+        position: 'relative',
+        borderRadius: 12,
+        overflow: 'hidden',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.07)'
+      }}
+    >
+      {/* Out of Stock Badge */}
+      {!available && (
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          background: '#222',
+          color: '#fff',
+          textAlign: 'center',
+          fontWeight: 'bold',
+          padding: '6px 0',
+          zIndex: 3,
+          borderTopLeftRadius: 12,
+          borderTopRightRadius: 12,
+          fontSize: 15,
+          letterSpacing: 1
+        }}>
+          Out of Stock
+        </div>
+      )}
       {/* Image with overlay */}
-      <div className="product-card-img-wrap">
+      <div className="product-card-img-wrap" style={{ position: 'relative' }}>
         <img
           src={imageUrl}
           alt={product.name}
           className="product-card-img"
+          style={{
+            filter: !available ? 'grayscale(1) brightness(0.85)' : 'none',
+            width: '100%',
+            height: 180,
+            objectFit: 'cover'
+          }}
           onError={e => { e.target.src = '/public/images/cow.png'; }}
         />
       </div>
       {/* Product Info */}
       <div className="product-card-info">
         <div className="product-card-title">{product.name}</div>
-        <div className="product-card-desc">{product.shortDescription}</div>
+        <div className="product-card-desc" style={{ color: '#aaa' }}>{product.shortDescription}</div>
         <div className="product-card-details">
           {product.numberOfUnits} {product.numberOfPieces && `| ${product.numberOfPieces}`} {product.serves && `| Serves ${product.serves}`}
         </div>
@@ -87,14 +126,16 @@ const ProductCard = ({ product, onClick }) => {
           </span>
           Today in 30 mins
         </span>
-        <QuantitySelector value={qty} onChange={setQty} min={1} disabled={inCart} />
-        <button
-          className={`product-card-add-btn${inCart ? ' added' : ''}`}
-          disabled={!product.available || inCart}
-          onClick={handleAddToCart}
-        >
-          {inCart ? 'Added' : (<><FaPlus style={{ marginLeft: 6 }} /> Add</>)}
-        </button>
+        <QuantitySelector value={qty} onChange={setQty} min={1} disabled={inCart || !available} />
+        {available && (
+          <button
+            className={`product-card-add-btn${inCart ? ' added' : ''}`}
+            disabled={!product.available || inCart}
+            onClick={handleAddToCart}
+          >
+            {inCart ? 'Added' : (<><FaPlus style={{ marginLeft: 6 }} /> Add</>)}
+          </button>
+        )}
       </div>
       {/* Toast/Snackbar for Add to Cart */}
       {showToast && (
@@ -320,7 +361,13 @@ export default function CategoryPage() {
           <div style={{ fontWeight: 500, fontSize: 18, margin: '2rem 0 1rem 0' }}>{filteredProducts.length} Items available</div>
           <div className="product-card-grid">
             {filteredProducts.map((prod, idx) => (
-              <ProductCard key={prod._id || idx} product={prod} onClick={() => handleProductClick(prod)} />
+              <ProductCard
+                key={prod._id || idx}
+                product={prod}
+                onClick={() => prod.available !== false && handleProductClick(prod)}
+                disabled={prod.available === false}
+                isAvailable={prod.available !== false}
+              />
             ))}
           </div>
         </div>
