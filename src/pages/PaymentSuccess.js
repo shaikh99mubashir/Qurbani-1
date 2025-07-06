@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearCart } from '../redux/slices/cartSlice';
+import { BASE_URL } from '../constants/api';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -24,6 +25,30 @@ const PaymentSuccess = () => {
   const basketId = query.get('basket_id');
   const amount = query.get('transaction_amount');
   const currency = query.get('transaction_currency');
+
+  // Update payment status for online payments
+  useEffect(() => {
+    if (!order && basketId) {
+      // This is an online payment, update payment status
+      fetch(`${BASE_URL}/orders/payment-status`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          orderNumber: basketId,
+          paymentStatus: 'paid'
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Payment status updated:', data);
+      })
+      .catch(error => {
+        console.error('Error updating payment status:', error);
+      });
+    }
+  }, [order, basketId]);
 
   return (
     <div style={{textAlign:'center',marginTop:100}}>

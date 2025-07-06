@@ -60,7 +60,10 @@ const ShopByCategory = () => {
             marginTop: "2rem",
           }}
         >
-          {mainCategories.filter(cat => cat.available === true).map((cat, idx) => {
+          {mainCategories.filter(cat => cat.available === true 
+          // && cat.categoryType === "product"
+        )
+          .map((cat, idx) => {
             // Construct the full image URL
             const imageUrl = cat.image
               ? `${UPLOADS_URL}uploads/${cat.image}`

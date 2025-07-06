@@ -10,7 +10,7 @@ import React, { useEffect, useRef } from 'react';
  */
 const PAYFAST_URL = 'https://ipguat.apps.net.pk/Ecommerce/api/Transaction/PostTransaction';
 
-const PayFastForm = ({ fields, autoSubmit = true, target = '_blank', onSubmit }) => {
+const PayFastForm = ({ fields, autoSubmit = true, target = '_self', onSubmit }) => {
   const formRef = useRef(null);
 
   useEffect(() => {
