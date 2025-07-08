@@ -4,16 +4,14 @@ const { hostname } = window.location;
 
 const servers = {
   local: "http://localhost:3050",
-  customDev: "https://react.customdev.solutions:3032",
-  live: "https://myzabiha.com",
+  // local: "https://api.myzabiha.com",
+  live: "https://api.myzabiha.com",
   dummy: "https://9d2f-204-157-158-10.ngrok-free.app",
 };
 
 let URL;
 
-if (NODE_ENV === "production" && hostname.includes("react.customdev.solutions")) {
-  URL = servers.customDev;
-} else if (NODE_ENV === "production" && hostname.includes("myzabiha.com")) {
+if (hostname.includes("myzabiha.com")) {
   URL = servers.live;
 } else {
   URL = servers.local;
