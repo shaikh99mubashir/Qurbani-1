@@ -32,34 +32,34 @@ const Header = (props) => {
   const [priceObj, setPriceObj] = useState({});
   async function loadprices() {
     try {
-      // const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
-      // const prices = await response.json();
+      const response = await fetch("https://myzabiha.com/web_app/public/api/animal_prices");
+      const prices = await response.json();
       if (localStorage.getItem("currency") === "USD") {
         setPriceObj({
-          cow : '793',
-          goat : '164',
-          sheep : '146'
-          // cow : prices.cow_usd,
-          // goat : prices.goat_usd,
-          // sheep : prices.sheep_usd
+          // cow : '793',
+          // goat : '164',
+          // sheep : '146'
+          cow : prices.cow_usd,
+          goat : prices.goat_usd,
+          sheep : prices.sheep_usd
         });
       }else if (localStorage.getItem("currency") === "PKR"){
         setPriceObj({
-          cow : '218000',
-          goat : '45000',
-          sheep : '40000'
-          // cow : prices.cow_pkr,
-          // goat : prices.goat_pkr,
-          // sheep : prices.sheep_pkr
+          // cow : '218000',
+          // goat : '45000',
+          // sheep : '40000'
+          cow : prices.cow_pkr,
+          goat : prices.goat_pkr,
+          sheep : prices.sheep_pkr
         });
       }else if(localStorage.getItem("currency") === "AED"){
         setPriceObj({
-          cow : '3115',
-          goat : '643',
-          sheep : '572'
-          // cow : prices.cow_aed,
-          // goat : prices.goat_aed,
-          // sheep : prices.sheep_aed
+          // cow : '3115',
+          // goat : '643',
+          // sheep : '572'
+          cow : prices.cow_aed,
+          goat : prices.goat_aed,
+          sheep : prices.sheep_aed
         });
       }
     } catch (error) {
