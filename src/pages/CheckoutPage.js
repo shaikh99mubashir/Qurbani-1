@@ -16,7 +16,8 @@ import FullScreenLoader from '../components/FullScreenLoader';
 
 const SHIPPING_FEE = 350;
 const MERCHANT_ID = "27067";
-const SECURED_KEY = "Y1g7QcH6dqwOfnXL83ENW1pu";
+// const SECURED_KEY = "Y1g7QcH6dqwOfnXL83ENW1pu";
+const SECURED_KEY = "8nYylUgQPzS_YNFuZmbwPNG_";
 const CURRENCY_CODE = "PKR";
 const MERCHANT_NAME = "My Zabiha";
 const PAYFAST_TOKEN_API = `${BASE_URL}/orders/payfast-token`;
@@ -116,7 +117,11 @@ const CheckoutPage = () => {
           TXNAMT: txnAmt,
         }),
       });
+      console.log("tokenRes", tokenRes);
+      
       const tokenData = await tokenRes.json();
+      console.log("tokenData", tokenData);
+      
       if (!tokenData.ACCESS_TOKEN) {
         alert("Failed to get payment token from PayFast.");
         return;
