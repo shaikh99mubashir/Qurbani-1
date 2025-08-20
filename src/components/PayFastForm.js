@@ -8,7 +8,8 @@ import React, { useEffect, useRef } from 'react';
  *   - target: string (default '_blank') - form target
  *   - onSubmit: function (optional) - called after form is submitted
  */
-const PAYFAST_URL = 'https://ipguat.apps.net.pk/Ecommerce/api/Transaction/PostTransaction';
+// const PAYFAST_URL = 'https://ipguat.apps.net.pk/Ecommerce/api/Transaction/PostTransaction'; //testing
+const PAYFAST_URL = 'https://ipg1.apps.net.pk/Ecommerce/api/Transaction/PostTransaction'; //production
 
 const PayFastForm = ({ fields, autoSubmit = true, target = '_self', onSubmit }) => {
   const formRef = useRef(null);
