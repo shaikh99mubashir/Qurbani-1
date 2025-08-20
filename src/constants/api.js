@@ -3,8 +3,8 @@ const NODE_ENV = typeof process !== 'undefined' ? process.env.NODE_ENV : 'develo
 const { hostname } = window.location;
 
 const servers = {
-  local: "http://localhost:3050",
-  // local: "https://api.myzabiha.com",
+  // local: "http://localhost:3050",
+  local: "https://api.myzabiha.com",
   live: "https://api.myzabiha.com",
   dummy: "https://9d2f-204-157-158-10.ngrok-free.app",
 };

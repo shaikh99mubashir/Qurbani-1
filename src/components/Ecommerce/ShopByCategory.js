@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../redux/services/categorySlice";
 import { UPLOADS_URL } from "../../constants/api";
+import CategorySkeleton from "./CategorySkeleton";
+import ErrorState from "./ErrorState";
 
 const ShopByCategory = () => {
   const navigate = useNavigate();
@@ -9,10 +11,10 @@ const ShopByCategory = () => {
     data: mainCategories = [],
     isLoading,
     isError,
+    refetch,
   } = useGetCategoriesQuery({
     type: "main",
   });
-
   // Reinitialize AOS after data loads
   useEffect(() => {
     if (mainCategories && mainCategories.length > 0) {
@@ -39,8 +41,36 @@ const ShopByCategory = () => {
     navigate(`/category/${encodeURIComponent(category.name)}?data=${encodedData}`);
   };
 
-  if (isLoading) return <div>Loading categories...</div>;
-  if (isError) return <div>Failed to load categories.</div>;
+  if (isLoading) return (
+    <div className="about" data-aos="fade-up">
+      <div className="container">
+        <h3>
+          Shop by <span>Categories</span>
+        </h3>
+        <p style={{ marginTop: 0, marginBottom: "2.5rem", color: "#444" }}>
+          Freshest meats and much more!
+        </p>
+        <CategorySkeleton count={3} />
+      </div>
+    </div>
+  );
+  if (isError) return (
+    <div className="about" data-aos="fade-up">
+      <div className="container">
+        <h3>
+          Shop by <span>Categories</span>
+        </h3>
+        <p style={{ marginTop: 0, marginBottom: "1.5rem", color: "#444" }}>
+          Freshest meats and much more!
+        </p>
+        <ErrorState
+          title="Failed to load categories"
+          description="We couldn't fetch categories. Please check your connection and try again."
+          onRetry={() => refetch()}
+        />
+      </div>
+    </div>
+  );
   return (
     <div className="about" data-aos="fade-up">
       <div className="container">

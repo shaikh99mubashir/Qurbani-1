@@ -12,6 +12,7 @@ import { useCreateOrderMutation } from "../redux/services/orderSlice";
 import sha256 from "crypto-js/sha256";
 import PayFastForm from '../components/PayFastForm';
 import { BASE_URL } from '../constants/api';
+import FullScreenLoader from '../components/FullScreenLoader';
 
 const SHIPPING_FEE = 350;
 const MERCHANT_ID = "27067";
@@ -96,6 +97,8 @@ const CheckoutPage = () => {
       console.log("Order API response:", orderResponse);
       if ((form.paymentMethod || "cod") === "cod") {
         // COD: Redirect to success page with order details
+        // Show instant overlay to indicate redirect
+        setPayfastFields(prev => prev); // no-op to trigger rerender
         navigate(SUCCESS_URL, { state: { order: orderResponse } });
         return;
       }
@@ -364,15 +367,18 @@ const CheckoutPage = () => {
                         "Failed to place order. Please try again."}
                     </div>
                   )}
-                  {isSuccess && (
+                  {/* {isSuccess && (
                     <div className="checkout-thankyou">
                       Thank you for your order!
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
           </form>
+          {(isLoading || isSuccess || payfastFields) && (
+            <FullScreenLoader text={isLoading ? "Placing order..." : isSuccess ? "Order placed. Redirecting..." : "Redirecting to payment..."} />
+          )}
           {/* PayFastForm ko yahan render karo jab fields ready ho */}
           {payfastFields && <PayFastForm fields={payfastFields} />}
         </div>
