@@ -1,0 +1,64 @@
+/* Friendly error state styles */
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  border: 1px solid #f0f0f0;
+}
+
+.error-state-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff5f5;
+  color: #e53935;
+  margin-bottom: 12px;
+}
+
+.error-state-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #222;
+  margin: 4px 0 6px 0;
+  text-align: center;
+}
+
+.error-state-desc {
+  color: #585858;
+  font-size: 0.95rem;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.error-state-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.error-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #e53935;
+  background: #e53935;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.error-btn.secondary {
+  background: #fff;
+  color: #333;
+  border-color: #ddd;
+} 

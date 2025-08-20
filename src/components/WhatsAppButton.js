@@ -1,5 +1,5 @@
 import React from 'react';
-// import { FaWhatsapp } from 'react-icons/fa'; // Install react-icons: npm install react-icons
+import { FaWhatsapp } from 'react-icons/fa';
 // import './WhatsAppButton.css'; // Create this CSS file for styling
 // import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 const WhatsAppButton = () => {
@@ -13,10 +13,10 @@ const WhatsAppButton = () => {
       className="whatsapp-button"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      title="Chat on WhatsApp"
     >
-       
-<i class="fa fa-whatsapp" aria-hidden="true"></i>
-      {/* <FaWhatsapp size={50} /> */}
+      <FaWhatsapp size={28} />
     </a>
   );
 };
