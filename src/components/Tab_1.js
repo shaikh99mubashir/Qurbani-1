@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,12 +8,16 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Tab_1 = (props) => {
 
-  if(props.formReset){
-    let formreset = document.getElementById("form-tab-1");
-    formreset.reset();
-    props.set_FormReset(false);
-  }
-  
+  useEffect(() => {
+    if (props.formReset) {
+      const formreset = document.getElementById("form-tab-1");
+      if (formreset) {
+        formreset.reset();
+      }
+      props.set_FormReset(false);
+    }
+  }, [props.formReset]);
+
   const {
     register,
     setValue,
