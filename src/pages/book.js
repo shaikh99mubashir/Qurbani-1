@@ -266,6 +266,7 @@ const Book = () => {
         setDcs={setDcs}
         set_FormReset={set_FormReset}
         setprice={setprice}
+        currentStep={myBool}
       />
       <main className="book">
         <div className="container breadcrumb">

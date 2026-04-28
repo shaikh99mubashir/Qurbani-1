@@ -189,16 +189,18 @@ const Header = (props) => {
         </nav>
         <Outlet />
         <div className="btns">
-          <div
-            className="country"
-            onClick={() => {
-              show_currency_drop();
-            }}
-          >
-            <i className="fa-solid fa-earth-asia"></i>
-            {currency}
+          {(!props.currentStep || props.currentStep === 1) && (
+            <div
+              className="country"
+              onClick={() => {
+                show_currency_drop();
+              }}
+            >
+              <i className="fa-solid fa-earth-asia"></i>
+              {currency}
 
-          </div>
+            </div>
+          )}
         </div>
       </header>
     </>
