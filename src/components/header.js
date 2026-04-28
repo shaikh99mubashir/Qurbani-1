@@ -6,7 +6,7 @@ import { ImageUrl } from "../Helpers";
 const Header = (props) => {
   const {setDcs, setprice} = props
   const [currency, setCurrency] = useState(localStorage.getItem("currency"));
-  if(localStorage.getItem("currency") === null){
+  if(localStorage.getItem("currency") === null || localStorage.getItem("currency") === "AED"){
     localStorage.setItem("currency", "PKR");
     setCurrency("PKR");
   }
@@ -142,13 +142,9 @@ const Header = (props) => {
             <option value="DEFAULT">PKR</option>:
             <option>PKR</option>
           }
-          {currency === "USD"? 
+          {currency === "USD"?
             <option value="DEFAULT">USD</option>:
             <option>USD</option>
-          }
-          {currency === "AED"? 
-            <option value="DEFAULT">AED</option>:
-            <option>AED</option>
           }
           </select>
         </div>
